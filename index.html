@@ -259,6 +259,136 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/10/C-中的类型转换/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="沐沐">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="guolx's notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/10/C-中的类型转换/" itemprop="url">C++中的类型转换</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-10T18:02:37+08:00">
+                2019-09-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/10/C-中的类型转换/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/09/10/C-中的类型转换/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在某些情况下，类型转换会自动执行无需程序员借入，这种类型转换称为<strong>隐式转换</strong>；程序员也可以显式的将对象转换为另一种类型，这种方法称为<strong>强制类型转换cast</strong></p>
+<h1 id="隐式转换"><a href="#隐式转换" class="headerlink" title="隐式转换"></a>隐式转换</h1><h2 id="算数转换"><a href="#算数转换" class="headerlink" title="算数转换"></a>算数转换</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/03/运输层的两个主要协议——UDP和TCP/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -542,7 +672,7 @@
       
         
           
-            <h1 id="最长回文子串"><a href="#最长回文子串" class="headerlink" title="最长回文子串"></a>最长回文子串</h1><p><a href="https://leetcode-cn.com/problems/longest-palindromic-substring/" target="_blank" rel="noopener">link</a></p>
+            <h1 id="5-最长回文子串"><a href="#5-最长回文子串" class="headerlink" title="5 最长回文子串"></a>5 最长回文子串</h1><p><a href="https://leetcode-cn.com/problems/longest-palindromic-substring/" target="_blank" rel="noopener">link</a></p>
 <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。</p>
 <h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><blockquote>
 <p>输入: “babad”<br>输出: “bab”<br>注意: “aba” 也是一个有效答案。</p>
@@ -554,7 +684,7 @@
 </ul>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">longestPalindrome</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len = s.length();</span><br><span class="line">    <span class="keyword">int</span> start = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> longest = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(len &lt;= <span class="number">1</span>) <span class="keyword">return</span> s;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">bool</span> dp[len][len];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; len; j++)&#123;</span><br><span class="line">            dp[i][j] = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        dp[i][i] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(i &lt; len - <span class="number">1</span> &amp;&amp; s[i] == s[i + <span class="number">1</span>])&#123;</span><br><span class="line">            dp[i][i + <span class="number">1</span>] = <span class="literal">true</span>;</span><br><span class="line">            start = i;</span><br><span class="line">            longest = <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> sublen = <span class="number">3</span>; sublen &lt;= len; sublen++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> l = <span class="number">0</span>; l + sublen - <span class="number">1</span> &lt; len; l++)&#123;</span><br><span class="line">            <span class="keyword">int</span> r = l + sublen - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(s[l] == s[r] &amp;&amp; dp[l + <span class="number">1</span>][r - <span class="number">1</span>])&#123;</span><br><span class="line">                dp[l][r] = <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">if</span>(longest &lt;= sublen)&#123;</span><br><span class="line">                    longest = sublen;</span><br><span class="line">                    start = l;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> s.substr(start, longest);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="正则表达式匹配"><a href="#正则表达式匹配" class="headerlink" title="正则表达式匹配"></a>正则表达式匹配</h1><p><a href="https://leetcode-cn.com/problems/regular-expression-matching/" target="_blank" rel="noopener">link</a></p>
+<h1 id="10-正则表达式匹配"><a href="#10-正则表达式匹配" class="headerlink" title="10 正则表达式匹配"></a>10 正则表达式匹配</h1><p><a href="https://leetcode-cn.com/problems/regular-expression-matching/" target="_blank" rel="noopener">link</a></p>
 <h2 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a>题目</h2><p>给你一个字符串 $s$ 和一个字符规律 $p$，请你来实现一个支持 . 和 * 的正则表达式匹配。<br> . 匹配任意单个字符</p>
 <ul>
 <li>匹配零个或多个前面的那一个元素<br>s 可能为空，且只包含从 a-z 的小写字母。<br>p 可能为空，且只包含从 a-z 的小写字母，以及字符 . 和 * 。</li>
@@ -578,7 +708,7 @@
 </ol>
 <h2 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isMatch</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> p)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> ls = s.length(); </span><br><span class="line">	<span class="keyword">int</span> lp = p.length();</span><br><span class="line">	<span class="keyword">bool</span> dp[ls + <span class="number">1</span>][lp + <span class="number">1</span>]; <span class="comment">//状态表，dp[i][j]表示s[0, i-1]与p[0, j - 1]是否匹配</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= ls; i++)&#123; <span class="comment">//状态表初始化</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= lp; j++)&#123;</span><br><span class="line">			dp[i][j] = <span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">2</span>; j &lt;= lp; j++)&#123;</span><br><span class="line">		dp[<span class="number">0</span>][j] = (dp[<span class="number">0</span>][j - <span class="number">2</span>] &amp;&amp; p[j - <span class="number">1</span>] == <span class="string">'*'</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= ls; i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= lp; j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(p[j - <span class="number">1</span>] == <span class="string">'*'</span>)&#123;</span><br><span class="line">				dp[i][j] = dp[i][j - <span class="number">2</span>] || (dp[i - <span class="number">1</span>][j] &amp;&amp; (s[i - <span class="number">1</span>] == p[j - <span class="number">2</span>] || p[j - <span class="number">2</span>] == <span class="string">'.'</span>));</span><br><span class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span>(p[j - <span class="number">1</span>] == <span class="string">'.'</span> || s[i - <span class="number">1</span>] == p[j - <span class="number">1</span>])&#123;</span><br><span class="line">				dp[i][j] = dp[i - <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> dp[ls][lp];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="最大子序和"><a href="#最大子序和" class="headerlink" title="最大子序和"></a>最大子序和</h1><p><a href="https://leetcode-cn.com/problems/maximum-subarray/" target="_blank" rel="noopener">link</a></p>
+<h1 id="53-最大子序和"><a href="#53-最大子序和" class="headerlink" title="53 最大子序和"></a>53 最大子序和</h1><p><a href="https://leetcode-cn.com/problems/maximum-subarray/" target="_blank" rel="noopener">link</a></p>
 <h2 id="题目-2"><a href="#题目-2" class="headerlink" title="题目"></a>题目</h2><p>给定一个整数数组$nums$，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。</p>
 <h2 id="示例-2"><a href="#示例-2" class="headerlink" title="示例"></a>示例</h2><blockquote>
 <p>输入: [-2,1,-3,4,-1,2,1,-5,4],<br>输出: 6<br>解释: 连续子数组 [4,-1,2,1] 的和最大，为 6。</p>
@@ -1899,236 +2029,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/18/常见的排序算法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="沐沐">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="guolx's notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/18/常见的排序算法/" itemprop="url">常见的排序算法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-18T21:55:17+08:00">
-                2019-08-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/08/18/常见的排序算法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/18/常见的排序算法/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><p>比较两两相邻的两个数的大小，如果后面的数小于前面的数则交换位置<br>第一次遍历后最大的数将被移动到最后<br>遍历n次后排序完成</p>
-<h2 id="性能分析"><a href="#性能分析" class="headerlink" title="性能分析"></a>性能分析</h2><ul>
-<li><p>复杂度<br>在数组排好序的情况下时间复杂度为 $O(n)$ ，其他情况下总是 $O(n^2)$<br>可以增加swap标记优化算法</p>
-</li>
-<li><p>稳定性<em>(如果相等元素在排序后不改变它们的相对位置，则称该排序算法是稳定的)</em><br>如果交换条件包括<em>等于</em>的情况，则不稳定；否则稳定</p>
-</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="keyword">int</span> nums[], <span class="keyword">int</span> size)</span></span>&#123;</span><br><span class="line">	<span class="keyword">bool</span> swap = <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = size - <span class="number">1</span>; i &gt;= <span class="number">0</span> &amp;&amp; swap == <span class="literal">true</span>; i--)&#123;</span><br><span class="line">		swap = <span class="literal">false</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(nums[j] &gt; nums[j + <span class="number">1</span>])&#123;</span><br><span class="line">				swap = <span class="literal">true</span>;</span><br><span class="line">				<span class="keyword">int</span> tmp = nums[j];</span><br><span class="line">				nums[j] = nums[j + <span class="number">1</span>];</span><br><span class="line">				nums[j + <span class="number">1</span>] = tmp;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h1><p>从未排序的部分选出最小的元素，与开头元素交换位置</p>
-<h2 id="性能分析-1"><a href="#性能分析-1" class="headerlink" title="性能分析"></a>性能分析</h2><ul>
-<li><p>复杂度<br>时间复杂度为$O(n^2)$。运行时间与输入无关，即使是已排序数组也需要$O(n^2)$</p>
-</li>
-<li><p>稳定性<br>相等元素的相对位置可能改变，不稳定</p>
-</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">selectSort</span><span class="params">(<span class="keyword">int</span> nums[], <span class="keyword">int</span> size)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size - <span class="number">1</span>; i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> min = i;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; size; j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(nums[j] &lt; nums[min])</span><br><span class="line">				min = j;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">int</span> tmp = nums[i];</span><br><span class="line">		nums[i] = nums[min];</span><br><span class="line">		nums[min] = tmp;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h1><p>对于每个未排序的元素，扫描前面已排序的元素，插入到合适的位置</p>
-<h2 id="性能分析-2"><a href="#性能分析-2" class="headerlink" title="性能分析"></a>性能分析</h2><ul>
-<li><p>复杂度<br>$O(n^2)$</p>
-</li>
-<li><p>稳定性<br>稳定</p>
-</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertSort</span><span class="params">(<span class="keyword">int</span> nums[], <span class="keyword">int</span> size)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; size; i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = i; j &gt;= <span class="number">0</span> &amp;&amp; (nums[j] &lt; nums[j - <span class="number">1</span>]); j--)&#123;</span><br><span class="line">			<span class="keyword">int</span> tmp = nums[j];</span><br><span class="line">			nums[j] = nums[j - <span class="number">1</span>];</span><br><span class="line">			nums[j - <span class="number">1</span>] = tmp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h1><p>插入排序的优化版<br><img src="/images/7818c574-97a8-48db-8e62-8bfb030b02ba.png" width="50%" height="50%"></p>
-<h2 id="性能分析-3"><a href="#性能分析-3" class="headerlink" title="性能分析"></a>性能分析</h2><blockquote>
-<p>使用递增序列1,4,13,40，…的希尔排序所需要的比较次数不会超过N的若干倍乘以递增序列的长度；<br>后面的高级排序算法只会比希尔排序快两倍左右</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">shellSort</span><span class="params">(<span class="keyword">int</span> nums[], <span class="keyword">int</span> size)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> h = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(h &lt; size / <span class="number">3</span>)&#123;</span><br><span class="line">		h = <span class="number">3</span> * h + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(h &gt;= <span class="number">1</span>)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = h; i &lt; size; i++)&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = i; j &gt;=h; j -= h)&#123;</span><br><span class="line">				<span class="keyword">if</span>(nums[j] &lt; nums[j - h])&#123;</span><br><span class="line">					swap(nums, j, j - h);</span><br><span class="line">				&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		h = h / <span class="number">3</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h1><p>核心思想为分治法，将数组分成两部分，分别排序，然后归并已排序的两个数组</p>
-<h2 id="性能分析-4"><a href="#性能分析-4" class="headerlink" title="性能分析"></a>性能分析</h2><ul>
-<li>复杂度<br>$O(nlogn)$</li>
-<li>稳定性<br>在遇到相等元素时是按顺序写入辅助数组的，故归并排序是稳定的</li>
-</ul>
-<h2 id="归并"><a href="#归并" class="headerlink" title="归并"></a>归并</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//归并两个已排序的子数组</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> nums[], <span class="keyword">int</span> l, <span class="keyword">int</span> m, <span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(l &gt;= r)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> tmp[MAXSIZE]; <span class="comment">//将数据拷贝到辅助数组</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> k = l; k &lt;= r; k++)&#123;</span><br><span class="line">		tmp[k] = nums[k];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> i = l; <span class="comment">//左指针</span></span><br><span class="line">	<span class="keyword">int</span> j = m + <span class="number">1</span>; <span class="comment">//右指针</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> k = l; k &lt;= r; k++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(i &gt; m) <span class="comment">//如果左边已经遍历完毕，则将右边数字加入数组</span></span><br><span class="line">			nums[k] = tmp[j++];</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(j &gt; r)<span class="comment">//如果右边已经遍历完毕，则将左边数字加入数组</span></span><br><span class="line">			nums[k] = tmp[i++]; <span class="comment">//如果两边都未遍历完毕，则将较小的数字加入数组</span></span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(tmp[i] &lt;= tmp[j])</span><br><span class="line">			nums[k] = tmp[i++];</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			nums[k] = tmp[j++];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="自上而下top-down"><a href="#自上而下top-down" class="headerlink" title="自上而下top-down"></a>自上而下top-down</h2><p>递归法，将数组对半分成两部分，然后排序</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 递归法 top-down</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">TDMergeSort</span><span class="params">(<span class="keyword">int</span> nums[], <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(l &gt;= r)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">int</span> mid = (r - l) / <span class="number">2</span> + l;</span><br><span class="line">	TDMergeSort(nums, l, mid);</span><br><span class="line">	TDMergeSort(nums, mid + <span class="number">1</span>, r);</span><br><span class="line">	merge(nums, l, mid, r);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span> nums[], <span class="keyword">int</span> size)</span></span>&#123;</span><br><span class="line">	TDMergeSort(nums, <span class="number">0</span>, size - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="自下而上bottom-up"><a href="#自下而上bottom-up" class="headerlink" title="自下而上bottom-up"></a>自下而上bottom-up</h2><p>递归法的逆过程，对两两相邻的数字进行归并排序，再对上一轮的结果进行归并排序</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 迭代法 bottom-up</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BUMergeSort</span><span class="params">(<span class="keyword">int</span> nums[], <span class="keyword">int</span> size)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; size; j += j)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i + j &lt; size; i += j + j)</span><br><span class="line">			merge(nums, i, i + j - <span class="number">1</span>, min(i + j + j - <span class="number">1</span>, size - <span class="number">1</span>));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h1><p>与归并排序相比，堆排序具有空间原址性：任意时候只需要常数个额外的元素空间存储临时数据；</p>
-<blockquote>
-<p>现代操作系统很少使用堆排序，因为它无法利用局部性原理进行缓存，也就是数组元素很少和相邻的元素进行比较和交换。</p>
-</blockquote>
-<h2 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h2><p><img src="/images/Snipaste_2019-08-19_15-39-27.png" alt></p>
-<h3 id="基本性质"><a href="#基本性质" class="headerlink" title="基本性质"></a>基本性质</h3><p>堆可以被看成一个完全二叉树，堆的高度定义为根节点的高度$logn$;<br>该树除了最底层外完全充满，故可以用数组来表示</p>
-<p>给定一个节点的数组下标$i$, 则可以求出它的:</p>
-<ul>
-<li>父节点parent(i)：$\lfloor i/2 \rfloor$ （右移1位）</li>
-<li>左子节点left(i)： $2i$ （左移1位）</li>
-<li>右子节点right(i)： $2i+1$  （左移1位后加一）</li>
-</ul>
-<h3 id="最大堆"><a href="#最大堆" class="headerlink" title="最大堆"></a>最大堆</h3><p>除了根以外的所有节点的值都不大于它的父节点<br>$$<br>A[parent(i)] \geq A[i]<br>$$</p>
-<h3 id="堆调整"><a href="#堆调整" class="headerlink" title="堆调整"></a>堆调整</h3><p><img src="/images/Snipaste_2019-08-19_16-43-04.png" alt></p>
-<ol>
-<li>对于输入节点下标$i$，从$A[i]$、$A[left(i)]$、$A[right(i)]$中选出最大的，下标记为$largest$;</li>
-<li>如果$A[i]$不是最大的，交换$A[i]$和$A[largest]$;</li>
-<li>递归处理$largest$节点。</li>
-</ol>
-<p><img src="/images/Snipaste_2019-08-19_16-41-53.png" alt></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">maxHeapify</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(isEmpty() || i &gt;= size)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> l = left(i);</span><br><span class="line">	<span class="keyword">int</span> r = right(i);</span><br><span class="line">	<span class="keyword">int</span> max = i;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(l &lt;= size &amp;&amp; A[l] &gt; A[max])</span><br><span class="line">		max = l;</span><br><span class="line">	<span class="keyword">if</span>(r &lt;= size &amp;&amp; A[r] &gt; A[max])</span><br><span class="line">		max = r;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span>(max != i)&#123;</span><br><span class="line">		swap(max, i);</span><br><span class="line">		maxHeapify(max);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="创建堆"><a href="#创建堆" class="headerlink" title="创建堆"></a>创建堆</h3><p><img src="/images/Snipaste_2019-08-19_16-51-09.png" alt><br>对到$1$~$\lfloor n/2 \rfloor$的每个节点调用堆调整函数</p>
-<p><img src="/images/Snipaste_2019-08-19_16-53-04.png" alt></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">buildHeap</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = size / <span class="number">2</span>; i &gt;= <span class="number">1</span>; i--)</span><br><span class="line">		maxHeapify(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="堆排序-1"><a href="#堆排序-1" class="headerlink" title="堆排序"></a>堆排序</h3><p>根据堆的性质可知，根节点为最大的数。<br><img src="/images/Snipaste_2019-08-19_16-53-34.png" alt></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heapSort</span><span class="params">()</span></span>&#123;</span><br><span class="line">		buildHeap();</span><br><span class="line">		<span class="keyword">int</span> tmp = size;</span><br><span class="line">		<span class="keyword">while</span>(size &gt;= <span class="number">1</span>)&#123;</span><br><span class="line">			swap(<span class="number">1</span>, size--);</span><br><span class="line">			maxHeapify(<span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		size = tmp;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="性能分析-5"><a href="#性能分析-5" class="headerlink" title="性能分析"></a>性能分析</h2><ul>
-<li>复杂度<br>$O(nlogn)$</li>
-<li>稳定性<br>堆排序中存在大量的筛选和移动，不稳定</li>
-</ul>
-<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Heap</span>&#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">int</span> size;</span><br><span class="line">	<span class="keyword">int</span> A[MAX]; <span class="comment">//下标从1~size</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">left</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> i &lt;&lt; <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">right</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> (i &lt;&lt; <span class="number">1</span>) + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">parent</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> i &gt;&gt; <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">		<span class="keyword">int</span> tmp = A[i];</span><br><span class="line">		A[i] = A[j];</span><br><span class="line">		A[j] = tmp;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Heap(<span class="keyword">int</span> a[], <span class="keyword">int</span> length)&#123;</span><br><span class="line">		size = length;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= size; i++)&#123;</span><br><span class="line">			A[i] = a[i - <span class="number">1</span>];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 堆调整</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">maxHeapify</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(isEmpty() || i &gt;= size)</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> l = left(i);</span><br><span class="line">		<span class="keyword">int</span> r = right(i);</span><br><span class="line">		<span class="keyword">int</span> max = i;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(l &lt;= size &amp;&amp; A[l] &gt; A[max])</span><br><span class="line">			max = l;</span><br><span class="line">		<span class="keyword">if</span>(r &lt;= size &amp;&amp; A[r] &gt; A[max])</span><br><span class="line">			max = r;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span>(max != i)&#123;</span><br><span class="line">			swap(max, i);</span><br><span class="line">			maxHeapify(max);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 创建最大堆</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">buildHeap</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = size / <span class="number">2</span>; i &gt;= <span class="number">1</span>; i--)</span><br><span class="line">			maxHeapify(i);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 堆排序</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">heapSort</span><span class="params">()</span></span>&#123;</span><br><span class="line">		buildHeap();</span><br><span class="line">		<span class="keyword">int</span> tmp = size;</span><br><span class="line">		<span class="keyword">while</span>(size &gt;= <span class="number">1</span>)&#123;</span><br><span class="line">			swap(<span class="number">1</span>, size--);</span><br><span class="line">			maxHeapify(<span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		size = tmp;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">isEmpty</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> size == <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= size; i++)&#123;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; A[i] &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h1 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h1><p>与归并排序一样采用分治思想；选取一个元素作为基准，将数组分成两部分：左边比基准元素小，右边比基准元素大</p>
-<ul>
-<li>复杂度$O(nlogn)$</li>
-<li>稳定性: 不稳定，无法保证相等的数据按顺序存放</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span> nums[], <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> base = nums[start];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> i = start;</span><br><span class="line">	<span class="keyword">int</span> j = end;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(i &lt; j)&#123;</span><br><span class="line">		<span class="keyword">while</span>(i &lt; j &amp;&amp; nums[j] &gt; base)</span><br><span class="line">			j--;</span><br><span class="line"></span><br><span class="line">		nums[i] = nums[j];</span><br><span class="line"></span><br><span class="line">		<span class="keyword">while</span>(i &lt; j &amp;&amp; nums[i] &lt;= base)</span><br><span class="line">			i++;</span><br><span class="line"></span><br><span class="line">		nums[j] = nums[i];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	nums[i] = base;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">innerQuickSort</span><span class="params">(<span class="keyword">int</span> nums[], <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(start &gt;= end)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> i = partition(nums, start, end);</span><br><span class="line"></span><br><span class="line">	innerQuickSort(nums, start, i - <span class="number">1</span>);</span><br><span class="line">	innerQuickSort(nums, i + <span class="number">1</span>, end);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span> nums[], <span class="keyword">int</span> size)</span></span>&#123;</span><br><span class="line">	innerQuickSort(nums, <span class="number">0</span>, size - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="算法优化"><a href="#算法优化" class="headerlink" title="算法优化"></a>算法优化</h2><h3 id="1-三数取中"><a href="#1-三数取中" class="headerlink" title="1 三数取中"></a>1 三数取中</h3><p><strong>选择开头、中间、结尾三个位置的元素的中值作为基准</strong></p>
-<p>如果选择固定位置（开头或结尾）的元素作为基准，在处理重复数字多的数组或已排序的数组，开销较大<br><img src="/images/1343482840_6721.jpg" alt></p>
-<p>最理想的划分情况是使得两边数量相等，但求取中值需要很高的代价，可以折中采用三数取中的方法<br><img src="/images/1343483297_2415.jpg" alt></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> mid = start + (end - start) / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 将开头、中间、结尾位置的三个元素排好序</span></span><br><span class="line">	<span class="keyword">if</span>(nums[start] &gt; nums[mid])</span><br><span class="line">		swap(nums, start, mid);</span><br><span class="line">	<span class="keyword">if</span>(nums[start] &gt; nums[end])</span><br><span class="line">		swap(nums, start, end);</span><br><span class="line">	<span class="keyword">if</span>(nums[mid] &gt; nums[end])</span><br><span class="line">		swap(nums, mid, end);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//将中值放在数组开头</span></span><br><span class="line">	swap(nums, mid, start);</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-小数组选择插入排序"><a href="#2-小数组选择插入排序" class="headerlink" title="2 小数组选择插入排序"></a>2 小数组选择插入排序</h3><p>当数组的规模很小时，使用插入排序的效率高于快速排序，因此可以处理小数组时可以切换到插入排序<br><img src="/images/1343483399_3096.jpg" alt></p>
-<h3 id="3-三向切分"><a href="#3-三向切分" class="headerlink" title="3 三向切分"></a>3 三向切分</h3><p><strong>将数组划分成小于、等于、大于三部分</strong></p>
-<p>对于有大量重复元素的数组，三向切分可以在线性时间内完成排序<br><img src="/images/1343483583_7922.jpg" alt></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">threeWayQuickSort</span><span class="params">(<span class="keyword">int</span> nums[], <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(start &gt;= end)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> base = nums[start];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> i = start + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> equal_left = start;</span><br><span class="line">	<span class="keyword">int</span> equal_right = end;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(i &lt;= equal_right)&#123;</span><br><span class="line">		<span class="keyword">if</span>(nums[i] &gt; base)</span><br><span class="line">			swap(nums, i, equal_right--);</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(nums[i] &lt; base)</span><br><span class="line">			swap(nums, i, equal_left++);</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			i++;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	threeWayQuickSort(nums, start, equal_left - <span class="number">1</span>);</span><br><span class="line">	threeWayQuickSort(nums, equal_right + <span class="number">1</span>, end);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="寻找第k大的数字"><a href="#寻找第k大的数字" class="headerlink" title="寻找第k大的数字"></a>寻找第k大的数字</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">innerFindK</span><span class="params">(<span class="keyword">int</span> nums[], <span class="keyword">int</span> start, <span class="keyword">int</span> end, <span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(start &gt;= end)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> i = partition(nums, start, end);</span><br><span class="line">	<span class="keyword">if</span>(i == k - <span class="number">1</span>)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(i &lt; k - <span class="number">1</span>)</span><br><span class="line">		innerFindK(nums, i + <span class="number">1</span>, end, k - i - <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		innerFindK(nums, start, i - <span class="number">1</span>, k);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findK</span><span class="params">(<span class="keyword">int</span> nums[], <span class="keyword">int</span> size, <span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">	innerFindK(nums, <span class="number">0</span>, size - <span class="number">1</span>, k);</span><br><span class="line">	<span class="keyword">return</span> nums[k - <span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>参考：<br><a href="https://zhuanlan.zhihu.com/p/42586566" target="_blank" rel="noopener">十大排序算法</a><br><a href="https://blog.csdn.net/qq_19525389/article/details/81436838" target="_blank" rel="noopener">快速排序的5中优化方法</a><br><a href="https://github.com/CyC2018/CS-Notes/blob/master/notes/%E7%AE%97%E6%B3%95%20-%20%E6%8E%92%E5%BA%8F.md" target="_blank" rel="noopener">CSNote算法-排序</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2181,7 +2081,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
