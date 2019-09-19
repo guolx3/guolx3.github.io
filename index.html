@@ -259,6 +259,798 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/17/内存管理4——虚拟内存/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="沐沐">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="guolx's notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/17/内存管理4——虚拟内存/" itemprop="url">内存管理4——虚拟内存</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-17T10:01:01+08:00">
+                2019-09-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/17/内存管理4——虚拟内存/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/09/17/内存管理4——虚拟内存/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>之前讨论的几种管理方式都具有一下两种特征：</p>
+<ul>
+<li>一次性。 作业必须一次性全部装入内存后才开始运行，导致当作业过大时不能被全部装入</li>
+<li>驻留性。 作业装入内存后，一直驻留在内存中，运行中的进程会因为等待I/O而被阻塞，可能长期处于等待状态</li>
+</ul>
+<p>为此，可以采用<strong>虚存</strong>技术，使得在进程运行时并不需要所有页（段）都在内存中，只在需要的时候读取页（段）。</p>
+<p>虚拟内存的实现需要一定的硬件支持，一般包括：</p>
+<ul>
+<li>一定容量的内存和外存。</li>
+<li>页表机制（段表机制）。</li>
+<li>中断机构。当用户程序要访问的部分尚未调入内存时，则产生中断</li>
+<li>地址变换机构。逻辑地址到物理地址的转换</li>
+</ul>
+<h1 id="局部性原理"><a href="#局部性原理" class="headerlink" title="局部性原理"></a>局部性原理</h1><ul>
+<li>时间局部性。 执行的指令可能在不久后再次执行，被访问的数据可能在不久后再次被访问。 原因之一时程序中存在大量的循环语句</li>
+<li>空间局部性。 一旦程序访问了某存储单元，则其附近的存储单元也可能被访问。 原因之一时指令通常时顺序存放的，数据也一般是以数组，表等形式存在</li>
+</ul>
+<h1 id="请求分页管理方式"><a href="#请求分页管理方式" class="headerlink" title="请求分页管理方式"></a>请求分页管理方式</h1><p>请求分页管理方式在基本分页管理方式的基础上增加了<strong>请求调页</strong>功能和<strong>页面置换</strong>功能。<br>这是目前最常用的一种实现虚拟存储器的方法</p>
+<h2 id="页表机制"><a href="#页表机制" class="headerlink" title="页表机制"></a>页表机制</h2><p><img src="images/124325e.png" alt></p>
+<ul>
+<li>状态位P：指示该页是否已经调入内存</li>
+<li>访问字段A：记录访问相关的信息，例如一段时间内被访问的次数，共置换算法参考</li>
+<li>修改位M：标识该页在调入内存后是否被修改过</li>
+<li>外存地址：用于指出该页在外存的地址，通常时物理块号。</li>
+</ul>
+<h2 id="缺页中断机制"><a href="#缺页中断机制" class="headerlink" title="缺页中断机制"></a>缺页中断机制</h2><p>每当要访问的页面不在内存中时，就产生一次缺页中断。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/15/内存管理2——连续分配管理方式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="沐沐">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="guolx's notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/15/内存管理2——连续分配管理方式/" itemprop="url">内存管理2——连续分配管理方式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-15T20:43:58+08:00">
+                2019-09-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/15/内存管理2——连续分配管理方式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/09/15/内存管理2——连续分配管理方式/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="单一连续分配"><a href="#单一连续分配" class="headerlink" title="单一连续分配"></a>单一连续分配</h1><p>将内存分为系统区和用户区。系统区供操作系统使用，处于低地址。用户区是除了系统区外的内存空间。<br><strong>优点</strong></p>
+<ul>
+<li>简单</li>
+<li>无外部碎片</li>
+</ul>
+<p><strong>缺点</strong></p>
+<ul>
+<li>只适合单用户的操作系统</li>
+<li>有内部碎片</li>
+<li>存储器的利用率低</li>
+</ul>
+<h1 id="固定分区"><a href="#固定分区" class="headerlink" title="固定分区"></a>固定分区</h1><p>最简单的多道程序存储管理方式。<br>将内存划分成<strong>若干个固定大小的区域</strong>，区域大小可以相等或者按规则递增，每个区域只能放入一个程序。<br>为了方便内存分配，需要一张分区说明表，每行记录分区的大小、起始地址和分配状态。分配内存时查找该表寻找合适的分区，如果没找到则不分配内存</p>
+<p><strong>优点</strong></p>
+<ul>
+<li>简单</li>
+<li>处理开销小</li>
+</ul>
+<p><strong>缺点</strong></p>
+<ul>
+<li>有内部碎片</li>
+<li>不能实现多进程共享一个主存区</li>
+</ul>
+<p>目前基本没有操作系统使用固定分区的方法</p>
+<h1 id="动态分区"><a href="#动态分区" class="headerlink" title="动态分区"></a>动态分区</h1><p>不预先划分内存，而是在进程装入内存时根据进程的大小动态建立分区，使得分区大小刚好适合进程大小</p>
+<p><strong>缺点</strong></p>
+<ul>
+<li>时间长了有外部碎片，可以用紧凑技术对进程进行移动和整理</li>
+</ul>
+<h2 id="分配策略"><a href="#分配策略" class="headerlink" title="分配策略"></a>分配策略</h2><p>如果同时又多个空闲块满足要求，需要采用一定的分配策略来决定分配哪一块</p>
+<ol>
+<li><strong>首次适应First Fit</strong>。按照地址顺序查找到的第一个合适分区。<strong>最简单、最好、最快</strong>。但是低地址会出现小的空闲分区，而每次重头开始查找都会经过这些分区，增加了查找的开销。</li>
+<li><strong>最佳适应Best Fit</strong>。将空闲分区按照容量递增排序，顺序查找到的第一个合适分区。</li>
+<li><strong>最坏适应Worst Fit</strong>。将空闲分区按照容量递增排序，顺序查找到的第一个合适分区。</li>
+<li><strong>邻近适应Next Fit</strong>。由首次适应演变而来，不同之处是从上一次查找结束的位置开始继续查找。它试图解决首次适应算法低地址空闲分区的问题，但会导致末尾的最大空闲块被分裂成小碎片。</li>
+</ol>
+<p>好的程度：首次适应&gt;邻近适应&gt;最佳适应&gt;最坏适应</p>
+<p>以上三种分区管理方式的共同点是<strong>用户进程在主存中都是连续存储的</strong></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/15/内存管理1——基本概念/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="沐沐">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="guolx's notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/15/内存管理1——基本概念/" itemprop="url">内存管理1——基本概念</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-15T20:42:48+08:00">
+                2019-09-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/15/内存管理1——基本概念/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/09/15/内存管理1——基本概念/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="为什么要进行内存管理"><a href="#为什么要进行内存管理" class="headerlink" title="为什么要进行内存管理"></a>为什么要进行内存管理</h1><p>不可能将所有的进程和所需的资源全都放入内存，所以需要操作系统对内存进行合理的划分和动态管理。</p>
+<h1 id="内存管理的功能"><a href="#内存管理的功能" class="headerlink" title="内存管理的功能"></a>内存管理的功能</h1><ol>
+<li><strong>内存空间的分配和回收</strong></li>
+<li><strong>地址转换</strong>，将逻辑地址转换为物理地址</li>
+<li><strong>内存的扩展</strong>，利用虚拟存储技术或自动覆盖技术从逻辑上扩展内存</li>
+<li><strong>保护</strong>，保证各道作业互不干扰</li>
+</ol>
+<h1 id="内存管理的基本原理和要求"><a href="#内存管理的基本原理和要求" class="headerlink" title="内存管理的基本原理和要求"></a>内存管理的基本原理和要求</h1><h2 id="程序的装入和链接"><a href="#程序的装入和链接" class="headerlink" title="程序的装入和链接"></a>程序的装入和链接</h2><p>将源程序转换为可以在内存中执行的进程有以下3步：</p>
+<ol>
+<li>编译。将源程序编译成若干目标模块</li>
+<li>链接。将若干模块以及需要的库函数链接成一个完整的装入模块</li>
+<li>装入。将装入模块装入内存</li>
+</ol>
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p>按照链接的时机不同，可以分成：</p>
+<ul>
+<li>静态链接</li>
+<li>装入时链接</li>
+<li>运行时链接</li>
+</ul>
+<h3 id="装入"><a href="#装入" class="headerlink" title="装入"></a>装入</h3><ul>
+<li>绝对装入。已经知道程序应该装入的绝对地址，按照地址装入程序和数据，只适用于单道程序设计。该地址可以在编译或汇编时指出或由程序员赋予</li>
+<li>可重定位装入。多道程序环境中进程的起始地址通常为0，其他地址是相对地址；<strong>在装入时根据相对地址进行地址变换</strong>，<strong>一次分配完整的内存</strong>，如果内存不够则不装入。运行中不能移动或申请内存。</li>
+<li>动态装入，<strong>将地址转换推迟到运行时再进行</strong>。需要重定位寄存器的支持，将内存分配到不连续的存储区，运行时可以动态申请分配内存，可以提供一个比存储空间大的地址空间。</li>
+</ul>
+<h2 id="逻辑地址和物理地址"><a href="#逻辑地址和物理地址" class="headerlink" title="逻辑地址和物理地址"></a>逻辑地址和物理地址</h2><p>每个目标模块从0开始编址，这些相对地址即逻辑地址；<br>物理地址是内存中物理单元的真实地址；<br>将逻辑地址转换为物理地址称为<strong>地址重定位</strong></p>
+<h2 id="内存保护"><a href="#内存保护" class="headerlink" title="内存保护"></a>内存保护</h2><ul>
+<li>保护操作系统不受用户进程的影响</li>
+<li>保护用户进程不受其他用户进程的影响</li>
+</ul>
+<p>内存保护有两种方法：</p>
+<ul>
+<li>采用<strong>上下限寄存器</strong>记录用户作业在主存中的上下限地址，每次访问地址都进行比较判断是否越界</li>
+<li>采用<strong>重定位寄存器</strong>（基址寄存器）和<strong>界地址寄存器</strong>（限长寄存器）。重定位寄存器记录最小物理地址，界地址寄存器记录最大物理地址，每次都于界地址寄存器进行比较，如果没有越界则加上重定位寄存器的值映射成物理地址</li>
+</ul>
+<h1 id="扩充内存的方法——覆盖和交换"><a href="#扩充内存的方法——覆盖和交换" class="headerlink" title="扩充内存的方法——覆盖和交换"></a>扩充内存的方法——覆盖和交换</h1><h2 id="覆盖"><a href="#覆盖" class="headerlink" title="覆盖"></a>覆盖</h2><p>程序运行时不可能每时每刻都用到程序和数据的所有部分，所以我们可以把经常访问的部分放在<strong>固定区</strong>，其它的按照调用关系分段，要用的时候再调入<strong>覆盖区</strong></p>
+<h2 id="交换"><a href="#交换" class="headerlink" title="交换"></a>交换</h2><p>交换有两个基本操作：</p>
+<ul>
+<li>换出：将处于等待状态的程序从内存移到辅存</li>
+<li>换入：将就绪的程序从辅存移到内存</li>
+</ul>
+<p>覆盖主要用于同一个程序，交换用于不同的进程</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/15/内存管理3——分页和分段/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="沐沐">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="guolx's notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/15/内存管理3——分页和分段/" itemprop="url">内存管理3——分页和分段</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-15T12:41:34+08:00">
+                2019-09-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/15/内存管理3——分页和分段/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/09/15/内存管理3——分页和分段/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>非连续分配管理允许将程序装入不相邻的内存空间，需要额外的空间存储索引。<br>根据<strong>分区的大小是否固定</strong>，可以分为<strong>分页</strong>和<strong>分段</strong>。</p>
+<p><strong>基本术语</strong></p>
+<ul>
+<li><strong>页框Frame</strong>：内存中的一个固定长度的块</li>
+<li><strong>页Page</strong>： 固定长度的数据块，存储在磁盘，可以临时复制到页框</li>
+<li><strong>段</strong>：变长的数据块，可以复制到内存中的一个可用区域</li>
+</ul>
+<h1 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h1><p>把主存空间划分成大小相等的，占用空间比较小的块（页框），进程也划分成较小块（页）；<br>进程执行时，以块为单位逐个申请主存中的块空间。<br>不会产生外部碎片，只有在为进程最后一个块分配空间时产生少量的内部碎片（平均只产生半个块大小）</p>
+<h2 id="页面的大小"><a href="#页面的大小" class="headerlink" title="页面的大小"></a>页面的大小</h2><ul>
+<li>为了方便地址转换，页面的大小为<strong>2的幂</strong>。</li>
+<li>页面过小：导致页表过长，占用大量内存；增加逻辑地址转换为物理地址的开销</li>
+<li>页面过大：导致内部碎片增多，降低内存利用率</li>
+</ul>
+<h2 id="地址结构"><a href="#地址结构" class="headerlink" title="地址结构"></a>地址结构</h2><p><strong>地址结构 = 页号 + 页内偏移量</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">12~31</th>
+<th align="center">11~0</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">页号P</td>
+<td align="center">页内偏移量</td>
+</tr>
+</tbody></table>
+<ul>
+<li>地址长度为<strong>32位</strong></li>
+<li>0 ~ 11位：页内偏移量，说明页大小为$2^{12}$，即4KB</li>
+<li>12~31位：页号，说明内存最多允许$2^{20}$页</li>
+</ul>
+<p>地址结构决定了虚拟内存的寻址空间有多大</p>
+<h2 id="页表"><a href="#页表" class="headerlink" title="页表"></a>页表</h2><p>操作系统为每个进程维护一张页表，页表记录<strong>页面对应的物理块号</strong>，存放在内存中。<br><strong>页表项 = 页号 + 物理地址</strong></p>
+<p>程序未执行时，页表的起始地址和长度存放在进程控制块中，进程执行时存入页表寄存器</p>
+<h2 id="地址变换机构"><a href="#地址变换机构" class="headerlink" title="地址变换机构"></a>地址变换机构</h2><p><img src="images/20190915124629.jpg" alt></p>
+<p>逻辑地址$A$转换为物理地址$E$的步骤：</p>
+<ol>
+<li>计算页号$P = A / L$，偏移量$W = A % L$（$L$为页面长度）</li>
+<li>如果$P \geq M$，则产生越界终端，否则继续执行（$M$为页表长度）</li>
+<li>根据页号取得页表起始地址$F$，计算$对应的页表项地址 = F + P \times 页表项长度$</li>
+<li>根据页表项地址，取出页表中相应的物理块号$b$</li>
+<li>计算物理地址$E = b \times L + W$</li>
+</ol>
+<h2 id="存在的两个问题"><a href="#存在的两个问题" class="headerlink" title="存在的两个问题"></a>存在的两个问题</h2><ol>
+<li>每次访存操作都要进行地址转换，地址转换的速度限制了访存速度</li>
+<li>页表太大会使内存利用率降低</li>
+</ol>
+<h2 id="快表"><a href="#快表" class="headerlink" title="快表"></a>快表</h2><p>如果所有的页表都存放在内存中，那么每一条指令<strong>至少要访问两次内存</strong>（第一次访问页表获取物理块号和第二次访问计算出来的物理地址）<br>为了提高指令执行速度，可以使用<strong>快表</strong>——一个高速缓冲存储器，用来缓存物理块号。<br>根据计算得出的页号，先在快表中查找物理快号；<br>如果没有再在页表中查找，并将找到的物理块号存入快表，方便下一次查询。</p>
+<p>快表基于局部性原理设计，命中率可达到$90%$</p>
+<h2 id="两级页表"><a href="#两级页表" class="headerlink" title="两级页表"></a>两级页表</h2><p>为了解决页表过大的问题，可以采用<strong>二级页表</strong>，即构造一个页表的页表<br><strong>顶级页表最多只能由一个页面</strong></p>
+<h1 id="分段"><a href="#分段" class="headerlink" title="分段"></a>分段</h1><p>按照用户进程的自然段划分逻辑空间，长度不固定</p>
+<h2 id="逻辑地址"><a href="#逻辑地址" class="headerlink" title="逻辑地址"></a>逻辑地址</h2><p><strong>逻辑地址 = 段号S + 段内偏移量W</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">31~16</th>
+<th align="center">15~0</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">段号S</td>
+<td align="center">段内偏移量W</td>
+</tr>
+</tbody></table>
+<p>分页中的逻辑地址对用户不可见，分段中的逻辑地址需要用户显式提供（一般由编译程序完成）</p>
+<h2 id="段表"><a href="#段表" class="headerlink" title="段表"></a>段表</h2><p>每一个进程都由一张段表<br><strong>段表项 = 段长 + 本段在主存中的起始地址</strong></p>
+<h2 id="地址变换机构-1"><a href="#地址变换机构-1" class="headerlink" title="地址变换机构"></a>地址变换机构</h2><p><img src="images/20190915200521.jpg" alt></p>
+<p>从逻辑地址$A$变换为物理地址$E$的步骤如下：</p>
+<ol>
+<li>取出$A$的前几位为段号$S$，后几位为偏移量$W$</li>
+<li>如果$S \geq M$，产生越界终端，否则继续执行（$M$为段表长度）</li>
+<li>取出段表起址$F$，段长$C$, 计算对应的$段表项地址 = F + S \times 段表项长度$。 如果$W \times C$, 发生越界终端。</li>
+<li>根据段表项地址，取出该段的物理起址$b$，计算物理地址$E = b + W$</li>
+</ol>
+<h2 id="段的共享与保护"><a href="#段的共享与保护" class="headerlink" title="段的共享与保护"></a>段的共享与保护</h2><p>通过两个作业中段表的相应表项指向被共享的段的同一个物理副本来实现</p>
+<blockquote>
+<p>分页是从计算机角度考虑，目的是提高内存利用率，提高计算机性能，完全由硬件实现，对用户透明；<br>分段考虑了用户，以满足方便编程，信息保护和共享，动态增长和动态链接等多方面的需求</p>
+</blockquote>
+<h1 id="段页式管理方式"><a href="#段页式管理方式" class="headerlink" title="段页式管理方式"></a>段页式管理方式</h1><p>分页可以提高内存利用率，分段则能反应程序的逻辑结构并有利于段的共享，两者结合起来形成了段页式管理方式</p>
+<p>程序的地址空间先被分成若干逻辑段，每段再分成固定大小的页；<br>内存空间分成若干和页面大小相同的存储块，以存储块为单位分配内存</p>
+<h2 id="逻辑地址-1"><a href="#逻辑地址-1" class="headerlink" title="逻辑地址"></a>逻辑地址</h2><p><strong>逻辑地址 = 段号S + 页号P + 页内偏移量</strong></p>
+<p>每个进程有一张段表（段号 + 页表长度 + 页表起始地址），每个分段有一张页表（页号 + 物理块号）</p>
+<p>进行一次访问需要三次访问主存,同样可以用快表来提高查找速度</p>
+<p><img src="images/20190915203929.jpg" alt></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/10/C-中的类型转换/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1389,646 +2181,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/21/C-预处理/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="沐沐">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="guolx's notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/21/C-预处理/" itemprop="url">C++预处理的典型应用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-21T01:34:32+08:00">
-                2019-08-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/08/21/C-预处理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/21/C-预处理/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>C++的build可分为4个步骤预处理、编译、汇编、链接；预处理过程主要包括字符映射、续行符处理、字符分割、执行preprocessor4个阶段;值得注意的是，<strong>预处理是在编译前已经完成的</strong>，编译时的输入文件不包含任何预处理语句，即<strong>条件编译不通过的部分被删除、宏替换、头文件插入</strong>等</p>
-</blockquote>
-<h1 id="1-头文件包含-include"><a href="#1-头文件包含-include" class="headerlink" title="1 头文件包含 #include"></a>1 头文件包含 <code>#include</code></h1><p>一般有两种方式：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;filename&gt; //查找标准目录(常用库文件)</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"filename"</span> <span class="comment">//查找源文件所在目录，找不到再在标准目录中寻找(自定义头文件)</span></span></span><br></pre></td></tr></table></figure>
-
-<h1 id="2-宏定义-define"><a href="#2-宏定义-define" class="headerlink" title="2 宏定义 #define"></a>2 宏定义 <code>#define</code></h1><h2 id="2-1-定义常量"><a href="#2-1-定义常量" class="headerlink" title="2.1 定义常量"></a>2.1 定义常量</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 100 <span class="comment">//将数字定义为全局常量</span></span></span><br></pre></td></tr></table></figure>
-
-<p>在<em>Effective C++</em>中不提倡使用该方法，更推荐使用<code>const</code>代替宏常量。</p>
-<blockquote>
-<p>宏常量只是进行字符替换，没有数据类型，在词法分析中宏名不会出现在符号表中。一旦出错，看到的将是一个无意义的数字，比如上文中的100，而不是一个有意义的名称，如上文中的MAX。而const在符号表中会有自己的位置，因此出错时可以看到更加有意义的错误提示。</p>
-</blockquote>
-<h2 id="2-2-宏函数"><a href="#2-2-宏函数" class="headerlink" title="2.2 宏函数"></a>2.2 宏函数</h2><ul>
-<li>特点：<ol>
-<li>换行需要加反斜杠”&quot;表示换行；函数体最后一行不加反斜杠</li>
-<li>行末不需要分号</li>
-<li>可以用<code>#undef</code>终止宏定义</li>
-</ol>
-</li>
-<li>作用：减少函数调用频率，空间换时间</li>
-<li>示例</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Sum(x, y) ((x) + (y))</span></span><br></pre></td></tr></table></figure>
-
-<p>注意，由于宏只是进行字符替换，如果上例写成</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Sum(x, y) x + y</span></span><br></pre></td></tr></table></figure>
-
-<p>那么在计算<code>Sum(2, 3) * Sum(3, 4)</code>时，实际上计算的是<code>2 + 3 * 3 + 4</code>, 得到错误的结果15;</p>
-<h1 id="条件编译"><a href="#条件编译" class="headerlink" title="条件编译"></a>条件编译</h1><p>使用<code>#define</code>, <code>#if</code>, <code>#elif</code>, <code>ifndef</code>, <code>#endif</code>可以实现条件编译，不符合条件的代码不会参与编译，<strong>通常用来防止头文件被重复包含</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> 标识符</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> 标识符</span></span><br><span class="line">...</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
-
-<p>参考：<br><a href="https://www.cnblogs.com/liangliangh/p/3585326.html" target="_blank" rel="noopener">C++预处理详解</a><br><a href="https://blog.csdn.net/hanchaoman/article/details/8809951" target="_blank" rel="noopener">C++宏使用总结</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/20/C-中new和malloc的区别/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="沐沐">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="guolx's notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/20/C-中new和malloc的区别/" itemprop="url">C++中new和malloc的区别</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-20T02:18:11+08:00">
-                2019-08-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/08/20/C-中new和malloc的区别/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/20/C-中new和malloc的区别/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li><code>new</code>是运算符，<code>malloc()</code>是函数</li>
-<li><code>new</code>不仅分配内存，而且会调用构造函数；<code>malloc()</code>只负责分配内存</li>
-<li><code>new</code>创建一个对象，用成员函数访问，不能直接访问地址空间；<br><code>malloc()</code>分配一块内存，用指针访问</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/20/栈和队列/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="沐沐">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="guolx's notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/20/栈和队列/" itemprop="url">栈和队列</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-20T01:38:16+08:00">
-                2019-08-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/08/20/栈和队列/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/20/栈和队列/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h1><p>限定在表尾（栈顶）插入或删除操作的线性表；<br><strong>后进先出LIFO</strong><br><img src="/images/Snipaste_2019-08-20_01-44-53.png" alt="栈示意图"></p>
-<h2 id="顺序栈"><a href="#顺序栈" class="headerlink" title="顺序栈"></a>顺序栈</h2><p>栈的抽象数据类型定义：<br><img src="/images/Snipaste_2019-08-20_12-56-51.png" width="50%" height="50%"><br>利用一组地址连续的存储单元存放数据；<br>先为栈分配基本容量，当空间不够时再分段扩展<br>需要两个指针：base指向栈底元素，top指向栈顶元素的下一个位置</p>
-<p><img src="/images/Snipaste_2019-08-20_13-00-37.png" alt="栈顶指针示意图"></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> STACK_INIT_SIZE 100 <span class="comment">//存储空间初始的分配大小</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> STACK_INCREMENT 10 <span class="comment">//每次扩展存储空间的大小</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">Item</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">class</span> <span class="title">SqStack</span>&#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">int</span> capacity;</span><br><span class="line">	Item* base;</span><br><span class="line">	Item* top; <span class="comment">//top指针指向栈顶元素的下一个位置</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	SqStack()&#123;</span><br><span class="line">		base = (Item*) <span class="built_in">malloc</span>(STACK_INIT_SIZE * <span class="keyword">sizeof</span>(Item));</span><br><span class="line">		top = base;</span><br><span class="line">		capacity = STACK_INIT_SIZE;</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	~SqStack()&#123;</span><br><span class="line">		clear();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function">Item <span class="title">getTop</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(!isEmpty())&#123;</span><br><span class="line">			<span class="keyword">return</span> *(top - <span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">pop</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(!isEmpty())&#123;</span><br><span class="line">			top--;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">push</span><span class="params">(Item item)</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(size() &gt;= capacity)&#123; <span class="comment">//栈满，扩展内存</span></span><br><span class="line">			base = (Item*) <span class="built_in">realloc</span>(base, (capacity + STACK_INCREMENT) * <span class="keyword">sizeof</span>(Item)); </span><br><span class="line">			top = base + capacity;</span><br><span class="line">			capacity += STACK_INCREMENT;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(!base) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">		</span><br><span class="line">		*top++ = item;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> top - base;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">isEmpty</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> base == top;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">while</span>(!isEmpty())</span><br><span class="line">			pop();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="栈的应用"><a href="#栈的应用" class="headerlink" title="栈的应用"></a>栈的应用</h2><h3 id="1-数制转换"><a href="#1-数制转换" class="headerlink" title="1 数制转换"></a>1 数制转换</h3><blockquote>
-<p>对于输入的任意一个非负十进制整数，打印输出与其等值的k进制数</p>
-</blockquote>
-<p>计算原理：$n = (n / k) * k + n mod k$<br><img src="/images/Snipaste_2019-08-20_18-28-14.png" alt="示例"></p>
-<p>计算过程是从低位到高位，而打印时正好相反，故可以利用栈后进先出的特性来存储并输出</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">decimal2K</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> k)</span></span>&#123; <span class="comment">//十进制转k进制</span></span><br><span class="line">	<span class="keyword">if</span>(n &lt; <span class="number">0</span>)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(n &gt; <span class="number">0</span>)&#123;</span><br><span class="line">		<span class="keyword">int</span> d = n % k;</span><br><span class="line">		n = n / k;</span><br><span class="line">		s.push(d);</span><br><span class="line">		<span class="comment">// cout &lt;&lt; "n=" &lt;&lt; n &lt;&lt; " div=" &lt;&lt; d &lt;&lt; endl;</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(!s.empty())&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; s.top();</span><br><span class="line">		s.pop();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-括号匹配"><a href="#2-括号匹配" class="headerlink" title="2 括号匹配"></a>2 括号匹配</h3><blockquote>
-<p>假设表达式中允许包括两种括号——圆括号和方括号，输入括号序列，判断序列中的括号是否匹配</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isValid</span><span class="params">(<span class="keyword">char</span> a)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> ((a == <span class="string">'('</span> || a == <span class="string">')'</span>) || (a == <span class="string">'['</span> || a == <span class="string">']'</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isMatch</span><span class="params">(<span class="keyword">char</span> a, <span class="keyword">char</span> b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> ((a == <span class="string">'('</span> &amp;&amp; b == <span class="string">')'</span>) || (a == <span class="string">'['</span> &amp;&amp; b == <span class="string">']'</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">bracketMatch</span><span class="params">(<span class="built_in">string</span> str)</span></span>&#123;</span><br><span class="line">	<span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt; s;</span><br><span class="line">	<span class="keyword">int</span> len = str.length();</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(!isValid(str[i]))</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">		<span class="keyword">if</span>(str[i] == <span class="string">'('</span> || str[i] == <span class="string">'['</span>)</span><br><span class="line">			s.push(str[i]);</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(!s.empty() &amp;&amp; isMatch(s.top(), str[i]))</span><br><span class="line">			s.pop();</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-表达式求值"><a href="#4-表达式求值" class="headerlink" title="4 表达式求值"></a>4 表达式求值</h3><blockquote>
-<p>根据逆波兰表示法，求表达式的值</p>
-</blockquote>
-<p><a href="https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/" target="_blank" rel="noopener">leetcode</a></p>
-<p>示例</p>
-<blockquote>
-<p>输入: [“2”, “1”, “+”, “3”, “*”]<br>输出: 9<br>解释: ((2 + 1) * 3) = 9</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isOperator</span><span class="params">(<span class="built_in">string</span> s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (s == <span class="string">"+"</span> || s == <span class="string">"-"</span> || s == <span class="string">"*"</span> || s == <span class="string">"/"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">calculate</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="built_in">string</span> op)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> result;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(op == <span class="string">"+"</span>)</span><br><span class="line">        result = a + b;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(op == <span class="string">"-"</span>)</span><br><span class="line">        result = a - b;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(op == <span class="string">"*"</span>)</span><br><span class="line">        result = a * b;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(op == <span class="string">"/"</span>)</span><br><span class="line">        result = a / b;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> to_string(result);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">evalRPN</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; tokens)</span></span>&#123;</span><br><span class="line">    <span class="built_in">stack</span>&lt;<span class="built_in">string</span>&gt; s;</span><br><span class="line">    <span class="keyword">int</span> size = tokens.size();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(isOperator(tokens[i]) &amp;&amp; !s.empty())&#123;</span><br><span class="line">            <span class="keyword">int</span> a = stoi(s.top());</span><br><span class="line">            s.pop();</span><br><span class="line">            <span class="keyword">int</span> b = stoi(s.top());</span><br><span class="line">            s.pop();</span><br><span class="line"></span><br><span class="line">            s.push(calculate(b, a, tokens[i]));</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            s.push(tokens[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> stoi(s.top());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h1><p>一种<strong>先进先出FIFO</strong>的线性表,只允许在表的一段插入、另一端删除</p>
-<h2 id="链队列"><a href="#链队列" class="headerlink" title="链队列"></a>链队列</h2><p><img src="/images/Snipaste_2019-08-28_21-51-20.png" alt></p>
-<h2 id="循环队列"><a href="#循环队列" class="headerlink" title="循环队列"></a>循环队列</h2><p><img src="/images/Snipaste_2019-08-28_21-43-03.png" alt></p>
-<p>当<code>rear == front</code>时，队列的状态可能是空也可能是满，为了解决这种冲突有两种处理方法：</p>
-<ul>
-<li>另外设置一个标签位来区别队列是空还是满</li>
-<li>少用一个空间，让头指针<code>front</code>指向队头元素，尾指针<code>rear</code>指向<strong>队尾元素的下一个元素</strong></li>
-</ul>
-<p>采用第二种方法的判定条件为：</p>
-<ul>
-<li>队列为空：<code>front == rear</code></li>
-<li>队列满：<code>(rear + 1) % capacity == front</code></li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 循环队列 */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CAPACITY 100</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Elem&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CycleQueue</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	Elem *base; <span class="comment">//初始化的动态分配存储空间</span></span><br><span class="line">	<span class="keyword">int</span> front; <span class="comment">//头指针, 指向队头元素</span></span><br><span class="line">	<span class="keyword">int</span> rear; <span class="comment">//尾指针，指向队尾元素的下一个位置</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	CycleQueue()&#123;</span><br><span class="line">		base = (Elem*) <span class="built_in">malloc</span>(CAPACITY * <span class="keyword">sizeof</span>(Elem));</span><br><span class="line">		front = rear = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	~CycleQueue()&#123;</span><br><span class="line">		<span class="built_in">free</span>(base);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">length</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> (rear - front + CAPACITY) % CAPACITY;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">push</span><span class="params">(Elem e)</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>((rear + <span class="number">1</span>) % CAPACITY == front) <span class="comment">//队列满</span></span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">		base[rear] = e;</span><br><span class="line">		rear = (rear + <span class="number">1</span>) % CAPACITY;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function">Elem&amp; <span class="title">pop</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(front != rear)&#123;</span><br><span class="line">			<span class="keyword">int</span> pop_elem = front;</span><br><span class="line">			front = (front + <span class="number">1</span>) % CAPACITY;</span><br><span class="line">			<span class="keyword">return</span> base[pop_elem];</span><br><span class="line">		&#125;	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>参考：<br>《数据结构(C语言版)》第3章</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/20/树和二叉树/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="沐沐">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="guolx's notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/20/树和二叉树/" itemprop="url">树和二叉树</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-20T01:30:55+08:00">
-                2019-08-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/08/20/树和二叉树/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/20/树和二叉树/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2081,7 +2233,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2103,7 +2255,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
