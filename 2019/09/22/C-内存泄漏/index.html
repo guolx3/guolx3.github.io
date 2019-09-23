@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="C++,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="在某些情况下，类型转换会自动执行无需程序员借入，这种类型转换称为隐式转换；程序员也可以显式的将对象转换为另一种类型，这种方法称为强制类型转换cast 隐式转换算数转换">
-<meta name="keywords" content="C++">
+<meta name="description" content="内存泄漏的几种常见情况 忘记deletenew和delete应该配套使用  释放数组没有使用delete[]  双指针释放错误正确释放方法如下 12345678char** p;// ...for(int i = 0; i &amp;lt; size; i++)&amp;#123;    delete[] p[i];    p[i] = nullptr;&amp;#125;delete[] p;p = nullptr;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++中的类型转换">
-<meta property="og:url" content="http://yoursite.com/2019/09/10/C-中的类型转换/index.html">
+<meta property="og:title" content="C++内存泄漏">
+<meta property="og:url" content="http://yoursite.com/2019/09/22/C-内存泄漏/index.html">
 <meta property="og:site_name" content="guolx&#39;s notes">
-<meta property="og:description" content="在某些情况下，类型转换会自动执行无需程序员借入，这种类型转换称为隐式转换；程序员也可以显式的将对象转换为另一种类型，这种方法称为强制类型转换cast 隐式转换算数转换">
+<meta property="og:description" content="内存泄漏的几种常见情况 忘记deletenew和delete应该配套使用  释放数组没有使用delete[]  双指针释放错误正确释放方法如下 12345678char** p;// ...for(int i = 0; i &amp;lt; size; i++)&amp;#123;    delete[] p[i];    p[i] = nullptr;&amp;#125;delete[] p;p = nullptr;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-10T10:15:33.838Z">
+<meta property="og:updated_time" content="2019-09-22T16:11:50.237Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C++中的类型转换">
-<meta name="twitter:description" content="在某些情况下，类型转换会自动执行无需程序员借入，这种类型转换称为隐式转换；程序员也可以显式的将对象转换为另一种类型，这种方法称为强制类型转换cast 隐式转换算数转换">
+<meta name="twitter:title" content="C++内存泄漏">
+<meta name="twitter:description" content="内存泄漏的几种常见情况 忘记deletenew和delete应该配套使用  释放数组没有使用delete[]  双指针释放错误正确释放方法如下 12345678char** p;// ...for(int i = 0; i &amp;lt; size; i++)&amp;#123;    delete[] p[i];    p[i] = nullptr;&amp;#125;delete[] p;p = nullptr;">
 
 
 
@@ -120,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/09/10/C-中的类型转换/">
+  <link rel="canonical" href="http://yoursite.com/2019/09/22/C-内存泄漏/">
 
 
 
 
 
-  <title>C++中的类型转换 | guolx's notes</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>C++内存泄漏 | guolx's notes</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -263,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/10/C-中的类型转换/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/22/C-内存泄漏/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="沐沐">
@@ -280,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">C++中的类型转换</h1>
+          <h1 class="post-title" itemprop="name headline">C++内存泄漏</h1>
         
 
         <div class="post-meta">
@@ -292,8 +291,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-10T18:02:37+08:00">
-                2019-09-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-22T20:25:04+08:00">
+                2019-09-22
               </time>
             
 
@@ -311,8 +310,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/09/10/C-中的类型转换/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/09/10/C-中的类型转换/" itemprop="commentCount"></span>
+                <a href="/2019/09/22/C-内存泄漏/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/09/22/C-内存泄漏/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -340,8 +339,22 @@
       
 
       
-        <p>在某些情况下，类型转换会自动执行无需程序员借入，这种类型转换称为<strong>隐式转换</strong>；程序员也可以显式的将对象转换为另一种类型，这种方法称为<strong>强制类型转换cast</strong></p>
-<h1 id="隐式转换"><a href="#隐式转换" class="headerlink" title="隐式转换"></a>隐式转换</h1><h2 id="算数转换"><a href="#算数转换" class="headerlink" title="算数转换"></a>算数转换</h2>
+        <h2 id="内存泄漏的几种常见情况"><a href="#内存泄漏的几种常见情况" class="headerlink" title="内存泄漏的几种常见情况"></a>内存泄漏的几种常见情况</h2><ol>
+<li><p>忘记delete<br><code>new</code>和<code>delete</code>应该配套使用</p>
+</li>
+<li><p>释放数组没有使用delete[]</p>
+</li>
+<li><p>双指针释放错误<br>正确释放方法如下</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span>** p;</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++)&#123;</span><br><span class="line">    <span class="keyword">delete</span>[] p[i];</span><br><span class="line">    p[i] = <span class="literal">nullptr</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">delete</span>[] p;</span><br><span class="line">p = <span class="literal">nullptr</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>基类的析构函数没有定义为虚函数<br>如果基类的析构函数不是虚函数，当基类指针指向子类时，子类的资源不能正确释放</p>
+</li>
+</ol>
+<h2 id="内存泄漏的解决方法"><a href="#内存泄漏的解决方法" class="headerlink" title="内存泄漏的解决方法"></a>内存泄漏的解决方法</h2><ol>
+<li>使用智能指针</li>
+<li>可以使用一些工具，比如<a href="http://vld.codeplex.com/" target="_blank" rel="noopener">VLD</a>, 一个免费的、开源的、强大的内存泄露检测系统，可以安装当作VS的一个插件</li>
+</ol>
+
       
     </div>
     
@@ -356,12 +369,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/C/" rel="tag"># C++</a>
-          
-        </div>
-      
 
       
       
@@ -371,8 +378,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/03/运输层的两个主要协议——UDP和TCP/" rel="next" title="运输层的两个主要协议——UDP和TCP">
-                <i class="fa fa-chevron-left"></i> 运输层的两个主要协议——UDP和TCP
+              <a href="/2019/09/22/C-内联函数/" rel="next" title="C++的内联函数">
+                <i class="fa fa-chevron-left"></i> C++的内联函数
               </a>
             
           </div>
@@ -380,10 +387,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/09/15/内存管理3——分页和分段/" rel="prev" title="内存管理3——分页和分段">
-                内存管理3——分页和分段 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -527,7 +530,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#隐式转换"><span class="nav-number">1.</span> <span class="nav-text">隐式转换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#算数转换"><span class="nav-number">1.1.</span> <span class="nav-text">算数转换</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#内存泄漏的几种常见情况"><span class="nav-number">1.</span> <span class="nav-text">内存泄漏的几种常见情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存泄漏的解决方法"><span class="nav-number">2.</span> <span class="nav-text">内存泄漏的解决方法</span></a></li></ol></div>
             
 
           </div>
@@ -697,9 +700,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2019/09/10/C-中的类型转换/';
-          this.page.identifier = '2019/09/10/C-中的类型转换/';
-          this.page.title = 'C++中的类型转换';
+          this.page.url = 'http://yoursite.com/2019/09/22/C-内存泄漏/';
+          this.page.identifier = '2019/09/22/C-内存泄漏/';
+          this.page.title = 'C++内存泄漏';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://guolx.disqus.com/embed.js';
