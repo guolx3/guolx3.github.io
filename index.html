@@ -259,6 +259,299 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/27/C-中的三种参数传递方式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="沐沐">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="guolx's notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/27/C-中的三种参数传递方式/" itemprop="url">C++中的三种参数传递方式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-27T09:15:07+08:00">
+                2019-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/27/C-中的三种参数传递方式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/09/27/C-中的三种参数传递方式/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="值传递"><a href="#值传递" class="headerlink" title="值传递"></a>值传递</h1><p>值传递会将实参拷贝一份副本作为局部变量传进函数，在函数内修改该副本不会改变原来实参的值</p>
+<h1 id="指针传递"><a href="#指针传递" class="headerlink" title="指针传递"></a>指针传递</h1><p>指针传递本质上也是值传递，只是传递的值是指针变量存储的地址值。修改该地址值指向的变量可以修改变量的值</p>
+<h1 id="引用传递"><a href="#引用传递" class="headerlink" title="引用传递"></a>引用传递</h1><p>形参相当于实参的别名，对形参的操作就是对实参的操作。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">passByValue</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"值传递的参数地址为："</span> &lt;&lt; &amp;n &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    n++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">passByPreference</span><span class="params">(<span class="keyword">int</span>&amp; n)</span></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"引用传递的参数地址为："</span> &lt;&lt; &amp;n &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    n++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">passByPointer</span><span class="params">(<span class="keyword">int</span>* n)</span></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"指针传递的参数地址为："</span> &lt;&lt; n &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    *n = *n + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">2019</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"实参的地址为："</span> &lt;&lt; &amp;a &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    passByValue(a);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"值传递处理后 a = "</span> &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 2019，不变</span></span><br><span class="line">    passByPreference(a);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"引用传递处理后 a = "</span> &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 2020，加一</span></span><br><span class="line">    passByPointer(&amp;a);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"指针传递处理后 a = "</span> &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 2021，加一</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="images/1232435.png" alt></p>
+<h1 id="指针的引用的区别"><a href="#指针的引用的区别" class="headerlink" title="指针的引用的区别"></a>指针的引用的区别</h1><ol>
+<li><p>指针本质是一个变量，在逻辑上时独立的，引用时某个变量的别名，在逻辑上依附与某个变量，在定义引用时必须初始化</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2019</span>;</span><br><span class="line"><span class="keyword">int</span>&amp; b = a; <span class="comment">// int&amp; b; error: 'b' declared as reference but not initialized</span></span><br><span class="line"><span class="keyword">int</span>* c; <span class="comment">//不报错</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>sizeof(引用)得到的时引用变量的大小，sizeof(指针)得到的时指针变量的大小</p>
+</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2019</span>;</span><br><span class="line"><span class="keyword">int</span>&amp; b = a;</span><br><span class="line"><span class="keyword">int</span>* c = &amp;a;</span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"sizeof(a) = "</span> &lt;&lt; <span class="keyword">sizeof</span>(a) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">//sizeof(a) = 4</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"sizeof(b) = "</span> &lt;&lt; <span class="keyword">sizeof</span>(b) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">//sizeof(b) = 4</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"sizeof(c) = "</span> &lt;&lt; <span class="keyword">sizeof</span>(c) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">//sizeof(c) = 8</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>编译时指针在符号表对应的地址值时指针变量的地址值，引用对用的是引用对象的地址值</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/27/树和二叉树/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="沐沐">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="guolx's notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/27/树和二叉树/" itemprop="url">树和二叉树</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-27T08:12:04+08:00">
+                2019-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/27/树和二叉树/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/09/27/树和二叉树/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p>树是$n$个结点的有限集。在任意一颗非空树中：</p>
+<ol>
+<li>有且仅有一个根节点</li>
+<li>其余节点可分为$m$个互不相交的有限集</li>
+<li>其中每个集合本身也是一颗树，称为跟的子树（递归定义）。</li>
+</ol>
+<h1 id="基本术语"><a href="#基本术语" class="headerlink" title="基本术语"></a>基本术语</h1><h2 id="度"><a href="#度" class="headerlink" title="度"></a>度</h2><p>结点拥有的子树数称为结点的<strong>度</strong></p>
+<h2 id="叶子结点"><a href="#叶子结点" class="headerlink" title="叶子结点"></a>叶子结点</h2><p>度为$0$的结点称为<strong>叶子结点</strong></p>
+<h2 id="内部结点"><a href="#内部结点" class="headerlink" title="内部结点"></a>内部结点</h2><p>除了根结点和叶子结点外的其他结点称为<strong>内部结点</strong></p>
+<h2 id="孩子-双亲-兄弟-祖先-子孙"><a href="#孩子-双亲-兄弟-祖先-子孙" class="headerlink" title="孩子/双亲/兄弟/祖先/子孙"></a>孩子/双亲/兄弟/祖先/子孙</h2><ol>
+<li>结点的子树的根称为该结点的<strong>孩子</strong>，该结点被称为孩子的<strong>双亲</strong></li>
+<li>同一结点的孩子之间称为<strong>兄弟</strong></li>
+<li>从跟到该结点所经分支上的所有结点称为该结点的<strong>祖先</strong>。</li>
+</ol>
+<h2 id="层次"><a href="#层次" class="headerlink" title="层次"></a>层次</h2><p>根为第一层，根的孩子为第二层。<br>若某结点在第$i$层，则其孩子在第$i + 1$层</p>
+<h2 id="深度-高度"><a href="#深度-高度" class="headerlink" title="深度/高度"></a>深度/高度</h2><p>树中结点的最大层次称为<strong>树的深度或高度</strong></p>
+<p>## </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/22/C-内存泄漏/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1658,371 +1951,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/01/leetcode-动态规划/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="沐沐">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="guolx's notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/01/leetcode-动态规划/" itemprop="url">leetcode-动态规划</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-01T17:58:53+08:00">
-                2019-09-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/09/01/leetcode-动态规划/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/09/01/leetcode-动态规划/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="5-最长回文子串"><a href="#5-最长回文子串" class="headerlink" title="5 最长回文子串"></a>5 最长回文子串</h1><p><a href="https://leetcode-cn.com/problems/longest-palindromic-substring/" target="_blank" rel="noopener">link</a></p>
-<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。</p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><blockquote>
-<p>输入: “babad”<br>输出: “bab”<br>注意: “aba” 也是一个有效答案。</p>
-</blockquote>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>观察可知，如果一个字符串它的首尾字符相同，且中间部分的子串是一个回文串，那么这个字符串是一个回文串。<br>记字符串为<code>s</code>，首尾字符的下标分别为<code>l</code>和<code>r</code>.</p>
-<ul>
-<li>状态定义:记<code>dp[l][r] == true</code>表示从<code>l</code>到<code>r</code>截取的字符串是一个回文串。例如<code>s = &quot;ababa&quot;</code>，<code>l = 1</code>, <code>r = 3</code>, <code>dp[l][r]</code>记录子串<code>&quot;bab&quot;</code>是否为回文串。</li>
-<li>状态转移：<code>dp[l][r] = (s[l] == s[r] &amp;&amp; dp[l + 1][r - 1] == true)</code>.</li>
-</ul>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">longestPalindrome</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len = s.length();</span><br><span class="line">    <span class="keyword">int</span> start = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> longest = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(len &lt;= <span class="number">1</span>) <span class="keyword">return</span> s;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">bool</span> dp[len][len];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; len; j++)&#123;</span><br><span class="line">            dp[i][j] = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        dp[i][i] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(i &lt; len - <span class="number">1</span> &amp;&amp; s[i] == s[i + <span class="number">1</span>])&#123;</span><br><span class="line">            dp[i][i + <span class="number">1</span>] = <span class="literal">true</span>;</span><br><span class="line">            start = i;</span><br><span class="line">            longest = <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> sublen = <span class="number">3</span>; sublen &lt;= len; sublen++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> l = <span class="number">0</span>; l + sublen - <span class="number">1</span> &lt; len; l++)&#123;</span><br><span class="line">            <span class="keyword">int</span> r = l + sublen - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(s[l] == s[r] &amp;&amp; dp[l + <span class="number">1</span>][r - <span class="number">1</span>])&#123;</span><br><span class="line">                dp[l][r] = <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">if</span>(longest &lt;= sublen)&#123;</span><br><span class="line">                    longest = sublen;</span><br><span class="line">                    start = l;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> s.substr(start, longest);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="10-正则表达式匹配"><a href="#10-正则表达式匹配" class="headerlink" title="10 正则表达式匹配"></a>10 正则表达式匹配</h1><p><a href="https://leetcode-cn.com/problems/regular-expression-matching/" target="_blank" rel="noopener">link</a></p>
-<h2 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a>题目</h2><p>给你一个字符串 $s$ 和一个字符规律 $p$，请你来实现一个支持 . 和 * 的正则表达式匹配。<br> . 匹配任意单个字符</p>
-<ul>
-<li>匹配零个或多个前面的那一个元素<br>s 可能为空，且只包含从 a-z 的小写字母。<br>p 可能为空，且只包含从 a-z 的小写字母，以及字符 . 和 * 。</li>
-</ul>
-<h2 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h2><blockquote>
-<p>输入:<br>s = “aa”<br>p = “a”<br>输出: false<br>解释: “a” 无法匹配 “aa” 整个字符串。</p>
-</blockquote>
-<h2 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h2><p>记字符串$s$的长度为$ls$, 字符串$p$的长度为$lp$; 记动态规划网络为<code>dp</code>, 为了用下标$0$表示字符为空的情况，状态表的大小应该为$(ls + 1) \times (lp + 1)$</p>
-<h3 id="状态定义"><a href="#状态定义" class="headerlink" title="状态定义"></a>状态定义</h3><p><code>dp[i][j]</code>表示<code>s[0, i-1]</code>与<code>p[0, j - 1]</code>是否匹配。其中<code>s[0, i-1]</code>表示字符串$s$从下标$0$到下标$i - 1$的子串，<code>p[0, j - 1]</code>同理</p>
-<h3 id="状态初始化："><a href="#状态初始化：" class="headerlink" title="状态初始化："></a>状态初始化：</h3><ol>
-<li>如果$s$, $p$都为空则判定为匹配，即<code>dp[0][0] = true</code>。</li>
-<li>如果$s$为空，且<code>p[j - 1] == &#39;*&#39;</code>，那么<code>dp[0][j] = dp[0][j - 2]</code>(即下标$j$处的*匹配零个字符)</li>
-</ol>
-<h3 id="状态转换"><a href="#状态转换" class="headerlink" title="状态转换"></a>状态转换</h3><ol>
-<li>如果<code>p[j - 1] == &#39;*&#39;</code><ul>
-<li>如果<code>s[i - 1] == p[j - 2] || p[j - 2] == &#39;.&#39;</code>, 那么<code>dp[i][j] = dp[i - 1][j]</code>（匹配一个或多个）</li>
-<li>否则<code>dp[i][j] = dp[i][j - 2]</code>(匹配零个)</li>
-</ul>
-</li>
-<li>否则<br> 如果<code>p[j - 1] == &#39;.&#39; || s[i - 1] == p[j - 1])</code>, 那么<code>dp[i][j] = dp[i - 1][j - 1]</code></li>
-</ol>
-<h2 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isMatch</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> p)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> ls = s.length(); </span><br><span class="line">	<span class="keyword">int</span> lp = p.length();</span><br><span class="line">	<span class="keyword">bool</span> dp[ls + <span class="number">1</span>][lp + <span class="number">1</span>]; <span class="comment">//状态表，dp[i][j]表示s[0, i-1]与p[0, j - 1]是否匹配</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= ls; i++)&#123; <span class="comment">//状态表初始化</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= lp; j++)&#123;</span><br><span class="line">			dp[i][j] = <span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">2</span>; j &lt;= lp; j++)&#123;</span><br><span class="line">		dp[<span class="number">0</span>][j] = (dp[<span class="number">0</span>][j - <span class="number">2</span>] &amp;&amp; p[j - <span class="number">1</span>] == <span class="string">'*'</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= ls; i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= lp; j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(p[j - <span class="number">1</span>] == <span class="string">'*'</span>)&#123;</span><br><span class="line">				dp[i][j] = dp[i][j - <span class="number">2</span>] || (dp[i - <span class="number">1</span>][j] &amp;&amp; (s[i - <span class="number">1</span>] == p[j - <span class="number">2</span>] || p[j - <span class="number">2</span>] == <span class="string">'.'</span>));</span><br><span class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span>(p[j - <span class="number">1</span>] == <span class="string">'.'</span> || s[i - <span class="number">1</span>] == p[j - <span class="number">1</span>])&#123;</span><br><span class="line">				dp[i][j] = dp[i - <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> dp[ls][lp];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="44-通配符匹配"><a href="#44-通配符匹配" class="headerlink" title="44 通配符匹配"></a>44 通配符匹配</h1><p><a href="https://leetcode-cn.com/problems/wildcard-matching/" target="_blank" rel="noopener">link</a></p>
-<h2 id="题目-2"><a href="#题目-2" class="headerlink" title="题目"></a>题目</h2><p>给定一个字符串 (s) 和一个字符模式 (p) ，实现一个支持 ‘?’ 和 ‘*’ 的通配符匹配。</p>
-<p>‘?’ 可以匹配任何单个字符。<br>‘*’ 可以匹配任意字符串（包括空字符串）。</p>
-<h2 id="示例-2"><a href="#示例-2" class="headerlink" title="示例"></a>示例</h2><blockquote>
-<p>输入:<br>s = “aa”<br>p = “*”<br>输出: true<br>解释: ‘*’ 可以匹配任意字符串。</p>
-</blockquote>
-<h2 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h2><h3 id="状态定义-1"><a href="#状态定义-1" class="headerlink" title="状态定义"></a>状态定义</h3><p>定义<code>bool match[i][j]</code>表示字符串<code>s[0, i - 1]</code>与<code>p[0, j - 1]</code>是否匹配。<br>（<code>match</code>用下标$0$表示空字符串的情况）</p>
-<h3 id="状态转换-1"><a href="#状态转换-1" class="headerlink" title="状态转换"></a>状态转换</h3><ul>
-<li>当<code>p[j] != &#39;*&#39;</code>, <code>match[i][j] = match[i - 1][j - 1] &amp;&amp; (s[i - 1] == p[j - 1] || p[j - 1] == &#39;？&#39;)</code></li>
-<li>否则，可能存在下面三种情况<ul>
-<li><code>match[i][j] = match[i][j - 1]</code>（星号匹配空字符串)</li>
-<li><code>match[i][j] = match[i - 1][j]</code> (星号匹配一个字符)</li>
-</ul>
-</li>
-</ul>
-<h3 id="状态初始化"><a href="#状态初始化" class="headerlink" title="状态初始化"></a>状态初始化</h3><ol>
-<li><code>match[0][0] = true</code></li>
-<li><code>match[0][j] = match[0][j - 1] &amp;&amp; p[j - 1] == &#39;*&#39;</code>, 即如果$s$为空，$p$不为空，只有$p$全是星号才匹配</li>
-</ol>
-<h2 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isMatch</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> slen = s.length();</span><br><span class="line">    <span class="keyword">int</span> plen = p.length();</span><br><span class="line">    <span class="keyword">bool</span> match[slen + <span class="number">1</span>][plen + <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= slen; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= plen; j++)&#123;</span><br><span class="line">            match[i][j] = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    match[<span class="number">0</span>][<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= plen; j++)&#123;</span><br><span class="line">        match[<span class="number">0</span>][j] = match[<span class="number">0</span>][j - <span class="number">1</span>] &amp;&amp; p[j - <span class="number">1</span>] == <span class="string">'*'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= slen; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= plen; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(p[j - <span class="number">1</span>] != <span class="string">'*'</span>)</span><br><span class="line">                match[i][j] = match[i - <span class="number">1</span>][j - <span class="number">1</span>] &amp;&amp; (s[i - <span class="number">1</span>] == p[j - <span class="number">1</span>] || p[j - <span class="number">1</span>] == <span class="string">'?'</span>);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                match[i][j] = match[i][j - <span class="number">1</span>] || match[i - <span class="number">1</span>][j];</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> match[slen][plen];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/28/leetcode-哈希表/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="沐沐">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="guolx's notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/28/leetcode-哈希表/" itemprop="url">leetcode-哈希表</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-28T22:02:45+08:00">
-                2019-08-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/08/28/leetcode-哈希表/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/28/leetcode-哈希表/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1 两数之和"></a>1 两数之和</h1><p><a href>link</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2070,7 +2003,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2092,7 +2025,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

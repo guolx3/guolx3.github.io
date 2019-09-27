@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="hexo,">
+  <meta name="keywords" content="C++,">
 
 
 
@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="官方文档 启动和部署12345hexo init #在当前目录创建一个网站hexo generate #生成静态文件hexo server #启动服务器hexo deploy #部署网站hexo clean #清除缓存  写作1234hexo new &apos;articleName&apos; #新建文章hexo new page &apos;pageName&apos; #新建页面hexo new draft &apos;draftName">
-<meta name="keywords" content="hexo">
+<meta name="description" content="值传递值传递会将实参拷贝一份副本作为局部变量传进函数，在函数内修改该副本不会改变原来实参的值 指针传递指针传递本质上也是值传递，只是传递的值是指针变量存储的地址值。修改该地址值指向的变量可以修改变量的值 引用传递形参相当于实参的别名，对形参的操作就是对实参的操作。 123456789101112131415161718192021222324252627#include &amp;lt;iostream&amp;">
+<meta name="keywords" content="C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo常用命令">
-<meta property="og:url" content="http://yoursite.com/2019/08/17/hexo常用命令/index.html">
+<meta property="og:title" content="C++中的三种参数传递方式">
+<meta property="og:url" content="http://yoursite.com/2019/09/27/C-中的三种参数传递方式/index.html">
 <meta property="og:site_name" content="guolx&#39;s notes">
-<meta property="og:description" content="官方文档 启动和部署12345hexo init #在当前目录创建一个网站hexo generate #生成静态文件hexo server #启动服务器hexo deploy #部署网站hexo clean #清除缓存  写作1234hexo new &apos;articleName&apos; #新建文章hexo new page &apos;pageName&apos; #新建页面hexo new draft &apos;draftName">
+<meta property="og:description" content="值传递值传递会将实参拷贝一份副本作为局部变量传进函数，在函数内修改该副本不会改变原来实参的值 指针传递指针传递本质上也是值传递，只是传递的值是指针变量存储的地址值。修改该地址值指向的变量可以修改变量的值 引用传递形参相当于实参的别名，对形参的操作就是对实参的操作。 123456789101112131415161718192021222324252627#include &amp;lt;iostream&amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-17T08:02:59.329Z">
+<meta property="og:image" content="http://yoursite.com/2019/09/27/C-中的三种参数传递方式/images/1232435.png">
+<meta property="og:updated_time" content="2019-09-27T02:59:19.064Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo常用命令">
-<meta name="twitter:description" content="官方文档 启动和部署12345hexo init #在当前目录创建一个网站hexo generate #生成静态文件hexo server #启动服务器hexo deploy #部署网站hexo clean #清除缓存  写作1234hexo new &apos;articleName&apos; #新建文章hexo new page &apos;pageName&apos; #新建页面hexo new draft &apos;draftName">
+<meta name="twitter:title" content="C++中的三种参数传递方式">
+<meta name="twitter:description" content="值传递值传递会将实参拷贝一份副本作为局部变量传进函数，在函数内修改该副本不会改变原来实参的值 指针传递指针传递本质上也是值传递，只是传递的值是指针变量存储的地址值。修改该地址值指向的变量可以修改变量的值 引用传递形参相当于实参的别名，对形参的操作就是对实参的操作。 123456789101112131415161718192021222324252627#include &amp;lt;iostream&amp;">
+<meta name="twitter:image" content="http://yoursite.com/2019/09/27/C-中的三种参数传递方式/images/1232435.png">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/08/17/hexo常用命令/">
+  <link rel="canonical" href="http://yoursite.com/2019/09/27/C-中的三种参数传递方式/">
 
 
 
 
 
-  <title>hexo常用命令 | guolx's notes</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>C++中的三种参数传递方式 | guolx's notes</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -263,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/17/hexo常用命令/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/27/C-中的三种参数传递方式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="沐沐">
@@ -280,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">hexo常用命令</h1>
+          <h1 class="post-title" itemprop="name headline">C++中的三种参数传递方式</h1>
         
 
         <div class="post-meta">
@@ -292,8 +294,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-17T15:17:18+08:00">
-                2019-08-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-27T09:15:07+08:00">
+                2019-09-27
               </time>
             
 
@@ -311,8 +313,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/08/17/hexo常用命令/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/17/hexo常用命令/" itemprop="commentCount"></span>
+                <a href="/2019/09/27/C-中的三种参数传递方式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/09/27/C-中的三种参数传递方式/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -340,19 +342,25 @@
       
 
       
-        <p><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">官方文档</a></p>
-<h2 id="启动和部署"><a href="#启动和部署" class="headerlink" title="启动和部署"></a>启动和部署</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo init <span class="comment">#在当前目录创建一个网站</span></span><br><span class="line">hexo generate <span class="comment">#生成静态文件</span></span><br><span class="line">hexo server <span class="comment">#启动服务器</span></span><br><span class="line">hexo deploy <span class="comment">#部署网站</span></span><br><span class="line">hexo clean <span class="comment">#清除缓存</span></span><br></pre></td></tr></table></figure>
+        <h1 id="值传递"><a href="#值传递" class="headerlink" title="值传递"></a>值传递</h1><p>值传递会将实参拷贝一份副本作为局部变量传进函数，在函数内修改该副本不会改变原来实参的值</p>
+<h1 id="指针传递"><a href="#指针传递" class="headerlink" title="指针传递"></a>指针传递</h1><p>指针传递本质上也是值传递，只是传递的值是指针变量存储的地址值。修改该地址值指向的变量可以修改变量的值</p>
+<h1 id="引用传递"><a href="#引用传递" class="headerlink" title="引用传递"></a>引用传递</h1><p>形参相当于实参的别名，对形参的操作就是对实参的操作。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">passByValue</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"值传递的参数地址为："</span> &lt;&lt; &amp;n &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    n++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">passByPreference</span><span class="params">(<span class="keyword">int</span>&amp; n)</span></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"引用传递的参数地址为："</span> &lt;&lt; &amp;n &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    n++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">passByPointer</span><span class="params">(<span class="keyword">int</span>* n)</span></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"指针传递的参数地址为："</span> &lt;&lt; n &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    *n = *n + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">2019</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"实参的地址为："</span> &lt;&lt; &amp;a &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    passByValue(a);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"值传递处理后 a = "</span> &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 2019，不变</span></span><br><span class="line">    passByPreference(a);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"引用传递处理后 a = "</span> &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 2020，加一</span></span><br><span class="line">    passByPointer(&amp;a);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"指针传递处理后 a = "</span> &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 2021，加一</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">'articleName'</span> <span class="comment">#新建文章</span></span><br><span class="line">hexo new page <span class="string">'pageName'</span> <span class="comment">#新建页面</span></span><br><span class="line">hexo new draft <span class="string">'draftName'</span> <span class="comment">#新建草稿</span></span><br><span class="line">hexo publish <span class="string">'draftName'</span> <span class="comment">#发布草稿</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Front-matter"><a href="#Front-matter" class="headerlink" title="Front-matter"></a>Front-matter</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章标题</span><br><span class="line">date: 日期</span><br><span class="line">comments: <span class="literal">true</span> <span class="comment">#开启评论</span></span><br><span class="line">tags: </span><br><span class="line">	- tag <span class="comment">#添加文章标签</span></span><br><span class="line">categories： <span class="string">"category"</span> <span class="comment">#设置文章分类</span></span><br><span class="line">description: <span class="comment">#文章摘要</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
-<h2 id="其他设置"><a href="#其他设置" class="headerlink" title="其他设置"></a>其他设置</h2><h3 id="新建文章后自动打开编辑器"><a href="#新建文章后自动打开编辑器" class="headerlink" title="新建文章后自动打开编辑器"></a>新建文章后自动打开编辑器</h3><ol>
-<li>在网站目录下新建scripts文件夹</li>
-<li>新建auto_open.js文件</li>
-<li>复制以下代码</li>
+<p><img src="images/1232435.png" alt></p>
+<h1 id="指针的引用的区别"><a href="#指针的引用的区别" class="headerlink" title="指针的引用的区别"></a>指针的引用的区别</h1><ol>
+<li><p>指针本质是一个变量，在逻辑上时独立的，引用时某个变量的别名，在逻辑上依附与某个变量，在定义引用时必须初始化</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2019</span>;</span><br><span class="line"><span class="keyword">int</span>&amp; b = a; <span class="comment">// int&amp; b; error: 'b' declared as reference but not initialized</span></span><br><span class="line"><span class="keyword">int</span>* c; <span class="comment">//不报错</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>sizeof(引用)得到的时引用变量的大小，sizeof(指针)得到的时指针变量的大小</p>
+</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> exec = <span class="built_in">require</span>(<span class="string">'child_process'</span>).exec;</span><br><span class="line">hexo.on(<span class="string">'new'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    exec(<span class="string">'start  "G:\Sublime Text 3\sublime_text.exe" '</span> + data.path);</span><br><span class="line">&#125;); <span class="comment">//修改为编辑器路径</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2019</span>;</span><br><span class="line"><span class="keyword">int</span>&amp; b = a;</span><br><span class="line"><span class="keyword">int</span>* c = &amp;a;</span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"sizeof(a) = "</span> &lt;&lt; <span class="keyword">sizeof</span>(a) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">//sizeof(a) = 4</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"sizeof(b) = "</span> &lt;&lt; <span class="keyword">sizeof</span>(b) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">//sizeof(b) = 4</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"sizeof(c) = "</span> &lt;&lt; <span class="keyword">sizeof</span>(c) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">//sizeof(c) = 8</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>编译时指针在符号表对应的地址值时指针变量的地址值，引用对用的是引用对象的地址值</li>
+</ol>
+
       
     </div>
     
@@ -369,7 +377,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
+            <a href="/tags/C/" rel="tag"># C++</a>
           
         </div>
       
@@ -382,8 +390,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/06/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2019/09/27/树和二叉树/" rel="next" title="树和二叉树">
+                <i class="fa fa-chevron-left"></i> 树和二叉树
               </a>
             
           </div>
@@ -391,10 +399,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/18/常见的排序算法/" rel="prev" title="常见的排序算法">
-                常见的排序算法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -538,7 +542,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#启动和部署"><span class="nav-number">1.</span> <span class="nav-text">启动和部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写作"><span class="nav-number">2.</span> <span class="nav-text">写作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Front-matter"><span class="nav-number">3.</span> <span class="nav-text">Front-matter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他设置"><span class="nav-number">4.</span> <span class="nav-text">其他设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#新建文章后自动打开编辑器"><span class="nav-number">4.1.</span> <span class="nav-text">新建文章后自动打开编辑器</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#值传递"><span class="nav-number">1.</span> <span class="nav-text">值传递</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#指针传递"><span class="nav-number">2.</span> <span class="nav-text">指针传递</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#引用传递"><span class="nav-number">3.</span> <span class="nav-text">引用传递</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#指针的引用的区别"><span class="nav-number">4.</span> <span class="nav-text">指针的引用的区别</span></a></li></ol></div>
             
 
           </div>
@@ -708,9 +712,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2019/08/17/hexo常用命令/';
-          this.page.identifier = '2019/08/17/hexo常用命令/';
-          this.page.title = 'hexo常用命令';
+          this.page.url = 'http://yoursite.com/2019/09/27/C-中的三种参数传递方式/';
+          this.page.identifier = '2019/09/27/C-中的三种参数传递方式/';
+          this.page.title = 'C++中的三种参数传递方式';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://guolx.disqus.com/embed.js';
