@@ -351,12 +351,10 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2019</span>;</span><br><span class="line"><span class="keyword">int</span>&amp; b = a; <span class="comment">// int&amp; b; error: 'b' declared as reference but not initialized</span></span><br><span class="line"><span class="keyword">int</span>* c; <span class="comment">//不报错</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>sizeof(引用)得到的时引用变量的大小，sizeof(指针)得到的时指针变量的大小</p>
-</li>
-</ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2019</span>;</span><br><span class="line"><span class="keyword">int</span>&amp; b = a;</span><br><span class="line"><span class="keyword">int</span>* c = &amp;a;</span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"sizeof(a) = "</span> &lt;&lt; <span class="keyword">sizeof</span>(a) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">//sizeof(a) = 4</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"sizeof(b) = "</span> &lt;&lt; <span class="keyword">sizeof</span>(b) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">//sizeof(b) = 4</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"sizeof(c) = "</span> &lt;&lt; <span class="keyword">sizeof</span>(c) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">//sizeof(c) = 8</span></span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>编译时指针在符号表对应的地址值时指针变量的地址值，引用对用的是引用对象的地址值</li>
+</li>
+<li><p>编译时指针在符号表对应的地址值时指针变量的地址值，引用对用的是引用对象的地址值</p>
+</li>
 </ol>
 
           

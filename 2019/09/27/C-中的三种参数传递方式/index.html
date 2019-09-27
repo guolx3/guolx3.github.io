@@ -88,7 +88,7 @@
 <meta property="og:description" content="值传递值传递会将实参拷贝一份副本作为局部变量传进函数，在函数内修改该副本不会改变原来实参的值 指针传递指针传递本质上也是值传递，只是传递的值是指针变量存储的地址值。修改该地址值指向的变量可以修改变量的值 引用传递形参相当于实参的别名，对形参的操作就是对实参的操作。 123456789101112131415161718192021222324252627#include &amp;lt;iostream&amp;">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/09/27/C-中的三种参数传递方式/images/1232435.png">
-<meta property="og:updated_time" content="2019-09-27T02:59:19.064Z">
+<meta property="og:updated_time" content="2019-09-27T03:01:57.785Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++中的三种参数传递方式">
 <meta name="twitter:description" content="值传递值传递会将实参拷贝一份副本作为局部变量传进函数，在函数内修改该副本不会改变原来实参的值 指针传递指针传递本质上也是值传递，只是传递的值是指针变量存储的地址值。修改该地址值指向的变量可以修改变量的值 引用传递形参相当于实参的别名，对形参的操作就是对实参的操作。 123456789101112131415161718192021222324252627#include &amp;lt;iostream&amp;">
@@ -353,12 +353,10 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2019</span>;</span><br><span class="line"><span class="keyword">int</span>&amp; b = a; <span class="comment">// int&amp; b; error: 'b' declared as reference but not initialized</span></span><br><span class="line"><span class="keyword">int</span>* c; <span class="comment">//不报错</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>sizeof(引用)得到的时引用变量的大小，sizeof(指针)得到的时指针变量的大小</p>
-</li>
-</ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2019</span>;</span><br><span class="line"><span class="keyword">int</span>&amp; b = a;</span><br><span class="line"><span class="keyword">int</span>* c = &amp;a;</span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"sizeof(a) = "</span> &lt;&lt; <span class="keyword">sizeof</span>(a) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">//sizeof(a) = 4</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"sizeof(b) = "</span> &lt;&lt; <span class="keyword">sizeof</span>(b) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">//sizeof(b) = 4</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"sizeof(c) = "</span> &lt;&lt; <span class="keyword">sizeof</span>(c) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">//sizeof(c) = 8</span></span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>编译时指针在符号表对应的地址值时指针变量的地址值，引用对用的是引用对象的地址值</li>
+</li>
+<li><p>编译时指针在符号表对应的地址值时指针变量的地址值，引用对用的是引用对象的地址值</p>
+</li>
 </ol>
 
       
