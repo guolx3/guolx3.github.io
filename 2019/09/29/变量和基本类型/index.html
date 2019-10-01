@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="C++,">
 
 
 
@@ -79,13 +79,21 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="guolx&#39;s notes">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+<meta name="description" content="基本数据类型C++的基本数据类型包括算术类型和空类型 算术类型算数类型所占的比特数在不同机器上会有所差别。 C++标准规定了尺寸的最小值，允许编译器赋予这些类型更大的尺寸 C++ 语言规定：  int至少和short一样大 long至少和int一样大 long long时C++11新定义的，至少和long一样大  在我的电脑上(win10 64位)使用sizeof计算得出的基本数据类型的大小如下">
+<meta name="keywords" content="C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="变量和基本类型">
+<meta property="og:url" content="http://yoursite.com/2019/09/29/变量和基本类型/index.html">
 <meta property="og:site_name" content="guolx&#39;s notes">
+<meta property="og:description" content="基本数据类型C++的基本数据类型包括算术类型和空类型 算术类型算数类型所占的比特数在不同机器上会有所差别。 C++标准规定了尺寸的最小值，允许编译器赋予这些类型更大的尺寸 C++ 语言规定：  int至少和short一样大 long至少和int一样大 long long时C++11新定义的，至少和long一样大  在我的电脑上(win10 64位)使用sizeof计算得出的基本数据类型的大小如下">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/09/29/变量和基本类型/images/2019-09-29144205.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/29/变量和基本类型/images/224109.png">
+<meta property="og:updated_time" content="2019-09-30T13:28:09.663Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="guolx&#39;s notes">
+<meta name="twitter:title" content="变量和基本类型">
+<meta name="twitter:description" content="基本数据类型C++的基本数据类型包括算术类型和空类型 算术类型算数类型所占的比特数在不同机器上会有所差别。 C++标准规定了尺寸的最小值，允许编译器赋予这些类型更大的尺寸 C++ 语言规定：  int至少和short一样大 long至少和int一样大 long long时C++11新定义的，至少和long一样大  在我的电脑上(win10 64位)使用sizeof计算得出的基本数据类型的大小如下">
+<meta name="twitter:image" content="http://yoursite.com/2019/09/29/变量和基本类型/images/2019-09-29144205.png">
 
 
 
@@ -115,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2019/">
+  <link rel="canonical" href="http://yoursite.com/2019/09/29/变量和基本类型/">
 
 
 
 
 
-  <title>归档 | guolx's notes</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>变量和基本类型 | guolx's notes</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -140,7 +148,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-archive">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -244,391 +252,180 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/29/变量和基本类型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="沐沐">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="guolx's notes">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">变量和基本类型</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-29T14:44:11+08:00">
+                2019-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 26 篇日志。 继续努力。
-      </span>
 
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/29/变量和基本类型/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/09/29/变量和基本类型/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
-        
+          
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/30/C-中的类型转换/" itemprop="url">
-              
-                <span itemprop="name">未命名</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-30T22:02:59+08:00" content="2019-09-30">
-          09-30
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+        </div>
+      </header>
+    
 
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/29/变量和基本类型/" itemprop="url">
-              
-                <span itemprop="name">变量和基本类型</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-29T14:44:11+08:00" content="2019-09-29">
-          09-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/27/并发控制/" itemprop="url">
-              
-                <span itemprop="name">并发控制</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-27T20:58:57+08:00" content="2019-09-27">
-          09-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/27/事务管理/" itemprop="url">
-              
-                <span itemprop="name">事务管理</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-27T16:27:49+08:00" content="2019-09-27">
-          09-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h1 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h1><p>C++的基本数据类型包括<strong>算术类型</strong>和<strong>空类型</strong></p>
+<h2 id="算术类型"><a href="#算术类型" class="headerlink" title="算术类型"></a>算术类型</h2><p>算数类型所占的比特数在不同机器上会有所差别。 C++标准规定了尺寸的最小值，允许编译器赋予这些类型更大的尺寸<br><img src="images/2019-09-29144205.png" alt></p>
+<p>C++ 语言规定：</p>
+<ul>
+<li>int至少和short一样大</li>
+<li>long至少和int一样大</li>
+<li>long long时C++11新定义的，至少和long一样大</li>
+</ul>
+<p>在我的电脑上(win10 64位)使用<code>sizeof</code>计算得出的基本数据类型的大小如下<br><img src="images/224109.png" alt></p>
+<h2 id="带符号和无符号类型"><a href="#带符号和无符号类型" class="headerlink" title="带符号和无符号类型"></a>带符号和无符号类型</h2><p>除了bool，其他整型可以分成带符号的signed和无符号unsigned两种。</p>
+<ul>
+<li>signed: 正数，零，负数</li>
+<li>unsigned: 仅表示大于或等于零的值</li>
+</ul>
+<p>int,short,long和long long默认是带符号的，通过在类型名前添加unsigned可以得到无符号类型。</p>
+<h2 id="选择类型的一些建议"><a href="#选择类型的一些建议" class="headerlink" title="选择类型的一些建议"></a>选择类型的一些建议</h2><ol>
+<li>使用int进行整数运算。 short常常太小，long常常跟int一样大。如果超过了int的范围，选用long long</li>
+<li>算数表达式中不要使用char和bool</li>
+<li>使用double进行浮点运算。 float通常精度不够，且单精度和双精度的计算代价相差不大</li>
+</ol>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/27/C-内存分区/" itemprop="url">
-              
-                <span itemprop="name">C++内存分区</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-27T11:05:27+08:00" content="2019-09-27">
-          09-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/27/C-中的三种参数传递方式/" itemprop="url">
-              
-                <span itemprop="name">C++中的三种参数传递方式</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-27T09:15:07+08:00" content="2019-09-27">
-          09-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/27/树和二叉树/" itemprop="url">
-              
-                <span itemprop="name">树和二叉树</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-27T08:12:04+08:00" content="2019-09-27">
-          09-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/22/C-内存泄漏/" itemprop="url">
-              
-                <span itemprop="name">C++内存泄漏</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-22T20:25:04+08:00" content="2019-09-22">
-          09-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/22/C-内联函数/" itemprop="url">
-              
-                <span itemprop="name">C++的内联函数</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-22T17:12:49+08:00" content="2019-09-22">
-          09-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/17/内存管理4——虚拟内存/" itemprop="url">
-              
-                <span itemprop="name">内存管理4——虚拟内存</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-17T10:01:01+08:00" content="2019-09-17">
-          09-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/27/并发控制/" rel="next" title="并发控制">
+                <i class="fa fa-chevron-left"></i> 并发控制
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/30/C-中的类型转换/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="page-number" href="/archives/2019/page/3/">3</a><a class="extend next" rel="next" href="/archives/2019/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -636,6 +433,20 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -656,8 +467,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -719,6 +539,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本数据类型"><span class="nav-number">1.</span> <span class="nav-text">基本数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#算术类型"><span class="nav-number">1.1.</span> <span class="nav-text">算术类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#带符号和无符号类型"><span class="nav-number">1.2.</span> <span class="nav-text">带符号和无符号类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择类型的一些建议"><span class="nav-number">1.3.</span> <span class="nav-text">选择类型的一些建议</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -859,6 +695,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -876,6 +716,18 @@
       <script id="dsq-count-scr" src="https://guolx.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2019/09/29/变量和基本类型/';
+          this.page.identifier = '2019/09/29/变量和基本类型/';
+          this.page.title = '变量和基本类型';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://guolx.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   

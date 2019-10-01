@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="在某些情况下，类型转换会自动执行无需程序员借入，这种类型转换称为隐式转换；程序员也可以显式的将对象转换为另一种类型，这种方法称为强制类型转换cast 隐式转换算数转换">
+<meta name="description" content="在某些情况下，类型转换会自动执行无需程序员借入，这种类型转换称为隐式转换；程序员也可以显式的将对象转换为另一种类型，这种方法称为强制类型转换cast 隐式转换发生隐式转换的场景有：  初始化过程中，初始值转换成变量的类型；赋值语句中，右侧运算对象转换称左侧运算对象类型。 123456bool b = 42; // b为真int i = b; // i = 1i = 3.14; // i = 3do">
 <meta name="keywords" content="C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++中的类型转换">
 <meta property="og:url" content="http://yoursite.com/2019/09/10/C-中的类型转换/index.html">
 <meta property="og:site_name" content="guolx&#39;s notes">
-<meta property="og:description" content="在某些情况下，类型转换会自动执行无需程序员借入，这种类型转换称为隐式转换；程序员也可以显式的将对象转换为另一种类型，这种方法称为强制类型转换cast 隐式转换算数转换">
+<meta property="og:description" content="在某些情况下，类型转换会自动执行无需程序员借入，这种类型转换称为隐式转换；程序员也可以显式的将对象转换为另一种类型，这种方法称为强制类型转换cast 隐式转换发生隐式转换的场景有：  初始化过程中，初始值转换成变量的类型；赋值语句中，右侧运算对象转换称左侧运算对象类型。 123456bool b = 42; // b为真int i = b; // i = 1i = 3.14; // i = 3do">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-10T10:15:33.838Z">
+<meta property="og:updated_time" content="2019-10-01T15:21:50.362Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++中的类型转换">
-<meta name="twitter:description" content="在某些情况下，类型转换会自动执行无需程序员借入，这种类型转换称为隐式转换；程序员也可以显式的将对象转换为另一种类型，这种方法称为强制类型转换cast 隐式转换算数转换">
+<meta name="twitter:description" content="在某些情况下，类型转换会自动执行无需程序员借入，这种类型转换称为隐式转换；程序员也可以显式的将对象转换为另一种类型，这种方法称为强制类型转换cast 隐式转换发生隐式转换的场景有：  初始化过程中，初始值转换成变量的类型；赋值语句中，右侧运算对象转换称左侧运算对象类型。 123456bool b = 42; // b为真int i = b; // i = 1i = 3.14; // i = 3do">
 
 
 
@@ -341,7 +341,76 @@
 
       
         <p>在某些情况下，类型转换会自动执行无需程序员借入，这种类型转换称为<strong>隐式转换</strong>；程序员也可以显式的将对象转换为另一种类型，这种方法称为<strong>强制类型转换cast</strong></p>
-<h1 id="隐式转换"><a href="#隐式转换" class="headerlink" title="隐式转换"></a>隐式转换</h1><h2 id="算数转换"><a href="#算数转换" class="headerlink" title="算数转换"></a>算数转换</h2>
+<h1 id="隐式转换"><a href="#隐式转换" class="headerlink" title="隐式转换"></a>隐式转换</h1><p>发生隐式转换的场景有：</p>
+<ol>
+<li><p>初始化过程中，初始值转换成变量的类型；赋值语句中，右侧运算对象转换称左侧运算对象类型。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bool</span> b = <span class="number">42</span>; <span class="comment">// b为真</span></span><br><span class="line"><span class="keyword">int</span> i = b; <span class="comment">// i = 1</span></span><br><span class="line">i = <span class="number">3.14</span>; <span class="comment">// i = 3</span></span><br><span class="line"><span class="keyword">double</span> f = i; <span class="comment">// f = 3.0</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> c = <span class="number">-1</span>; <span class="comment">// c = 4294967295</span></span><br><span class="line"><span class="keyword">int</span> d = <span class="number">4294967296</span>; <span class="comment">// warning: overflow in implicit constant conversion</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>当赋给无符号类型的初始值超出范围时，它的实际值是初始值对该类型总大小取模之后的余数。</li>
+<li>当赋给有符号类型的初始值超出范围时，它的实际值是未定义的</li>
+</ul>
+</li>
+<li><p>整数提升。将小整数类型转换成较大的整数类型。转换后的类型要能容纳原类型所有可能的值</p>
+</li>
+<li><p>在条件中，非布尔值转换成布尔类型</p>
+</li>
+<li><p>如果算术运算或关系运算有多种类型则转换成同一种类型，尽量不损失精度</p>
+</li>
+<li><p>数组转成指针。 在大多数数组的表达式中，数组自动转换成指向数组首元素的指针</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> ia[<span class="number">10</span>];</span><br><span class="line"><span class="keyword">int</span>* ip = ia; <span class="comment">//ia为指向数组首个元素的指针</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>注意，当数组被用作<code>decltype</code>的参数，或者作为取地址符<code>&amp;</code>，<code>sizeof</code>及<code>typeid</code>的运算对象时，上述转换不会发生。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> ia[<span class="number">10</span>];</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="keyword">typeid</span>(ia).name() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// A10_i</span></span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>转换成常量。允许指向非常量的指针和引用，允许转换成指向相应的常量类型的指针。<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span>&amp; j = i;</span><br><span class="line">j = <span class="number">5</span>; <span class="comment">// error: assignment of read-only reference 'j'</span></span><br><span class="line">i = <span class="number">5</span>; <span class="comment">// 不报错</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="显式转换-强制转换"><a href="#显式转换-强制转换" class="headerlink" title="显式转换/强制转换"></a>显式转换/强制转换</h1><p><code>cast-name&lt;type&gt;(expression)</code> </p>
+<ul>
+<li><code>type</code>: 要转换成的目标类型</li>
+<li><code>expression</code>： 要转换的值</li>
+<li><code>cast-name</code>：包括<strong>static_cast</strong>，<strong>dynamic_cast</strong>， <strong>const_cast</strong>， <strong>reinterpret_cast</strong></li>
+</ul>
+<h2 id="static-cast"><a href="#static-cast" class="headerlink" title="static_cast"></a>static_cast</h2><p>任何具有明确定义的类型转换，只要不包含底层const。</p>
+<p>使用场景：当把一个大的算术类型赋值给较小的类型，使用<code>statci_cast</code>告诉读者和编译器这里进行强制转换不在乎精度损失。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> a = <span class="number">3.14</span>;</span><br><span class="line"><span class="keyword">int</span> b = <span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(a) + <span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="dynamic-cast"><a href="#dynamic-cast" class="headerlink" title="dynamic_cast"></a>dynamic_cast</h2><p>可以用来转换指针或引用。</p>
+<p>使用形式有:</p>
+<ul>
+<li>dynamic_cast&lt;type*&gt;(e)</li>
+<li>dynamic_cast&lt;type&amp;&gt;(e)</li>
+<li>dynamic_cast&lt;type&amp;&amp;&gt;(e)</li>
+</ul>
+<p>其中type必须是一个<strong>类</strong>，且通常含有虚函数；<br>e的类型应该是目标type或它的基类或它的派生类；<br>如果是指针类型转换失败则返回<strong>0</strong>，如果是引用类型转换失败则抛出异常</p>
+<h3 id="指针类型的转换"><a href="#指针类型的转换" class="headerlink" title="指针类型的转换"></a>指针类型的转换</h3><p>将<code>Base</code>指针<code>bp</code>转换为指向<code>Derived</code>的指针。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">(<span class="keyword">const</span> Base *bp)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(Derived* dp = <span class="keyword">dynamic_cast</span>&lt;Derived*&gt;(bp))&#123;</span><br><span class="line">        <span class="comment">//dp指向Derived对象</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment">//dp指向Base对象</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们可以对一个空指针执行dynamic_cast,结果是所需类型的空指针</p>
+<h3 id="引用类型的转换"><a href="#引用类型的转换" class="headerlink" title="引用类型的转换"></a>引用类型的转换</h3><p>由于不存在空引用，所以当转换失败时，会抛出<code>std::bad_cast</code>的异常</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">(<span class="keyword">const</span> Base&amp; b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">        <span class="keyword">const</span> Derived &amp;d = <span class="keyword">dynamic_cast</span>&lt;<span class="keyword">const</span> Derived&amp;&gt;(b);</span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">    &#125;<span class="keyword">catch</span>(bad_cast)&#123;</span><br><span class="line">        <span class="comment">//处理转换失败的情况</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="const-cast"><a href="#const-cast" class="headerlink" title="const_cast"></a>const_cast</h2><p>可以去掉对象的const性质（也可以加上const性质，但很少用）。</p>
+<p>使用场景：</p>
+<ul>
+<li>想将一个const的值传进一个非const参数的函数</li>
+<li>有函数重载的上下文中</li>
+</ul>
+<h2 id="reinterpret-cast"><a href="#reinterpret-cast" class="headerlink" title="reinterpret_cast"></a>reinterpret_cast</h2><p>将一个类型转换成无关的其他类型，新值与原始参数有完全相同的比特位。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *ip;</span><br><span class="line"><span class="keyword">char</span> *pc = <span class="keyword">reinterpret_cast</span>&lt;<span class="keyword">char</span>*&gt;(ip);</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">str</span><span class="params">(pc)</span></span>; <span class="comment">// 运行时异常</span></span><br></pre></td></tr></table></figure>
+
+<p>使用<code>reinterpret_cast</code>非常危险，容易引发糟糕的后果</p>
+<h1 id="旧的强制类型转换"><a href="#旧的强制类型转换" class="headerlink" title="旧的强制类型转换"></a>旧的强制类型转换</h1><ul>
+<li><code>type(e)</code> //函数风格</li>
+<li><code>(type)e</code> //C语言风格</li>
+</ul>
+<p><strong>缺点</strong>：从表现形式上不清晰明了，不利于调试</p>
+
       
     </div>
     
@@ -472,7 +541,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -527,7 +596,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#隐式转换"><span class="nav-number">1.</span> <span class="nav-text">隐式转换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#算数转换"><span class="nav-number">1.1.</span> <span class="nav-text">算数转换</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#隐式转换"><span class="nav-number">1.</span> <span class="nav-text">隐式转换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#显式转换-强制转换"><span class="nav-number">2.</span> <span class="nav-text">显式转换/强制转换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#static-cast"><span class="nav-number">2.1.</span> <span class="nav-text">static_cast</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dynamic-cast"><span class="nav-number">2.2.</span> <span class="nav-text">dynamic_cast</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#指针类型的转换"><span class="nav-number">2.2.1.</span> <span class="nav-text">指针类型的转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用类型的转换"><span class="nav-number">2.2.2.</span> <span class="nav-text">引用类型的转换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#const-cast"><span class="nav-number">2.3.</span> <span class="nav-text">const_cast</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reinterpret-cast"><span class="nav-number">2.4.</span> <span class="nav-text">reinterpret_cast</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#旧的强制类型转换"><span class="nav-number">3.</span> <span class="nav-text">旧的强制类型转换</span></a></li></ol></div>
             
 
           </div>
