@@ -79,20 +79,21 @@
 
 
 
-<meta name="description" content="基本数据类型C++的基本数据类型包括算术类型和空类型 算术类型算数类型所占的比特数在不同机器上会有所差别。 C++标准规定了尺寸的最小值，允许编译器赋予这些类型更大的尺寸 C++ 语言规定：  int至少和short一样大 long至少和int一样大 long long时C++11新定义的，至少和long一样大  在我的电脑上(win10 64位)使用sizeof计算得出的基本数据类型的大小如下">
+<meta name="description" content="基本数据类型C++的基本数据类型包括算术类型和空类型 算术类型算数类型的尺寸(所占的比特数)在不同机器上会有所差别。 C++标准规定了尺寸的最小值，允许编译器赋予这些类型更大的尺寸 C++ 语言规定：  int至少和short一样大 long至少和int一样大 long long时C++11新定义的，至少和long一样大  在我的电脑上(win10 64位)使用sizeof计算得出的基本数据类型的">
 <meta name="keywords" content="C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="变量和基本类型">
 <meta property="og:url" content="http://yoursite.com/2019/09/29/变量和基本类型/index.html">
 <meta property="og:site_name" content="guolx&#39;s notes">
-<meta property="og:description" content="基本数据类型C++的基本数据类型包括算术类型和空类型 算术类型算数类型所占的比特数在不同机器上会有所差别。 C++标准规定了尺寸的最小值，允许编译器赋予这些类型更大的尺寸 C++ 语言规定：  int至少和short一样大 long至少和int一样大 long long时C++11新定义的，至少和long一样大  在我的电脑上(win10 64位)使用sizeof计算得出的基本数据类型的大小如下">
+<meta property="og:description" content="基本数据类型C++的基本数据类型包括算术类型和空类型 算术类型算数类型的尺寸(所占的比特数)在不同机器上会有所差别。 C++标准规定了尺寸的最小值，允许编译器赋予这些类型更大的尺寸 C++ 语言规定：  int至少和short一样大 long至少和int一样大 long long时C++11新定义的，至少和long一样大  在我的电脑上(win10 64位)使用sizeof计算得出的基本数据类型的">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/09/29/变量和基本类型/images/2019-09-29144205.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/29/变量和基本类型/images/224109.png">
-<meta property="og:updated_time" content="2019-09-30T13:28:09.663Z">
+<meta property="og:image" content="http://yoursite.com/images/2019-10-02110020.png">
+<meta property="og:updated_time" content="2019-10-02T13:18:20.524Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="变量和基本类型">
-<meta name="twitter:description" content="基本数据类型C++的基本数据类型包括算术类型和空类型 算术类型算数类型所占的比特数在不同机器上会有所差别。 C++标准规定了尺寸的最小值，允许编译器赋予这些类型更大的尺寸 C++ 语言规定：  int至少和short一样大 long至少和int一样大 long long时C++11新定义的，至少和long一样大  在我的电脑上(win10 64位)使用sizeof计算得出的基本数据类型的大小如下">
+<meta name="twitter:description" content="基本数据类型C++的基本数据类型包括算术类型和空类型 算术类型算数类型的尺寸(所占的比特数)在不同机器上会有所差别。 C++标准规定了尺寸的最小值，允许编译器赋予这些类型更大的尺寸 C++ 语言规定：  int至少和short一样大 long至少和int一样大 long long时C++11新定义的，至少和long一样大  在我的电脑上(win10 64位)使用sizeof计算得出的基本数据类型的">
 <meta name="twitter:image" content="http://yoursite.com/2019/09/29/变量和基本类型/images/2019-09-29144205.png">
 
 
@@ -344,7 +345,7 @@
 
       
         <h1 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h1><p>C++的基本数据类型包括<strong>算术类型</strong>和<strong>空类型</strong></p>
-<h2 id="算术类型"><a href="#算术类型" class="headerlink" title="算术类型"></a>算术类型</h2><p>算数类型所占的比特数在不同机器上会有所差别。 C++标准规定了尺寸的最小值，允许编译器赋予这些类型更大的尺寸<br><img src="images/2019-09-29144205.png" alt></p>
+<h2 id="算术类型"><a href="#算术类型" class="headerlink" title="算术类型"></a>算术类型</h2><p>算数类型的尺寸(所占的比特数)在不同机器上会有所差别。 C++标准规定了尺寸的最小值，允许编译器赋予这些类型更大的尺寸<br><img src="images/2019-09-29144205.png" alt></p>
 <p>C++ 语言规定：</p>
 <ul>
 <li>int至少和short一样大</li>
@@ -358,12 +359,113 @@
 <li>unsigned: 仅表示大于或等于零的值</li>
 </ul>
 <p>int,short,long和long long默认是带符号的，通过在类型名前添加unsigned可以得到无符号类型。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> s = <span class="number">12</span>;</span><br><span class="line">    <span class="keyword">if</span>(s &lt; <span class="number">-1</span>)&#123; <span class="comment">//输出true,负值转换成一个较大的无符号值</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"true"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"false"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="选择类型的一些建议"><a href="#选择类型的一些建议" class="headerlink" title="选择类型的一些建议"></a>选择类型的一些建议</h2><ol>
 <li>使用int进行整数运算。 short常常太小，long常常跟int一样大。如果超过了int的范围，选用long long</li>
 <li>算数表达式中不要使用char和bool</li>
 <li>使用double进行浮点运算。 float通常精度不够，且单精度和双精度的计算代价相差不大</li>
 </ol>
+<h1 id="字面值常量literal"><a href="#字面值常量literal" class="headerlink" title="字面值常量literal"></a>字面值常量literal</h1><p>如42, ‘a’, “string”这些称为字面值常量。<br>字面值常量对应的数据类型由它的形式和值决定。</p>
+<h2 id="整型和浮点型"><a href="#整型和浮点型" class="headerlink" title="整型和浮点型"></a>整型和浮点型</h2><table>
+<thead>
+<tr>
+<th>进制</th>
+<th>形式</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>十进制</td>
+<td>默认</td>
+<td>20</td>
+</tr>
+<tr>
+<td>八进制</td>
+<td>0开头</td>
+<td>024</td>
+</tr>
+<tr>
+<td>十六进制</td>
+<td>0x或0X开头</td>
+<td>0x14</td>
+</tr>
+</tbody></table>
+<ul>
+<li>十进制的字面值类型是能容纳下当前值的<code>int</code>,<code>long</code>,<code>long long</code>中尺寸最小的那个</li>
+<li>八进制和十六进制的字面值类型是能容纳下当前值的<code>int</code>,<code>unsigned int</code>,<code>long</code>,<code>unsigned long</code>, <code>long long</code>, <code>unsigned long long</code> 中尺寸最小的那个</li>
+<li>浮点型字面值默认是<code>double</code>，可以加后缀<code>f</code>来标识<code>float</code>类型<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="keyword">typeid</span>(<span class="number">3.14</span>).name() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// d</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="keyword">typeid</span>(<span class="number">3.14f</span>).name() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// f</span></span><br></pre></td></tr></table></figure>
 
+</li>
+</ul>
+<h2 id="字符和字符串"><a href="#字符和字符串" class="headerlink" title="字符和字符串"></a>字符和字符串</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'a'</span> <span class="comment">//字符字面量</span></span><br><span class="line"><span class="string">"hello world!"</span> <span class="comment">//字符串字面量</span></span><br></pre></td></tr></table></figure>
+
+<p>字符串字面量实际上是常量字符构成的数组，编译器会在每个字符串的结尾添加一个空字符(‘\0’)</p>
+<h2 id="转义序列"><a href="#转义序列" class="headerlink" title="转义序列"></a>转义序列</h2><p><img src="/images/2019-10-02110020.png" alt></p>
+<h2 id="布尔字面量"><a href="#布尔字面量" class="headerlink" title="布尔字面量"></a>布尔字面量</h2><p>布尔字面量只有<code>true</code>和<code>false</code></p>
+<h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>以下4条语句都可以初始化变量</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> b = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">c</span><span class="params">(<span class="number">0</span>)</span></span>;</span><br><span class="line"><span class="keyword">int</span> d&#123;<span class="number">0</span>&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>其中花括号初始化变量式C++11新标准的一部分。<br>使用花括号初始化存在丢失信息风险时，编译器会警告，而圆括号和直接初始化不会警告。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> l = <span class="number">3.1415926</span>;</span><br><span class="line"><span class="keyword">int</span> a&#123;l&#125;, b = &#123;l&#125;; <span class="comment">// warning: narrowing conversion of 'l' from 'double' to 'int' inside &#123; &#125;</span></span><br><span class="line">int c(l), d = l; // 不报错</span><br></pre></td></tr></table></figure>
+
+<p>通常情况下，这几种初始化方式可以等价使用，但也有例外情况：</p>
+<ol>
+<li>提供的是一个类内初始值时只能使用拷贝初始化或使用花括号形式初始化</li>
+<li>提供的是初始元素值的列表，只能用花括号进行列表初始化<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; a = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;; <span class="comment">//列表初始化</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; b = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>); <span class="comment">//错误</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="声明和定义"><a href="#声明和定义" class="headerlink" title="声明和定义"></a>声明和定义</h2><ul>
+<li>声明declaration：规定了变量的类型和名字</li>
+<li>定义definition：会申请存储空间，也可能为变量赋初始值</li>
+</ul>
+<p>如果只想声明不想定义可以使用关键字<code>extern</code></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="keyword">int</span> i; <span class="comment">//声明而非定义i</span></span><br><span class="line"><span class="keyword">int</span> j; <span class="comment">//声明并且定义j</span></span><br></pre></td></tr></table></figure>
+
+<p><code>extern</code>的作用是标示变量或函数的定义在别的文件中，提示编译器在其他模块寻找它的定义</p>
+<p>变量只能被定义一次，但可以多次声明；<br>区分声明与定义主要是为了在多个文件中使用同一个变量</p>
+<h1 id="复合类型"><a href="#复合类型" class="headerlink" title="复合类型"></a>复合类型</h1><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>格式：<code>type&amp;</code>, 其中type是引用类型指向的类型</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">2019</span>;</span><br><span class="line"><span class="keyword">int</span> &amp;j = i;</span><br><span class="line">j++;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"i = "</span> &lt;&lt; i &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// i = 2020</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>引用即对象的别名。</li>
+<li>引用必须被初始化。在初始化时，引用会与初始值对象绑定在一起，且无法重新绑定另一个对象。</li>
+<li>对引用的操作就是对原对象的操作</li>
+</ul>
+<h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><p>格式：<code>type*</code>，其中type为指针指向的类型<br>指针类型存放着指向类型的地址, 获取变量的地址需要使用取地址符<code>&amp;</code></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">int</span> *ip = &amp;i; <span class="comment">// &amp;i取得变量i的地址，赋给指针变量ip</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="解引用符"><a href="#解引用符" class="headerlink" title="解引用符*"></a>解引用符<code>*</code></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cout</span> &lt;&lt; *ip &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 由解引用符*取得指针ip指向的对象，输出2</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="空指针nullptr"><a href="#空指针nullptr" class="headerlink" title="空指针nullptr"></a>空指针<code>nullptr</code></h3><p>C++11标准中使用一种特数的字面值<code>nullptr</code>来初始化空指针，它可以被转换成任何其他类型的指针</p>
+<h3 id="void-指针"><a href="#void-指针" class="headerlink" title="void*指针"></a>void*指针</h3><p><code>void*</code>可以存放任意对象的地址，不能直接操作<code>void*</code>所指的对象<br>用途：</p>
+<ul>
+<li>与别的指针比较</li>
+<li>作为函数的输入或输出</li>
+<li>赋给另一个<code>void*</code>指针</li>
+</ul>
+<h2 id="指针的引用的区别"><a href="#指针的引用的区别" class="headerlink" title="指针的引用的区别"></a>指针的引用的区别</h2><ol>
+<li><p>指针本质是一个变量，在逻辑上时独立的，引用是某个变量的别名，在逻辑上依附与某个变量，在定义引用时必须初始化</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2019</span>;</span><br><span class="line"><span class="keyword">int</span>&amp; b = a; <span class="comment">// int&amp; b; error: 'b' declared as reference but not initialized</span></span><br><span class="line"><span class="keyword">int</span>* c; <span class="comment">//不报错</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>sizeof(引用)得到的时引用变量的大小，sizeof(指针)得到的时指针变量的大小</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2019</span>;</span><br><span class="line"><span class="keyword">int</span>&amp; b = a;</span><br><span class="line"><span class="keyword">int</span>* c = &amp;a;</span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"sizeof(a) = "</span> &lt;&lt; <span class="keyword">sizeof</span>(a) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">//sizeof(a) = 4</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"sizeof(b) = "</span> &lt;&lt; <span class="keyword">sizeof</span>(b) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">//sizeof(b) = 4</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"sizeof(c) = "</span> &lt;&lt; <span class="keyword">sizeof</span>(c) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">//sizeof(c) = 8</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译时指针在符号表对应的地址值时指针变量的地址值，引用对用的是引用对象的地址值</p>
+</li>
+</ol>
+<h2 id="定义复合变量的两种写法"><a href="#定义复合变量的两种写法" class="headerlink" title="定义复合变量的两种写法"></a>定义复合变量的两种写法</h2><ol>
+<li><p><code>&amp;</code>, <code>*</code>和变量名挨在一起</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">4</span>;</span><br><span class="line"><span class="keyword">int</span> *p = &amp;i;</span><br><span class="line"><span class="keyword">int</span> &amp;b = i;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>&amp;</code>, <code>*</code>和类型名挨在一起</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">4</span>;</span><br><span class="line"><span class="keyword">int</span>* p = &amp;i;</span><br><span class="line"><span class="keyword">int</span>&amp; b = i;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>两种都合法，但推荐第一种，因为<code>&amp;</code>,<code>*</code>是修饰变量的。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>* p1, p2; <span class="comment">// 只有p1是指针，p2是int</span></span><br><span class="line"><span class="keyword">int</span> *p1, *p2; <span class="comment">// p1和p2都是指针</span></span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -402,6 +504,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/02/MarkdownEditing插件的常用快捷键/" rel="prev" title="MarkdownEditing插件的常用快捷键">
+                MarkdownEditing插件的常用快捷键 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -490,7 +596,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -545,7 +651,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本数据类型"><span class="nav-number">1.</span> <span class="nav-text">基本数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#算术类型"><span class="nav-number">1.1.</span> <span class="nav-text">算术类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#带符号和无符号类型"><span class="nav-number">1.2.</span> <span class="nav-text">带符号和无符号类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择类型的一些建议"><span class="nav-number">1.3.</span> <span class="nav-text">选择类型的一些建议</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本数据类型"><span class="nav-number">1.</span> <span class="nav-text">基本数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#算术类型"><span class="nav-number">1.1.</span> <span class="nav-text">算术类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#带符号和无符号类型"><span class="nav-number">1.2.</span> <span class="nav-text">带符号和无符号类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择类型的一些建议"><span class="nav-number">1.3.</span> <span class="nav-text">选择类型的一些建议</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字面值常量literal"><span class="nav-number">2.</span> <span class="nav-text">字面值常量literal</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#整型和浮点型"><span class="nav-number">2.1.</span> <span class="nav-text">整型和浮点型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符和字符串"><span class="nav-number">2.2.</span> <span class="nav-text">字符和字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#转义序列"><span class="nav-number">2.3.</span> <span class="nav-text">转义序列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#布尔字面量"><span class="nav-number">2.4.</span> <span class="nav-text">布尔字面量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#变量"><span class="nav-number">3.</span> <span class="nav-text">变量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化"><span class="nav-number">3.1.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#声明和定义"><span class="nav-number">3.2.</span> <span class="nav-text">声明和定义</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#复合类型"><span class="nav-number">4.</span> <span class="nav-text">复合类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#引用"><span class="nav-number">4.1.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指针"><span class="nav-number">4.2.</span> <span class="nav-text">指针</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解引用符"><span class="nav-number">4.2.1.</span> <span class="nav-text">解引用符*</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空指针nullptr"><span class="nav-number">4.2.2.</span> <span class="nav-text">空指针nullptr</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#void-指针"><span class="nav-number">4.2.3.</span> <span class="nav-text">void*指针</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指针的引用的区别"><span class="nav-number">4.3.</span> <span class="nav-text">指针的引用的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义复合变量的两种写法"><span class="nav-number">4.4.</span> <span class="nav-text">定义复合变量的两种写法</span></a></li></ol></li></ol></div>
             
 
           </div>

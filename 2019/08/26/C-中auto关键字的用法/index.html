@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="guolx&#39;s notes">
 <meta property="og:description" content="C++98中的auto用于声明变量为自动变量，自动变量拥有自动的生命期；C++11中的auto用于自动为变量匹配类型 用法1 基本用法 auto b = &amp;#39;c&amp;#39;;2 简化代码1234567for(std::vector&amp;lt;string&amp;gt;::iterator i = v.begin(); i != v.end(); i++)&amp;#123;		//...&amp;#125;for(au">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-26T03:25:31.278Z">
+<meta property="og:updated_time" content="2019-10-02T11:27:39.505Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++中auto关键字的用法">
 <meta name="twitter:description" content="C++98中的auto用于声明变量为自动变量，自动变量拥有自动的生命期；C++11中的auto用于自动为变量匹配类型 用法1 基本用法 auto b = &amp;#39;c&amp;#39;;2 简化代码1234567for(std::vector&amp;lt;string&amp;gt;::iterator i = v.begin(); i != v.end(); i++)&amp;#123;		//...&amp;#125;for(au">
@@ -350,7 +350,7 @@
 <p>decltype操作符用于查询表达式的数据类型，C++11引入的新运算符</p>
 <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
 <li>auto变量必须在定义时初始化</li>
-<li>定义一个auto序列必须推导成同一类型</li>
+<li>在同一行定义的多个auto对象必须推导成同一类型</li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> a = <span class="number">10</span>, b = <span class="number">11</span>, c = <span class="number">34</span>; <span class="comment">//正确</span></span><br><span class="line"><span class="keyword">auto</span> a = <span class="number">10</span>, b = <span class="string">'1'</span>, c= <span class="number">10.0</span>; <span class="comment">//错误</span></span><br></pre></td></tr></table></figure>
 
@@ -359,7 +359,7 @@
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> &amp;b = a;</span><br><span class="line"><span class="keyword">auto</span> c = b; <span class="comment">//c的类型为int而不是int&amp;</span></span><br><span class="line"><span class="keyword">auto</span> &amp;d = b; <span class="comment">//c的类型时int&amp;</span></span><br></pre></td></tr></table></figure>
 
-<p>4.如果初始化表达式为const或volatile，去除const/volatile语义;如果声明为引用类型，则不去除const语义</p>
+<p>4.如果初始化表达式为const或volatile，去除const/volatile语义;如果声明为引用类型，则不去除const语义<br>(auto通常忽略顶层const, 保持底层const)</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">auto</span> b = a; <span class="comment">//b的类型时int而不是const int</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">auto</span> c = a; <span class="comment">//c的类型是const int</span></span><br><span class="line"><span class="keyword">auto</span> &amp;d = a; <span class="comment">//d的类型是const int</span></span><br></pre></td></tr></table></figure>
 
 <p>5.初始化表达式为数组时，auto关键字推导类型为指针；若带上&amp;，则推导类型为数组</p>
@@ -501,7 +501,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

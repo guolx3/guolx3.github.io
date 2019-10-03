@@ -259,6 +259,681 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/22/C-内存泄漏/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="沐沐">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="guolx's notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/22/C-内存泄漏/" itemprop="url">C++内存泄漏</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-22T20:25:04+08:00">
+                2019-09-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/22/C-内存泄漏/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/09/22/C-内存泄漏/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="内存泄漏的几种常见情况"><a href="#内存泄漏的几种常见情况" class="headerlink" title="内存泄漏的几种常见情况"></a>内存泄漏的几种常见情况</h2><ol>
+<li><p>忘记delete<br><code>new</code>和<code>delete</code>应该配套使用</p>
+</li>
+<li><p>释放数组没有使用delete[]</p>
+</li>
+<li><p>双指针释放错误<br>正确释放方法如下</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span>** p;</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++)&#123;</span><br><span class="line">    <span class="keyword">delete</span>[] p[i];</span><br><span class="line">    p[i] = <span class="literal">nullptr</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">delete</span>[] p;</span><br><span class="line">p = <span class="literal">nullptr</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>基类的析构函数没有定义为虚函数<br>如果基类的析构函数不是虚函数，当基类指针指向子类时，子类的资源不能正确释放</p>
+</li>
+</ol>
+<h2 id="内存泄漏的解决方法"><a href="#内存泄漏的解决方法" class="headerlink" title="内存泄漏的解决方法"></a>内存泄漏的解决方法</h2><ol>
+<li>使用智能指针</li>
+<li>可以使用一些工具，比如<a href="http://vld.codeplex.com/" target="_blank" rel="noopener">VLD</a>, 一个免费的、开源的、强大的内存泄露检测系统，可以安装当作VS的一个插件</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/22/C-内联函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="沐沐">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="guolx's notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/22/C-内联函数/" itemprop="url">C++的内联函数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-22T17:12:49+08:00">
+                2019-09-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/22/C-内联函数/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/09/22/C-内联函数/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a, b;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; sum(a, b) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在函数体前加上<code>inline</code>关键字可以将函数设置为内联函数。<br>在编译时，编译器会将调用内联函数的地方替换成内联函数体。<br>内联函数的作用是用空间换时间，牺牲一定的内存来节省函数调用的开销。</p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ol>
+<li>内联函数中<strong>不能使用循环和switch</strong></li>
+<li>内联函数<strong>不能递归调用</strong>自己</li>
+<li>内联函数<strong>不能调用其他函数</strong></li>
+<li><strong>代码行数较少且调用频繁的</strong>函数推荐使用内联函数</li>
+<li><code>inline</code>关键字只是对编译器的一种建议，被<code>inline</code>修饰的函数不一定被内联。如果函数体过大，编译器会放弃内联而把代码当成普通函数</li>
+</ol>
+<h2 id="与宏定义的区别"><a href="#与宏定义的区别" class="headerlink" title="与宏定义的区别"></a>与宏定义的区别</h2><ul>
+<li>宏在编译之前完成文本替换，内联函数在编译时被处理</li>
+<li>内联函数本质是函数，可以像普通函数一样调用，不像宏定义那样需要加上括号来防止歧义</li>
+<li>最好用内联函数来代替宏定义</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/17/内存管理4——虚拟内存/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="沐沐">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="guolx's notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/17/内存管理4——虚拟内存/" itemprop="url">内存管理4——虚拟内存</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-17T10:01:01+08:00">
+                2019-09-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/17/内存管理4——虚拟内存/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/09/17/内存管理4——虚拟内存/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>之前讨论的几种管理方式都具有一下两种特征：</p>
+<ul>
+<li>一次性。 作业必须一次性全部装入内存后才开始运行，导致当作业过大时不能被全部装入</li>
+<li>驻留性。 作业装入内存后，一直驻留在内存中，运行中的进程会因为等待I/O而被阻塞，可能长期处于等待状态</li>
+</ul>
+<p>为此，可以采用<strong>虚存</strong>技术，使得在进程运行时并不需要所有页（段）都在内存中，只在需要的时候读取页（段）。</p>
+<p>虚拟内存的实现需要一定的硬件支持，一般包括：</p>
+<ul>
+<li>一定容量的内存和外存。</li>
+<li>页表机制（段表机制）。</li>
+<li>中断机构。当用户程序要访问的部分尚未调入内存时，则产生中断</li>
+<li>地址变换机构。逻辑地址到物理地址的转换</li>
+</ul>
+<h1 id="局部性原理"><a href="#局部性原理" class="headerlink" title="局部性原理"></a>局部性原理</h1><ul>
+<li>时间局部性。 执行的指令可能在不久后再次执行，被访问的数据可能在不久后再次被访问。 原因之一时程序中存在大量的循环语句</li>
+<li>空间局部性。 一旦程序访问了某存储单元，则其附近的存储单元也可能被访问。 原因之一时指令通常时顺序存放的，数据也一般是以数组，表等形式存在</li>
+</ul>
+<h1 id="请求分页管理方式"><a href="#请求分页管理方式" class="headerlink" title="请求分页管理方式"></a>请求分页管理方式</h1><p>请求分页管理方式在基本分页管理方式的基础上增加了<strong>请求调页</strong>功能和<strong>页面置换</strong>功能。<br>这是目前最常用的一种实现虚拟存储器的方法</p>
+<h2 id="页表机制"><a href="#页表机制" class="headerlink" title="页表机制"></a>页表机制</h2><p><img src="images/124325e.png" alt></p>
+<ul>
+<li>状态位P：指示该页是否已经调入内存</li>
+<li>访问字段A：记录访问相关的信息，例如一段时间内被访问的次数，共置换算法参考</li>
+<li>修改位M：标识该页在调入内存后是否被修改过</li>
+<li>外存地址：用于指出该页在外存的地址，通常时物理块号。</li>
+</ul>
+<h2 id="缺页中断机制"><a href="#缺页中断机制" class="headerlink" title="缺页中断机制"></a>缺页中断机制</h2><p>每当要访问的页面不在内存中时，就产生一次缺页中断。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/15/内存管理2——连续分配管理方式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="沐沐">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="guolx's notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/15/内存管理2——连续分配管理方式/" itemprop="url">内存管理2——连续分配管理方式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-15T20:43:58+08:00">
+                2019-09-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/15/内存管理2——连续分配管理方式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/09/15/内存管理2——连续分配管理方式/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="单一连续分配"><a href="#单一连续分配" class="headerlink" title="单一连续分配"></a>单一连续分配</h1><p>将内存分为系统区和用户区。系统区供操作系统使用，处于低地址。用户区是除了系统区外的内存空间。<br><strong>优点</strong></p>
+<ul>
+<li>简单</li>
+<li>无外部碎片</li>
+</ul>
+<p><strong>缺点</strong></p>
+<ul>
+<li>只适合单用户的操作系统</li>
+<li>有内部碎片</li>
+<li>存储器的利用率低</li>
+</ul>
+<h1 id="固定分区"><a href="#固定分区" class="headerlink" title="固定分区"></a>固定分区</h1><p>最简单的多道程序存储管理方式。<br>将内存划分成<strong>若干个固定大小的区域</strong>，区域大小可以相等或者按规则递增，每个区域只能放入一个程序。<br>为了方便内存分配，需要一张分区说明表，每行记录分区的大小、起始地址和分配状态。分配内存时查找该表寻找合适的分区，如果没找到则不分配内存</p>
+<p><strong>优点</strong></p>
+<ul>
+<li>简单</li>
+<li>处理开销小</li>
+</ul>
+<p><strong>缺点</strong></p>
+<ul>
+<li>有内部碎片</li>
+<li>不能实现多进程共享一个主存区</li>
+</ul>
+<p>目前基本没有操作系统使用固定分区的方法</p>
+<h1 id="动态分区"><a href="#动态分区" class="headerlink" title="动态分区"></a>动态分区</h1><p>不预先划分内存，而是在进程装入内存时根据进程的大小动态建立分区，使得分区大小刚好适合进程大小</p>
+<p><strong>缺点</strong></p>
+<ul>
+<li>时间长了有外部碎片，可以用紧凑技术对进程进行移动和整理</li>
+</ul>
+<h2 id="分配策略"><a href="#分配策略" class="headerlink" title="分配策略"></a>分配策略</h2><p>如果同时又多个空闲块满足要求，需要采用一定的分配策略来决定分配哪一块</p>
+<ol>
+<li><strong>首次适应First Fit</strong>。按照地址顺序查找到的第一个合适分区。<strong>最简单、最好、最快</strong>。但是低地址会出现小的空闲分区，而每次重头开始查找都会经过这些分区，增加了查找的开销。</li>
+<li><strong>最佳适应Best Fit</strong>。将空闲分区按照容量递增排序，顺序查找到的第一个合适分区。</li>
+<li><strong>最坏适应Worst Fit</strong>。将空闲分区按照容量递增排序，顺序查找到的第一个合适分区。</li>
+<li><strong>邻近适应Next Fit</strong>。由首次适应演变而来，不同之处是从上一次查找结束的位置开始继续查找。它试图解决首次适应算法低地址空闲分区的问题，但会导致末尾的最大空闲块被分裂成小碎片。</li>
+</ol>
+<p>好的程度：首次适应&gt;邻近适应&gt;最佳适应&gt;最坏适应</p>
+<p>以上三种分区管理方式的共同点是<strong>用户进程在主存中都是连续存储的</strong></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/15/内存管理1——基本概念/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1412,790 +2087,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/26/C-中auto关键字的用法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="沐沐">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="guolx's notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/26/C-中auto关键字的用法/" itemprop="url">C++中auto关键字的用法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-26T10:42:22+08:00">
-                2019-08-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/08/26/C-中auto关键字的用法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/26/C-中auto关键字的用法/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>C++98中的auto用于声明变量为自动变量，自动变量拥有自动的生命期；<br>C++11中的auto用于自动为变量匹配类型</p>
-<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><h3 id="1-基本用法-auto-b-39-c-39"><a href="#1-基本用法-auto-b-39-c-39" class="headerlink" title="1 基本用法 auto b = &#39;c&#39;;"></a>1 基本用法 <code>auto b = &#39;c&#39;;</code></h3><h3 id="2-简化代码"><a href="#2-简化代码" class="headerlink" title="2 简化代码"></a>2 简化代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;::iterator i = v.begin(); i != v.end(); i++)&#123;</span><br><span class="line">		<span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> i = v.begin(); i != v.end(); i++)&#123;</span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-声明依赖于模板参数的变量类型"><a href="#3-声明依赖于模板参数的变量类型" class="headerlink" title="3 声明依赖于模板参数的变量类型"></a>3 声明依赖于模板参数的变量类型</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Tx, <span class="keyword">typename</span> Ty&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">multiply</span><span class="params">(Tx x, Ty y)</span></span>&#123;</span><br><span class="line">	<span class="keyword">auto</span> z = x * y;</span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-函数返回值依赖于模板参数"><a href="#4-函数返回值依赖于模板参数" class="headerlink" title="4 函数返回值依赖于模板参数"></a>4 函数返回值依赖于模板参数</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> _Tx, <span class="keyword">typename</span> _Ty&gt;</span><br><span class="line">auto multiply(_Tx x, _Ty y)-&gt;decltype(x*y)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> x*y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>decltype操作符用于查询表达式的数据类型，C++11引入的新运算符</p>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
-<li>auto变量必须在定义时初始化</li>
-<li>定义一个auto序列必须推导成同一类型</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> a = <span class="number">10</span>, b = <span class="number">11</span>, c = <span class="number">34</span>; <span class="comment">//正确</span></span><br><span class="line"><span class="keyword">auto</span> a = <span class="number">10</span>, b = <span class="string">'1'</span>, c= <span class="number">10.0</span>; <span class="comment">//错误</span></span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>如果初始化表达式是引用，则去除引用语义</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> &amp;b = a;</span><br><span class="line"><span class="keyword">auto</span> c = b; <span class="comment">//c的类型为int而不是int&amp;</span></span><br><span class="line"><span class="keyword">auto</span> &amp;d = b; <span class="comment">//c的类型时int&amp;</span></span><br></pre></td></tr></table></figure>
-
-<p>4.如果初始化表达式为const或volatile，去除const/volatile语义;如果声明为引用类型，则不去除const语义</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">auto</span> b = a; <span class="comment">//b的类型时int而不是const int</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">auto</span> c = a; <span class="comment">//c的类型是const int</span></span><br><span class="line"><span class="keyword">auto</span> &amp;d = a; <span class="comment">//d的类型是const int</span></span><br></pre></td></tr></table></figure>
-
-<p>5.初始化表达式为数组时，auto关键字推导类型为指针；若带上&amp;，则推导类型为数组</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">3</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">auto</span> b = a; <span class="comment">//b的类型是int*</span></span><br><span class="line"><span class="keyword">auto</span> &amp;c = a; <span class="comment">//c的类型是int[3]</span></span><br></pre></td></tr></table></figure>
-
-<ol start="6">
-<li>函数参数不能声明为auto</li>
-<li>auto不是真正的类型，只是一个占位符，不能使用<code>sizeof(auto)</code>、<code>typeid(auto).name()</code></li>
-</ol>
-<p>参考: <a href="https://www.cnblogs.com/KunLunSu/p/7861330.html" target="_blank" rel="noopener">C++ auto关键字的使用</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/21/leetcode-链表/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="沐沐">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="guolx's notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/21/leetcode-链表/" itemprop="url">leetcode-链表</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-21T12:17:26+08:00">
-                2019-08-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/08/21/leetcode-链表/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/21/leetcode-链表/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>约定链表节点定义为</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> val;</span><br><span class="line">	ListNode* next;</span><br><span class="line">	ListNode(<span class="keyword">int</span> x): val(x), next(<span class="literal">nullptr</span>)&#123;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h1 id="2-两数相加"><a href="#2-两数相加" class="headerlink" title="2 两数相加"></a>2 两数相加</h1><p><a href="https://leetcode-cn.com/problems/add-two-numbers/" target="_blank" rel="noopener">link</a></p>
-<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。<br>如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。<br>您可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><blockquote>
-<p>输入：(2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br>输出：7 -&gt; 0 -&gt; 8<br>原因：342 + 465 = 807</p>
-</blockquote>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><table>
-<thead>
-<tr>
-<th>测试用例</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>$l1=[0, 1]$, $l2=[0, 1, 2]$</td>
-<td>两个链表不一样长</td>
-</tr>
-<tr>
-<td>$l1=[]$, $l2=[0, 1]$</td>
-<td>有链表为空</td>
-</tr>
-<tr>
-<td>$l1=[1]$, $l2=[9, 9]$</td>
-<td>有额外的进位</td>
-</tr>
-</tbody></table>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ListNode* <span class="title">addTwoNumbers</span><span class="params">(ListNode* l1, ListNode* l2)</span> </span>&#123;</span><br><span class="line">    <span class="function">ListNode <span class="title">dummyHead</span><span class="params">(<span class="number">0</span>)</span></span>;</span><br><span class="line">    ListNode* p = &amp;dummyHead;</span><br><span class="line">    <span class="keyword">bool</span> flag = <span class="literal">false</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(l1 != <span class="literal">nullptr</span> || l2 != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> b = <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(l1 != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            a = l1-&gt;val;</span><br><span class="line">            l1 = l1-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(l2 != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            b = l2-&gt;val;</span><br><span class="line">            l2 = l2-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(flag)&#123;</span><br><span class="line">            p-&gt;next = <span class="keyword">new</span> ListNode((a + b + <span class="number">1</span>) % <span class="number">10</span>);</span><br><span class="line">            flag = (a + b + <span class="number">1</span>) &gt;= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            p-&gt;next = <span class="keyword">new</span> ListNode((a + b) % <span class="number">10</span>);</span><br><span class="line">            flag = (a + b) &gt;= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(flag)</span><br><span class="line">        p-&gt;next = <span class="keyword">new</span> ListNode(<span class="number">1</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> dummyHead.next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="19-删除链表倒数第N个节点"><a href="#19-删除链表倒数第N个节点" class="headerlink" title="19 删除链表倒数第N个节点"></a>19 删除链表倒数第N个节点</h1><p><a href="https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/" target="_blank" rel="noopener">link</a></p>
-<h2 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a>题目</h2><p>给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。</p>
-<h2 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h2><blockquote>
-<p>给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 n = 2.<br>当删除了倒数第二个节点后，链表变为 1-&gt;2-&gt;3-&gt;5.</p>
-</blockquote>
-<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><ul>
-<li>给定的 n 保证是有效的。</li>
-<li>尝试使用一趟扫描实现。</li>
-</ul>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>采用双指针<code>p1</code>，<code>p2</code>；</p>
-<ol>
-<li><code>p2</code>先向前移动$n+1$步，使得<code>p1</code>和<code>p2</code>之间间隔为n；</li>
-<li><code>p1</code>和<code>p2</code>同时向前移动，当<code>p2</code>到达链表尾部时，<code>p1</code>到达倒数第n+1个节点，即待删除节点的上一个节点</li>
-<li>删除第n个节点</li>
-</ol>
-<p><strong>注意</strong></p>
-<ul>
-<li>考虑删除头结点的情况</li>
-<li>考虑链表只有一个节点的情况</li>
-</ul>
-<h2 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ListNode* <span class="title">removeNthFromEnd</span><span class="params">(ListNode* head, <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(head == <span class="literal">nullptr</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line"></span><br><span class="line">	ListNode* p1 = head;</span><br><span class="line">	ListNode* p2 = head;</span><br><span class="line">	<span class="keyword">while</span>(n--)&#123;</span><br><span class="line">		p2 = p2-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(p2 == <span class="literal">nullptr</span>)&#123; <span class="comment">//如果要删除的是表头节点</span></span><br><span class="line">		ListNode* tmp = head;</span><br><span class="line">		head = head-&gt;next;</span><br><span class="line">		<span class="keyword">delete</span> tmp;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> head;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		p2 = p2-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(p2 != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">		p1 = p1-&gt;next;</span><br><span class="line">		p2 = p2-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	ListNode* tmp = p1-&gt;next;</span><br><span class="line">	p1-&gt;next = tmp-&gt;next;</span><br><span class="line">	<span class="keyword">delete</span> tmp;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="21-合并两个有序链表"><a href="#21-合并两个有序链表" class="headerlink" title="21 合并两个有序链表"></a>21 合并两个有序链表</h1><p><a href="https://leetcode-cn.com/problems/merge-two-sorted-lists/" target="_blank" rel="noopener">link</a></p>
-<h2 id="题目-2"><a href="#题目-2" class="headerlink" title="题目"></a>题目</h2><p>将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 </p>
-<h2 id="示例-2"><a href="#示例-2" class="headerlink" title="示例"></a>示例</h2><blockquote>
-<p>输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4<br>输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4</p>
-</blockquote>
-<h2 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h2><p>递归实现</p>
-<ol>
-<li>如果<code>l1</code>为空，返回<code>l2</code>， 如果<code>l2</code>为空，返回<code>l1</code>；</li>
-<li>把链表除了头结点的剩余部分看成新链表，当前头结点的下一个节点就是新链表与另一个链表合并后返回的头结点</li>
-<li>返回两个链表中较小的头结点</li>
-</ol>
-<h2 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ListNode* <span class="title">mergeTwoLists</span><span class="params">(ListNode* l1, ListNode* l2)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(l1 == <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> l2;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(l2 == <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> l1;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(l1-&gt;val &lt; l2-&gt;val)&#123;</span><br><span class="line">            l1-&gt;next = mergeTwoLists(l1-&gt;next, l2);</span><br><span class="line">            <span class="keyword">return</span> l1;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            l2-&gt;next = mergeTwoLists(l2-&gt;next, l1);</span><br><span class="line">            <span class="keyword">return</span> l2;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="23合并k个排序链表"><a href="#23合并k个排序链表" class="headerlink" title="23合并k个排序链表"></a>23合并k个排序链表</h1><p><a href="https://leetcode-cn.com/problems/merge-k-sorted-lists/" target="_blank" rel="noopener">link</a></p>
-<h2 id="题目-3"><a href="#题目-3" class="headerlink" title="题目"></a>题目</h2><p>合并 k 个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。</p>
-<h2 id="示例-3"><a href="#示例-3" class="headerlink" title="示例"></a>示例</h2><blockquote>
-<p>输入:<br>[<br> 1-&gt;4-&gt;5,<br> 1-&gt;3-&gt;4,<br> 2-&gt;6<br>]<br>输出: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6</p>
-</blockquote>
-<h2 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h2><h3 id="1-逐一比较"><a href="#1-逐一比较" class="headerlink" title="1 逐一比较"></a>1 逐一比较</h3><p>每次从k个链表的头结点中选择最小加入新链表</p>
-<ul>
-<li>时间复杂度 $O(kN)$, 新链表总共有$N$个节点</li>
-<li>空间复杂度 $O(1)$, 不分配新空间，只是改变next指针</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ListNode* <span class="title">mergeKLists</span><span class="params">(<span class="built_in">vector</span>&lt;ListNode*&gt;&amp; lists)</span> </span>&#123;</span><br><span class="line">    <span class="function">ListNode <span class="title">dummyHead</span><span class="params">(<span class="number">0</span>)</span></span>;</span><br><span class="line">    ListNode* p = &amp;dummyHead;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i = getMinIndex(lists)</span><br><span class="line">    <span class="keyword">while</span>(i != <span class="number">-1</span>)&#123;</span><br><span class="line">    	p-&gt;next = lists[i];</span><br><span class="line">    	lists[i] = lists[i]-&gt;next;</span><br><span class="line">    	p = p-&gt;next;</span><br><span class="line"></span><br><span class="line">    	i = getMinIndex(lists);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> dummyHead.next;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getMinIndex</span><span class="params">(<span class="built_in">vector</span>&lt;ListNode*&gt;&amp; lists)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> size = lists.size();</span><br><span class="line">	<span class="keyword">int</span> min = <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(lists[i] &amp;&amp; min == <span class="number">-1</span>)&#123;</span><br><span class="line">			min = i;</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(lists[i] &amp;&amp; (lists[i]-&gt;val &lt; lists[min]-&gt;val))&#123;</span><br><span class="line">			min = i;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> min;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>优化：比较可以用优先队列实现</p>
-<h3 id="分治-递归-自上而下"><a href="#分治-递归-自上而下" class="headerlink" title="分治(递归/自上而下)"></a>分治(递归/自上而下)</h3><p>将k个链表分成两部分，递归合并每部分</p>
-<ul>
-<li>时间复杂度$O(Nlogk)$</li>
-<li>空间复杂度$O(1)$</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ListNode* <span class="title">mergeKLists</span><span class="params">(<span class="built_in">vector</span>&lt;ListNode*&gt;&amp; lists)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> mergeK(lists, <span class="number">0</span>, lists.size() - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ListNode* <span class="title">mergeK</span><span class="params">(<span class="built_in">vector</span>&lt;ListNode*&gt;&amp; lists, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(end &lt; start)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(end == start)&#123;</span><br><span class="line">		<span class="keyword">return</span> lists[start];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(end - start == <span class="number">1</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> mergeTwo(lists[start], lists[end]);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> min = (end - start) / <span class="number">2</span> + start;</span><br><span class="line">	ListNode* l1 = mergeK(lists, start, min);</span><br><span class="line">	ListNode* l2 = mergeK(lists, min + <span class="number">1</span>, end);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> mergeTwo(l1, l2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ListNode* <span class="title">mergeTwo</span><span class="params">(ListNode* l1, ListNode* l2)</span></span>&#123;</span><br><span class="line">	<span class="function">ListNode <span class="title">dummyHead</span><span class="params">(<span class="number">0</span>)</span></span>;</span><br><span class="line">	ListNode* p = &amp;dummyHead;</span><br><span class="line">	<span class="keyword">while</span>(l1 &amp;&amp; l2)&#123;</span><br><span class="line">		<span class="keyword">if</span>(l1-&gt;val &lt;= l2-&gt;val)&#123;</span><br><span class="line">			p-&gt;next = l1;</span><br><span class="line">			l1 = l1-&gt;next;</span><br><span class="line">			p = p-&gt;next;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			p-&gt;next = l2;</span><br><span class="line">			l2 = l2-&gt;next;</span><br><span class="line">			p = p-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	p-&gt;next = l1? l1: l2;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> dummyHead.next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="141-环形链表"><a href="#141-环形链表" class="headerlink" title="141 环形链表"></a>141 环形链表</h1><p><a href="https://leetcode-cn.com/problems/linked-list-cycle/" target="_blank" rel="noopener">link</a></p>
-<h2 id="题目-4"><a href="#题目-4" class="headerlink" title="题目"></a>题目</h2><p>给定一个链表，判断链表中是否有环。<br>为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 pos 是 -1，则在该链表中没有环。</p>
-<h2 id="示例-4"><a href="#示例-4" class="headerlink" title="示例"></a>示例</h2><blockquote>
-<p>输入：head = [3,2,0,-4], pos = 1<br>输出：true<br>解释：链表中有一个环，其尾部连接到第二个节点。</p>
-</blockquote>
-<h2 id="思路-3"><a href="#思路-3" class="headerlink" title="思路"></a>思路</h2><p>设置快慢两个指针，慢指针每次移动一步，快指针每次移动两步；<br>如果有环，快指针会绕多n圈后追上慢指针并重合</p>
-<h2 id="代码-3"><a href="#代码-3" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">hasCycle</span><span class="params">(ListNode *head)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(head == <span class="literal">nullptr</span> || head-&gt;next == <span class="literal">nullptr</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">	ListNode* slow = head;</span><br><span class="line">	ListNode* fast = head-&gt;next;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(slow != fast)&#123;</span><br><span class="line">		<span class="keyword">if</span>(fast == <span class="literal">nullptr</span> || fast-&gt;next == <span class="literal">nullptr</span>)</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">		slow = slow-&gt;next;</span><br><span class="line">		fast = fast-&gt;next-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="补充问题"><a href="#补充问题" class="headerlink" title="补充问题"></a>补充问题</h2><p>已知一个有环链表，找出环路的开始位置<br><img src="/images/Snipaste_2019-08-25_13-43-42.png" alt="有环链表"></p>
-<p>设从开始位置到环开始位置的长度为$x$，开始位置到快慢指针重合位置的长度为$y$，环的剩余部分长度为$z$;<br>则慢指针走过的路程为$x+y$；<br>快指针走过的路程为$x+y+z+y$(假设快指针多走一圈就追上了慢指针)；<br>由于快指针的速度是慢指针的两倍，可得等式$2(x+y)=x+y+y+z$；<br>可以推导出$x=z$</p>
-<p>所以，我们可以用一个指针指向开始位置，一个指针指向快慢指针重合位置，两个指针用相同速度向前移动，当两个指针重合时到达环开始位置</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ListNode* <span class="title">findCycleNode</span><span class="params">(ListNode* head)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!hasCycle(head))</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line"></span><br><span class="line">	ListNode* slow = head;</span><br><span class="line">	ListNode* fast = head;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">do</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(fast == <span class="literal">nullptr</span> || fast-&gt;next == <span class="literal">nullptr</span>)</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">		slow = slow-&gt;next;</span><br><span class="line">		fast = fast-&gt;next-&gt;next;</span><br><span class="line">	&#125;<span class="keyword">while</span>(slow != fast);</span><br><span class="line"></span><br><span class="line">	ListNode* tmp = head;</span><br><span class="line">	<span class="keyword">while</span>(tmp != head)&#123;</span><br><span class="line">		tmp = tmp-&gt;next;</span><br><span class="line">		slow = slow-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="148-排序链表"><a href="#148-排序链表" class="headerlink" title="148 排序链表"></a>148 排序链表</h1><h2 id="题目-5"><a href="#题目-5" class="headerlink" title="题目"></a>题目</h2><p>在 O(n log n) 时间复杂度和常数级空间复杂度下，对链表进行排序。</p>
-<h2 id="示例-5"><a href="#示例-5" class="headerlink" title="示例"></a>示例</h2><blockquote>
-<p>输入: 4-&gt;2-&gt;1-&gt;3<br>输出: 1-&gt;2-&gt;3-&gt;4</p>
-</blockquote>
-<h2 id="思路-4"><a href="#思路-4" class="headerlink" title="思路"></a>思路</h2><p>自底向上的归并排序（先两个两个归并，再四个四个归并…）<br><img src="/images/Snipaste_2019-08-25_14-49-46.png" alt></p>
-<h2 id="代码-4"><a href="#代码-4" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"ListNode.h"</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function">ListNode* <span class="title">sortList</span><span class="params">(ListNode* head)</span></span>&#123;</span><br><span class="line">    <span class="function">ListNode <span class="title">dummyHead</span><span class="params">(<span class="number">0</span>)</span></span>;</span><br><span class="line">    dummyHead.next = head;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> length = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(head)&#123;</span><br><span class="line">        length++;</span><br><span class="line">        head = head-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; length; i = i &lt;&lt; <span class="number">1</span>)&#123;</span><br><span class="line">        ListNode* tail = &amp;dummyHead;</span><br><span class="line">        ListNode* curr = dummyHead.next;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(curr)&#123;</span><br><span class="line">            ListNode* left = curr;</span><br><span class="line">            ListNode* right = cut(left, i);</span><br><span class="line">            curr = cut(right, i);</span><br><span class="line">            tail-&gt;next = merge(left, right);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span>(tail-&gt;next)</span><br><span class="line">                tail = tail-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> dummyHead.next;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在从头往后第size个位置断开，返回后半部的头指针</span></span><br><span class="line"><span class="function">ListNode* <span class="title">cut</span><span class="params">(ListNode* head, <span class="keyword">int</span> size)</span></span>&#123;</span><br><span class="line">    ListNode* p = head;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(--size &amp;&amp; p)</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(!p) <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line"></span><br><span class="line">    ListNode* newList = p-&gt;next;</span><br><span class="line">    p-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> newList;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//合并两个排序好的链表</span></span><br><span class="line"><span class="function">ListNode* <span class="title">merge</span><span class="params">(ListNode* l1, ListNode* l2)</span></span>&#123;</span><br><span class="line">    <span class="function">ListNode <span class="title">dummyHead</span><span class="params">(<span class="number">0</span>)</span></span>;</span><br><span class="line">    ListNode* p = &amp;dummyHead;</span><br><span class="line">    <span class="keyword">while</span>(l1 &amp;&amp; l2)&#123;</span><br><span class="line">        <span class="keyword">if</span>(l1-&gt;val &lt;= l2-&gt;val)&#123;</span><br><span class="line">            p-&gt;next = l1;</span><br><span class="line">            l1 = l1-&gt;next;</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            p-&gt;next = l2;</span><br><span class="line">            l2 = l2-&gt;next;</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    p-&gt;next = l1? l1: l2;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> dummyHead.next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="160-相交链表"><a href="#160-相交链表" class="headerlink" title="160 相交链表"></a>160 相交链表</h1><p><a href="https://leetcode-cn.com/problems/intersection-of-two-linked-lists/" target="_blank" rel="noopener">link</a></p>
-<h2 id="题目-6"><a href="#题目-6" class="headerlink" title="题目"></a>题目</h2><p>编写一个程序，找到两个单链表相交的起始节点。</p>
-<h2 id="示例-6"><a href="#示例-6" class="headerlink" title="示例"></a>示例</h2><p><img src="/images/Snipaste_2019-08-21_15-15-14.png" alt="相交链表"></p>
-<blockquote>
-<p>输入：intersectVal = 8, listA = [4,1,8,4,5], listB = [5,0,1,8,4,5], skipA = 2, skipB = 3<br>输出：Reference of the node with value = 8<br>输入解释：相交节点的值为 8 （注意，如果两个列表相交则不能为 0）。从各自的表头开始算起，链表 A 为 [4,1,8,4,5]，链表 B 为 [5,0,1,8,4,5]。在 A 中，相交节点前有 2 个节点；在 B 中，相交节点前有 3 个节点。</p>
-</blockquote>
-<h2 id="思路-5"><a href="#思路-5" class="headerlink" title="思路"></a>思路</h2><ol>
-<li>使用两个指针<code>p1</code>，<code>p2</code>分别指向两个链表头部</li>
-<li>两个指针同时往前走，当走到链表尾部时，将指针设为另一个链表的头部</li>
-<li>两个指针相遇时指向的节点就是相交节点</li>
-</ol>
-<h2 id="代码-5"><a href="#代码-5" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ListNode *<span class="title">getIntersectionNode</span><span class="params">(ListNode *headA, ListNode *headB)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(headA == <span class="literal">nullptr</span> || headB == <span class="literal">nullptr</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line"></span><br><span class="line">	ListNode* p1 = headA;</span><br><span class="line">	ListNode* p2 = headB;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(p1 != p2)&#123;</span><br><span class="line">		p1 = (p1 == <span class="literal">nullptr</span>)? headB: p1-&gt;next;</span><br><span class="line">		p2 = (p2 == <span class="literal">nullptr</span>)? headA: p2-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> p1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="206-反转链表"><a href="#206-反转链表" class="headerlink" title="206 反转链表"></a>206 反转链表</h1><p><a href="https://leetcode-cn.com/problems/reverse-linked-list/" target="_blank" rel="noopener">link</a></p>
-<h2 id="题目-7"><a href="#题目-7" class="headerlink" title="题目"></a>题目</h2><p>反转一个单链表。</p>
-<h2 id="示例-7"><a href="#示例-7" class="headerlink" title="示例"></a>示例</h2><blockquote>
-<p>输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL<br>输出: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</p>
-</blockquote>
-<h2 id="思路-6"><a href="#思路-6" class="headerlink" title="思路"></a>思路</h2><h3 id="递归法"><a href="#递归法" class="headerlink" title="递归法"></a>递归法</h3><ol>
-<li>假设除了头结点外的子序列已经反转，那么反转后的子序列头节点就是完全反转序列的头结点</li>
-<li>将原头结点添加到反转后的子序列尾部</li>
-<li>返回反转后的子序列头节点</li>
-</ol>
-<p><img src="/images/Snipaste_2019-08-21_22-14-42.png" alt="反转链表递归法"></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ListNode* <span class="title">reverseList</span><span class="params">(ListNode* head)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(head == <span class="literal">nullptr</span> || head-&gt;next == <span class="literal">nullptr</span>)</span><br><span class="line">		<span class="keyword">return</span> head;</span><br><span class="line"></span><br><span class="line">	ListNode* newHead = reverseList(head-&gt;next);</span><br><span class="line">	head-&gt;next-&gt;next = head;</span><br><span class="line">	head-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> newHead;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="迭代法"><a href="#迭代法" class="headerlink" title="迭代法"></a>迭代法</h3><p>依次将节点的<code>next</code>指针反转。<br>需要用到一个指针<code>pre</code>存储前一个节点，反转前需要一个指针<code>tmp</code>暂时存储后一个节点</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ListNode* <span class="title">reverseList</span><span class="params">(ListNode* head)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(head == <span class="literal">nullptr</span> || head-&gt;next == <span class="literal">nullptr</span>)</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line"></span><br><span class="line">    ListNode* pre = <span class="literal">nullptr</span>;</span><br><span class="line">    ListNode* curr = head;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(curr != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">        ListNode* next = curr-&gt;next;</span><br><span class="line">        curr-&gt;next = pre;</span><br><span class="line">        pre = curr;</span><br><span class="line">        curr = next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> pre;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="234-回文链表"><a href="#234-回文链表" class="headerlink" title="234 回文链表"></a>234 回文链表</h1><p><a href="https://leetcode-cn.com/problems/palindrome-linked-list/" target="_blank" rel="noopener">link</a></p>
-<h2 id="题目-8"><a href="#题目-8" class="headerlink" title="题目"></a>题目</h2><p>请判断一个链表是否为回文链表。</p>
-<h2 id="示例-8"><a href="#示例-8" class="headerlink" title="示例"></a>示例</h2><blockquote>
-<p>输入: 1-&gt;2-&gt;2-&gt;1<br>输出: true</p>
-</blockquote>
-<h2 id="思路-7"><a href="#思路-7" class="headerlink" title="思路"></a>思路</h2><ol>
-<li>利用一快一慢两个指针，<code>slow</code>指针每次移动一步，<code>fast</code>指针每次移动两部，当<code>fast</code>指针移动到末尾时，<code>slow</code>指针移动到链表中间，将链表就被分成了长度相等两部分</li>
-<li><code>slow</code>指针一边移动一边反转链表</li>
-<li>遍历比较链表两部分是否相等</li>
-</ol>
-<p><strong>注意</strong></p>
-<ul>
-<li>当链表节点个数为奇数个时，<code>slow</code>最终指向中间节点，且<code>fast-&gt;next == null</code>；</li>
-<li>当链表节点个数为偶数个时，<code>slow</code>最终指向中间靠后的那个节点，且<code>fast == null</code>；</li>
-</ul>
-<p><img src="/images/huiwenlianbiao.png" alt="回文链表"></p>
-<h2 id="代码-6"><a href="#代码-6" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(ListNode* head)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(head == <span class="literal">nullptr</span> || head-&gt;next == <span class="literal">nullptr</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    ListNode* slow = head;</span><br><span class="line">    ListNode* fast = head;</span><br><span class="line">    ListNode* pre = <span class="literal">nullptr</span>;</span><br><span class="line">    ListNode* prepre = <span class="literal">nullptr</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(fast != <span class="literal">nullptr</span> &amp;&amp; fast-&gt;next != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">        pre = slow;</span><br><span class="line">        slow = slow-&gt;next;</span><br><span class="line">        fast = fast-&gt;next-&gt;next;</span><br><span class="line"></span><br><span class="line">        pre-&gt;next = prepre;</span><br><span class="line">        prepre = pre;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ListNode* p1 = pre;</span><br><span class="line">    ListNode* p2 = <span class="literal">nullptr</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(fast == <span class="literal">nullptr</span>)&#123;</span><br><span class="line">        p2 = slow;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        p2 = slow-&gt;next;</span><br><span class="line">        slow-&gt;next = pre;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(p1 != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(p1-&gt;val != p2-&gt;val)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        p1 = p1-&gt;next;</span><br><span class="line">        p2 = p2-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="237-删除链表中的节点"><a href="#237-删除链表中的节点" class="headerlink" title="237 删除链表中的节点"></a>237 删除链表中的节点</h1><p><a href="https://leetcode-cn.com/problems/delete-node-in-a-linked-list/" target="_blank" rel="noopener">link</a></p>
-<h2 id="题目-9"><a href="#题目-9" class="headerlink" title="题目"></a>题目</h2><p>请编写一个函数，使其可以删除某个链表中给定的（非末尾）节点，你将只被给定要求被删除的节点。</p>
-<h2 id="示例-9"><a href="#示例-9" class="headerlink" title="示例"></a>示例</h2><blockquote>
-<p>输入: head = [4,5,1,9], node = 5<br>输出: [4,1,9]<br>解释: 给定你链表中值为 5 的第二个节点，那么在调用了你的函数之后，该链表应变为 4 -&gt; 1 -&gt; 9.</p>
-</blockquote>
-<h2 id="说明-1"><a href="#说明-1" class="headerlink" title="说明"></a>说明</h2><ul>
-<li>链表至少包含两个节点。</li>
-<li>链表中所有节点的值都是唯一的。</li>
-<li>给定的节点为非末尾节点并且一定是链表中的一个有效节点。</li>
-<li>不要从你的函数中返回任何结果。</li>
-</ul>
-<h2 id="代码-7"><a href="#代码-7" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">deleteNode</span><span class="params">(ListNode* node)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(node == <span class="literal">nullptr</span>)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">	ListNode* tmp = node-&gt;next;</span><br><span class="line">	node-&gt;val = tmp-&gt;val;</span><br><span class="line">	node-&gt;next = tmp-&gt;next;</span><br><span class="line">	<span class="keyword">delete</span> tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="328-奇偶链表"><a href="#328-奇偶链表" class="headerlink" title="328 奇偶链表"></a>328 奇偶链表</h1><p><a href="https://leetcode-cn.com/problems/odd-even-linked-list/" target="_blank" rel="noopener">link</a></p>
-<h2 id="题目-10"><a href="#题目-10" class="headerlink" title="题目"></a>题目</h2><p>给定一个单链表，把所有的奇数节点和偶数节点分别排在一起。请注意，这里的奇数节点和偶数节点指的是节点编号的奇偶性，而不是节点的值的奇偶性。<br>请尝试使用原地算法完成。你的算法的空间复杂度应为 O(1)，时间复杂度应为 O(nodes)，nodes 为节点总数。</p>
-<h2 id="示例-10"><a href="#示例-10" class="headerlink" title="示例"></a>示例</h2><blockquote>
-<p>输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL<br>输出: 1-&gt;3-&gt;5-&gt;2-&gt;4-&gt;NULL</p>
-</blockquote>
-<h2 id="说明-2"><a href="#说明-2" class="headerlink" title="说明"></a>说明</h2><ul>
-<li>应当保持奇数节点和偶数节点的相对顺序。</li>
-<li>链表的第一个节点视为奇数节点，第二个节点视为偶数节点，以此类推。</li>
-</ul>
-<h2 id="思路-8"><a href="#思路-8" class="headerlink" title="思路"></a>思路</h2><p>使用三个指针：<code>odd</code>指向当前奇数节点，<code>even</code>指向当前偶数节点，<code>evenHead</code>指向偶数序列的起始节点</p>
-<p>1.当前奇数节点的下一个节点设为<code>even-&gt;next</code>，令奇数节点指针指向下一奇数节点<code>odd = odd-&gt;next</code><br>2.当前偶数节点的下一节点设为<code>odd-&gt;next</code>，令偶数节点指针指向下一偶数节点<code>even = even-&gt;next</code><br>3.重复上述操作，遍历到链表结尾时结束<br>4.将奇数序列与偶数序列连接起来<code>odd-&gt;next = evenHead</code></p>
-<img src="/images/00bd1d974b5a2e6d7d4faf0d5baad1c691f4ed8963cb1b7133d1112bad4c5e86-image.png" width="50%" height="50%">
-
-<h2 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h2><p>时间复杂度$O(n)$，空间复杂度$O(1)$</p>
-<h2 id="代码-8"><a href="#代码-8" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ListNode* <span class="title">oddEvenList</span><span class="params">(ListNode* head)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(head == <span class="literal">nullptr</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line"></span><br><span class="line">	ListNode* odd = head;</span><br><span class="line">	ListNode* even = head-&gt;next;</span><br><span class="line">	ListNode* evenHead = head-&gt;next;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(odd != <span class="literal">nullptr</span> &amp;&amp; even != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">		odd-&gt;next = even-&gt;next;</span><br><span class="line">		<span class="keyword">if</span>(odd-&gt;next == <span class="literal">nullptr</span>)</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		odd = odd-&gt;next;</span><br><span class="line">	</span><br><span class="line">		even-&gt;next = odd-&gt;next;</span><br><span class="line">		<span class="keyword">if</span>(even-&gt;next == <span class="literal">nullptr</span>)</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		even = even-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	odd-&gt;next = evenHead;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/21/C-预处理/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="沐沐">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="guolx's notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/21/C-预处理/" itemprop="url">C++预处理的典型应用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-21T01:34:32+08:00">
-                2019-08-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/08/21/C-预处理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/21/C-预处理/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>C++的build可分为4个步骤预处理、编译、汇编、链接；预处理过程主要包括字符映射、续行符处理、字符分割、执行preprocessor4个阶段;值得注意的是，<strong>预处理是在编译前已经完成的</strong>，编译时的输入文件不包含任何预处理语句，即<strong>条件编译不通过的部分被删除、宏替换、头文件插入</strong>等</p>
-</blockquote>
-<h1 id="1-头文件包含-include"><a href="#1-头文件包含-include" class="headerlink" title="1 头文件包含 #include"></a>1 头文件包含 <code>#include</code></h1><p>一般有两种方式：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;filename&gt; //查找标准目录(常用库文件)</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"filename"</span> <span class="comment">//查找源文件所在目录，找不到再在标准目录中寻找(自定义头文件)</span></span></span><br></pre></td></tr></table></figure>
-
-<h1 id="2-宏定义-define"><a href="#2-宏定义-define" class="headerlink" title="2 宏定义 #define"></a>2 宏定义 <code>#define</code></h1><h2 id="2-1-定义常量"><a href="#2-1-定义常量" class="headerlink" title="2.1 定义常量"></a>2.1 定义常量</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 100 <span class="comment">//将数字定义为全局常量</span></span></span><br></pre></td></tr></table></figure>
-
-<p>在<em>Effective C++</em>中不提倡使用该方法，更推荐使用<code>const</code>代替宏常量。</p>
-<blockquote>
-<p>宏常量只是进行字符替换，没有数据类型，在词法分析中宏名不会出现在符号表中。一旦出错，看到的将是一个无意义的数字，比如上文中的100，而不是一个有意义的名称，如上文中的MAX。而const在符号表中会有自己的位置，因此出错时可以看到更加有意义的错误提示。</p>
-</blockquote>
-<h2 id="2-2-宏函数"><a href="#2-2-宏函数" class="headerlink" title="2.2 宏函数"></a>2.2 宏函数</h2><ul>
-<li>特点：<ol>
-<li>换行需要加反斜杠\表示换行；函数体最后一行不加反斜杠</li>
-<li>行末不需要分号</li>
-<li>可以用<code>#undef</code>终止宏定义</li>
-</ol>
-</li>
-<li>作用：减少函数调用频率，空间换时间</li>
-<li>示例</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Sum(x, y) ((x) + (y))</span></span><br></pre></td></tr></table></figure>
-
-<p>注意，由于宏只是进行字符替换，如果上例写成</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Sum(x, y) x + y</span></span><br></pre></td></tr></table></figure>
-
-<p>那么在计算<code>Sum(2, 3) * Sum(3, 4)</code>时，实际上计算的是<code>2 + 3 * 3 + 4</code>, 得到错误的结果15;</p>
-<h1 id="条件编译"><a href="#条件编译" class="headerlink" title="条件编译"></a>条件编译</h1><p>使用<code>#define</code>, <code>#if</code>, <code>#elif</code>, <code>ifndef</code>, <code>#endif</code>可以实现条件编译，不符合条件的代码不会参与编译，<strong>通常用来防止头文件被重复包含</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> 标识符</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> 标识符</span></span><br><span class="line">...</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
-
-<p>参考：<br><a href="https://www.cnblogs.com/liangliangh/p/3585326.html" target="_blank" rel="noopener">C++预处理详解</a><br><a href="https://blog.csdn.net/hanchaoman/article/details/8809951" target="_blank" rel="noopener">C++宏使用总结</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/20/C-中new和malloc的区别/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="沐沐">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="guolx's notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/20/C-中new和malloc的区别/" itemprop="url">C++中new和malloc的区别</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-20T02:18:11+08:00">
-                2019-08-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/08/20/C-中new和malloc的区别/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/20/C-中new和malloc的区别/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li><code>new</code>是运算符，<code>malloc()</code>是函数</li>
-<li><code>new</code>不仅分配内存，而且会调用构造函数；<code>malloc()</code>只负责分配内存</li>
-<li><code>new</code>创建一个对象，用成员函数访问，不能直接访问地址空间；<code>malloc()</code>分配一块内存，用指针访问</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2248,7 +2139,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
