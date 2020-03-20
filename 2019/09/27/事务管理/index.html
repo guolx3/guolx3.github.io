@@ -87,15 +87,15 @@
 <meta property="og:site_name" content="guolx&#39;s notes">
 <meta property="og:description" content="概念事务是构成单一逻辑工作的一系列操作的集合 ACID事务具有以下特性：  原子性Atomicity：事务不可分割，要么全部执行，要么全部不执行 一致性Consistency：事务必须保证数据库的一致性 隔离性Isolation：多个事务并发执行时，系统保证每个事务都感觉不到其他事务正在并发执行 持久性Durability：事务成功完成后对数据库的改变会保持下去  抽象事务模型事务处于以下状态之一">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/09/27/事务管理/images/L8WM2LAH1BZ%7BRMN0P%5BB51AR.png">
-<meta property="og:image" content="http://yoursite.com/2019/09/27/事务管理/images/1569575572.png">
+<meta property="og:image" content="http://yoursite.com/images/L8WM2LAH1BZ%7BRMN0P%5BB51AR.png">
+<meta property="og:image" content="http://yoursite.com/images/1569575572.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/27/事务管理/images/1569575723.png">
-<meta property="og:image" content="http://yoursite.com/2019/09/27/事务管理/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190927203853.png">
-<meta property="og:updated_time" content="2019-09-27T13:01:47.369Z">
+<meta property="og:image" content="http://yoursite.com/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190927203853.png">
+<meta property="og:updated_time" content="2019-10-07T03:41:41.794Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="事务管理">
 <meta name="twitter:description" content="概念事务是构成单一逻辑工作的一系列操作的集合 ACID事务具有以下特性：  原子性Atomicity：事务不可分割，要么全部执行，要么全部不执行 一致性Consistency：事务必须保证数据库的一致性 隔离性Isolation：多个事务并发执行时，系统保证每个事务都感觉不到其他事务正在并发执行 持久性Durability：事务成功完成后对数据库的改变会保持下去  抽象事务模型事务处于以下状态之一">
-<meta name="twitter:image" content="http://yoursite.com/2019/09/27/事务管理/images/L8WM2LAH1BZ%7BRMN0P%5BB51AR.png">
+<meta name="twitter:image" content="http://yoursite.com/images/L8WM2LAH1BZ%7BRMN0P%5BB51AR.png">
 
 
 
@@ -381,7 +381,7 @@
 <li>部分提交的partially committed</li>
 <li>失败的failed</li>
 <li>终止的aborted</li>
-<li>提交的committed<br><img src="images/L8WM2LAH1BZ%7BRMN0P%5BB51AR.png" alt></li>
+<li>提交的committed<br><img src="/images/L8WM2LAH1BZ%7BRMN0P%5BB51AR.png" alt></li>
 </ul>
 <p>回滚：</p>
 <ol>
@@ -392,7 +392,7 @@
 <h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><ul>
 <li><p>调度：指令在系统中执行的时间顺序</p>
 </li>
-<li><p>串行调度：同一事务的各个指令紧挨在一起（执行完一个事务再执行下一个事务),如下图的调度$S$<br><img src="images/1569575572.png" alt></p>
+<li><p>串行调度：同一事务的各个指令紧挨在一起（执行完一个事务再执行下一个事务),如下图的调度$S$<br><img src="/images/1569575572.png" alt></p>
 </li>
 <li><p>冲突：如果指令$I$和$J$是在相同的数据上操作，并且其中至少有一个是写操作，则称$I$和$J$是冲突的</p>
 </li>
@@ -410,7 +410,7 @@
 <p>例如，对于上面的调度$S$，它的优先图是<br><img src="images/1569575723.png" alt></p>
 <p><strong>如果一个调度的优先图没有环，则该调度是冲突可串行化，否则不是</strong></p>
 <h1 id="可恢复和无级联调度"><a href="#可恢复和无级联调度" class="headerlink" title="可恢复和无级联调度"></a>可恢复和无级联调度</h1><h2 id="可恢复调度"><a href="#可恢复调度" class="headerlink" title="可恢复调度"></a>可恢复调度</h2><p>当并发执行中事务发生故障，有些调度不能恢复。</p>
-<p>例如下图的调度<br><img src="images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190927203853.png" alt><br>如果T6在T7提交后发生故障，需要回滚；<br>而T7读取了T6写入的数据（我们可以说T7依赖于T6），也需要中止；<br>但T7已经提交了，无法中止。<br>这样的调度是不可恢复调度</p>
+<p>例如下图的调度<br><img src="/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190927203853.png" alt><br>如果T6在T7提交后发生故障，需要回滚；<br>而T7读取了T6写入的数据（我们可以说T7依赖于T6），也需要中止；<br>但T7已经提交了，无法中止。<br>这样的调度是不可恢复调度</p>
 <p><strong>可恢复调度应该满足：对于每对事务T1和T2，如果T2读取了之前由T1写入的数据，那么T1应该先于T2提交。</strong></p>
 <h2 id="无级联调度"><a href="#无级联调度" class="headerlink" title="无级联调度"></a>无级联调度</h2><p>即使一个调度是可恢复的，如果多对事务之间存在依赖关系，可能引发级联回滚，导致大量的撤销工作。</p>
 <p><strong>无级联调度应该满足:对于每对事务T1和T2，如果T2读取了之前由T1写入的数据，那么T1应该在T2这一读操作之前提交</strong></p>
@@ -553,7 +553,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -575,7 +575,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -628,7 +628,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

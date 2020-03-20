@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="guolx&#39;s notes">
 <meta property="og:description" content="基于锁的协议确保隔离性的方法之一就是对数据项的访问以互斥的方式进行。实现这种需求的方法是只允许事务访问该事务持有锁的数据 锁 共享锁$S$，如果事务$T_i$获得数据$Q$的共享锁，则$T_i$可读但不可写$Q$。其他事务可以给$Q$加共享锁，不能加排他锁 排他锁$X$，如果事务$T_i$获得数据$Q$的排他锁，则$T_i$可读且可写$Q$。其他事务不能给$Q$加锁  锁的授予 事务向并发控制管理">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-28T02:17:30.860Z">
+<meta property="og:updated_time" content="2019-10-07T04:47:27.863Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="并发控制">
 <meta name="twitter:description" content="基于锁的协议确保隔离性的方法之一就是对数据项的访问以互斥的方式进行。实现这种需求的方法是只允许事务访问该事务持有锁的数据 锁 共享锁$S$，如果事务$T_i$获得数据$Q$的共享锁，则$T_i$可读但不可写$Q$。其他事务可以给$Q$加共享锁，不能加排他锁 排他锁$X$，如果事务$T_i$获得数据$Q$的排他锁，则$T_i$可读且可写$Q$。其他事务不能给$Q$加锁  锁的授予 事务向并发控制管理">
@@ -379,7 +379,7 @@
 </ol>
 <p>在调度中该事务最后加锁的位置（增长阶段的结束点）称为事务的<strong>封锁点</strong>，多个事务可以根据封锁点进行排序，这个顺序就是事务的一个可串行化顺序。</p>
 <p>两阶段封锁协议不能保证不发生死锁。</p>
-<p>级联回滚的问题可以通过<strong>严格两阶段封锁协议</strong>避免。 处理两阶段封锁协议的要求，它还要求<strong>事务持有的所有排他锁必须在事务提交后才能释放</strong>。<br>这样可以防止其他事务在未提交前读这些数据。</p>
+<p>级联回滚的问题可以通过<strong>严格两阶段封锁协议</strong>避免。 除了两阶段封锁协议的要求，它还要求<strong>事务持有的所有排他锁必须在事务提交后才能释放</strong>。<br>这样可以防止其他事务在当前事务未提交前读这些数据。</p>
 <h1 id="死锁处理"><a href="#死锁处理" class="headerlink" title="死锁处理"></a>死锁处理</h1>
       
     </div>
@@ -511,7 +511,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -533,7 +533,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -586,7 +586,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

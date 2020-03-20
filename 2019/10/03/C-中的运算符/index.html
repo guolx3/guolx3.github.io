@@ -90,7 +90,9 @@
 <meta property="og:image" content="http://yoursite.com/2019/10/03/C-中的运算符/images/2019-10-03132521.png">
 <meta property="og:image" content="http://yoursite.com/2019/10/03/C-中的运算符/images/2019-10-03133040.png">
 <meta property="og:image" content="http://yoursite.com/2019/10/03/C-中的运算符/images/2019-10-03134954.png">
-<meta property="og:updated_time" content="2019-10-03T06:01:46.008Z">
+<meta property="og:image" content="http://yoursite.com/2019/10/03/C-中的运算符/images/2019-10-04013632.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/03/C-中的运算符/images/2019-10-04013749.png">
+<meta property="og:updated_time" content="2019-10-06T07:37:45.097Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++中的运算符">
 <meta name="twitter:description" content="算术运算符  %取余运算符的运算对象必须是整数类型 C++11规定商一律向0取整 算术运算符都满足左结合律，即当优先级相同时从左到右计算  逻辑和关系运算符 短路求值：  &amp;amp;&amp;amp; 只有当左侧为真才计算右侧 || 只有当左侧为假才计算右侧  赋值运算符 赋值运算符左侧运算对象必须是一个可以修改的左值 赋值运算符满足右结合律  递增和递减运算符即++和--，有前置和后置两种写法  前置+">
@@ -378,8 +380,30 @@
 </ul>
 <h1 id="sizeof运算符"><a href="#sizeof运算符" class="headerlink" title="sizeof运算符"></a>sizeof运算符</h1><p>sizeof返回一条表达式或一个类型名字所占的字节数，所得的值是一个<code>size_t</code>类型</p>
 <p>有两种使用形式：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">sizeof</span>(type)</span><br><span class="line"><span class="keyword">sizeof</span> expr <span class="comment">//返回表达式结果类型大小</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>sizeof(type)</li>
+<li>sizeof expr //返回表达式结果类型大小</li>
+</ol>
+<h2 id="计算指针大小"><a href="#计算指针大小" class="headerlink" title="计算指针大小"></a>计算指针大小</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *p;</span><br><span class="line"><span class="keyword">auto</span> n1 = <span class="keyword">sizeof</span> *p; <span class="comment">// 1, p所指类型的空间大小</span></span><br><span class="line"><span class="keyword">auto</span> n2 = <span class="keyword">sizeof</span> p; <span class="comment">// 8, 指针所占的空间大小，指针无效也可以计算</span></span><br></pre></td></tr></table></figure>
 
+<h2 id="计算数组大小"><a href="#计算数组大小" class="headerlink" title="计算数组大小"></a>计算数组大小</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i[<span class="number">3</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>&#125;;</span><br><span class="line"><span class="keyword">auto</span> n3 = <span class="keyword">sizeof</span> i; <span class="comment">// 12, 得到数组中每个元素的空间大小之和，sizeof不会将数组转成指针来处理</span></span><br><span class="line"><span class="keyword">int</span> len = <span class="keyword">sizeof</span>(i) / <span class="keyword">sizeof</span>(<span class="keyword">int</span>); <span class="comment">// 可以通过这种方式求数组长度</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="计算引用大小"><a href="#计算引用大小" class="headerlink" title="计算引用大小"></a>计算引用大小</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> m = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> &amp;n = m;</span><br><span class="line"><span class="keyword">auto</span> n4 = <span class="keyword">sizeof</span> n; <span class="comment">// 4, 对引用类型执行sizeof得到被引用对象所占的空间大小</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="计算结构体大小"><a href="#计算结构体大小" class="headerlink" title="计算结构体大小"></a>计算结构体大小</h2><p>关于结构体的空间分配有以下规则：</p>
+<ul>
+<li>没有成员的结构体占用的空间是1个字节</li>
+<li>结构体变量中成员的偏移量必须是成员大小的整数倍</li>
+<li>结构体大小必须是所有成员大小的整数倍</li>
+</ul>
+<p>对于类：</p>
+<ul>
+<li>类同样遵循结构体字节对齐的规则</li>
+<li>有虚函数的类需要维护一个虚函数表指针，占1个指针大小</li>
+<li>类的普通成员函数和静态成员不计算大小</li>
+<li>虚继承的空间分配可以点此查看</li>
+</ul>
+<h1 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h1><p><img src="images/2019-10-04013632.png" alt><br><img src="images/2019-10-04013749.png" alt></p>
 
       
     </div>
@@ -419,6 +443,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/05/assert和NDEBUG/" rel="prev" title="assert和NDEBUG">
+                assert和NDEBUG <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -507,7 +535,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -529,7 +557,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -562,7 +590,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#算术运算符"><span class="nav-number">1.</span> <span class="nav-text">算术运算符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#逻辑和关系运算符"><span class="nav-number">2.</span> <span class="nav-text">逻辑和关系运算符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#赋值运算符"><span class="nav-number">3.</span> <span class="nav-text">赋值运算符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#递增和递减运算符"><span class="nav-number">4.</span> <span class="nav-text">递增和递减运算符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#成员访问运算符"><span class="nav-number">5.</span> <span class="nav-text">成员访问运算符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#条件运算符"><span class="nav-number">6.</span> <span class="nav-text">条件运算符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#位运算符"><span class="nav-number">7.</span> <span class="nav-text">位运算符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sizeof运算符"><span class="nav-number">8.</span> <span class="nav-text">sizeof运算符</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#算术运算符"><span class="nav-number">1.</span> <span class="nav-text">算术运算符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#逻辑和关系运算符"><span class="nav-number">2.</span> <span class="nav-text">逻辑和关系运算符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#赋值运算符"><span class="nav-number">3.</span> <span class="nav-text">赋值运算符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#递增和递减运算符"><span class="nav-number">4.</span> <span class="nav-text">递增和递减运算符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#成员访问运算符"><span class="nav-number">5.</span> <span class="nav-text">成员访问运算符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#条件运算符"><span class="nav-number">6.</span> <span class="nav-text">条件运算符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#位运算符"><span class="nav-number">7.</span> <span class="nav-text">位运算符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sizeof运算符"><span class="nav-number">8.</span> <span class="nav-text">sizeof运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#计算指针大小"><span class="nav-number">8.1.</span> <span class="nav-text">计算指针大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算数组大小"><span class="nav-number">8.2.</span> <span class="nav-text">计算数组大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算引用大小"><span class="nav-number">8.3.</span> <span class="nav-text">计算引用大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算结构体大小"><span class="nav-number">8.4.</span> <span class="nav-text">计算结构体大小</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运算符优先级"><span class="nav-number">9.</span> <span class="nav-text">运算符优先级</span></a></li></ol></div>
             
 
           </div>
@@ -582,7 +610,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

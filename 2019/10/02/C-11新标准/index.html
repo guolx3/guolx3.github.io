@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="范围for语句1234int a[3] = &amp;#123;1, 2, 3&amp;#125;;for(auto i: a)&amp;#123; // for(declaration: expression)    cout &amp;lt;&amp;lt; i &amp;lt;&amp;lt; endl;&amp;#125;   declaration部分定义被访问序列中的基础元素 expression表示一个序列  begin和end函数C++11引入">
+<meta name="description" content="1 范围for语句1234int a[3] = &amp;#123;1, 2, 3&amp;#125;;for(auto i: a)&amp;#123; // for(declaration: expression)    cout &amp;lt;&amp;lt; i &amp;lt;&amp;lt; endl;&amp;#125;   declaration部分定义被访问序列中的基础元素 expression表示一个序列  2 begin和end函数C++">
 <meta name="keywords" content="C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++11新标准">
 <meta property="og:url" content="http://yoursite.com/2019/10/02/C-11新标准/index.html">
 <meta property="og:site_name" content="guolx&#39;s notes">
-<meta property="og:description" content="范围for语句1234int a[3] = &amp;#123;1, 2, 3&amp;#125;;for(auto i: a)&amp;#123; // for(declaration: expression)    cout &amp;lt;&amp;lt; i &amp;lt;&amp;lt; endl;&amp;#125;   declaration部分定义被访问序列中的基础元素 expression表示一个序列  begin和end函数C++11引入">
+<meta property="og:description" content="1 范围for语句1234int a[3] = &amp;#123;1, 2, 3&amp;#125;;for(auto i: a)&amp;#123; // for(declaration: expression)    cout &amp;lt;&amp;lt; i &amp;lt;&amp;lt; endl;&amp;#125;   declaration部分定义被访问序列中的基础元素 expression表示一个序列  2 begin和end函数C++">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-02T14:32:07.902Z">
+<meta property="og:image" content="http://yoursite.com/2019/10/02/C-11新标准/images/2019-10-04160224.png">
+<meta property="og:updated_time" content="2019-10-06T05:52:50.097Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++11新标准">
-<meta name="twitter:description" content="范围for语句1234int a[3] = &amp;#123;1, 2, 3&amp;#125;;for(auto i: a)&amp;#123; // for(declaration: expression)    cout &amp;lt;&amp;lt; i &amp;lt;&amp;lt; endl;&amp;#125;   declaration部分定义被访问序列中的基础元素 expression表示一个序列  begin和end函数C++11引入">
+<meta name="twitter:description" content="1 范围for语句1234int a[3] = &amp;#123;1, 2, 3&amp;#125;;for(auto i: a)&amp;#123; // for(declaration: expression)    cout &amp;lt;&amp;lt; i &amp;lt;&amp;lt; endl;&amp;#125;   declaration部分定义被访问序列中的基础元素 expression表示一个序列  2 begin和end函数C++">
+<meta name="twitter:image" content="http://yoursite.com/2019/10/02/C-11新标准/images/2019-10-04160224.png">
 
 
 
@@ -340,14 +342,46 @@
       
 
       
-        <h1 id="范围for语句"><a href="#范围for语句" class="headerlink" title="范围for语句"></a>范围for语句</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">3</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> i: a)&#123; <span class="comment">// for(declaration: expression)</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="1-范围for语句"><a href="#1-范围for语句" class="headerlink" title="1 范围for语句"></a>1 范围for语句</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">3</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> i: a)&#123; <span class="comment">// for(declaration: expression)</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>declaration部分定义被访问序列中的基础元素</li>
 <li>expression表示一个序列</li>
 </ul>
-<h1 id="begin和end函数"><a href="#begin和end函数" class="headerlink" title="begin和end函数"></a>begin和end函数</h1><p>C++11引入了<code>begin</code>和<code>end</code>函数，与容器中的两个同名函数类似</p>
+<h1 id="2-begin和end函数"><a href="#2-begin和end函数" class="headerlink" title="2 begin和end函数"></a>2 begin和end函数</h1><p>C++11引入了<code>begin</code>和<code>end</code>函数，与容器中的两个同名函数类似</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">3</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> *b = begin(a); <span class="comment">// 指向a的首元素的指针</span></span><br><span class="line"><span class="keyword">int</span> *e = end(a); <span class="comment">// 指向a的尾元素的下一位置的指针</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="3-可变参数的函数"><a href="#3-可变参数的函数" class="headerlink" title="3 可变参数的函数"></a>3 可变参数的函数</h1><p>为了编写能处理可变数量实参的函数，C++11提供了两种方法：</p>
+<ol>
+<li>如果所有实参类型相同，可以传递名为<code>initializer_list</code>的标准库类型</li>
+<li>如果参数类型不同，可以使用可变参数模板</li>
+</ol>
+<h2 id="initializer-list"><a href="#initializer-list" class="headerlink" title="initializer_list"></a>initializer_list</h2><p><img src="images/2019-10-04160224.png" alt></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="built_in">initializer_list</span>&lt;<span class="keyword">int</span>&gt; <span class="built_in">list</span>)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> i = <span class="built_in">list</span>.begin(); i != <span class="built_in">list</span>.end(); ++i)&#123;</span><br><span class="line">        res += *i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; add(&#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 13</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>向initializer_list形参传值时，需要将序列放在一对花括号内。</p>
+<h2 id="可变参数模板"><a href="#可变参数模板" class="headerlink" title="可变参数模板"></a>可变参数模板</h2><p>使用<code>class...</code>或<code>typename...</code>声明可变参数模板</p>
+<p>可变数目的参数称为<strong>参数包</strong>：</p>
+<ol>
+<li><strong>模板参数包</strong>：表示零个或多个模板参数</li>
+<li><strong>函数参数包</strong>：表示零个或多个函数参数</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Args是一个模板参数包；rest是一个函数参数包</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Args&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">const</span> T &amp;t, cosnt Args&amp; ... rest)</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="可变参数模板的展开"><a href="#可变参数模板的展开" class="headerlink" title="可变参数模板的展开"></a>可变参数模板的展开</h3><ol>
+<li><p>递归展开</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123; <span class="comment">//重载一个同名函数来终止递归</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"empty"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Args&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(T head, Args... rest)</span></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; head &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    print(rest...);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    print(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>利用逗号表达式展开<br>对于<code>a = (b = c, d)</code>, 先执行逗号左边的语句将c的值赋给b，然后将d的值赋给a</p>
+</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(T arg)</span></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; arg &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span>... Args&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(Args... rest)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> arr[] = &#123;(print(rest), <span class="number">0</span>)...&#125;; <span class="comment">// rest可以看成...中的每一个参数</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    print(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-default"><a href="#4-default" class="headerlink" title="4 =default"></a>4 =default</h1><p>如果需要默认的行为，可以通过在参数列表后面写上<code>=default</code>来要求编译器生成构造函数</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    A() = <span class="keyword">default</span>;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="override"><a href="#override" class="headerlink" title="override"></a>override</h1><p>C++11可以在函数后面加上<code>override</code>来显式地说明某个成员函数覆盖了它继承的虚函数.<br>这样可以让编译器检查覆盖操作是否合法。如果该函数并没有覆盖已存在的虚函数，编译器会报错。</p>
+
       
     </div>
     
@@ -478,7 +512,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -500,7 +534,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -533,7 +567,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#范围for语句"><span class="nav-number">1.</span> <span class="nav-text">范围for语句</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#begin和end函数"><span class="nav-number">2.</span> <span class="nav-text">begin和end函数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-范围for语句"><span class="nav-number">1.</span> <span class="nav-text">1 范围for语句</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-begin和end函数"><span class="nav-number">2.</span> <span class="nav-text">2 begin和end函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-可变参数的函数"><span class="nav-number">3.</span> <span class="nav-text">3 可变参数的函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#initializer-list"><span class="nav-number">3.1.</span> <span class="nav-text">initializer_list</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可变参数模板"><span class="nav-number">3.2.</span> <span class="nav-text">可变参数模板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#可变参数模板的展开"><span class="nav-number">3.2.1.</span> <span class="nav-text">可变参数模板的展开</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-default"><span class="nav-number">4.</span> <span class="nav-text">4 =default</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#override"><span class="nav-number">5.</span> <span class="nav-text">override</span></a></li></ol></div>
             
 
           </div>
@@ -553,7 +587,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

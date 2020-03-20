@@ -79,15 +79,18 @@
 
 
 
+<meta name="description" content="C++中内存分成4个区：栈，堆，静态存储区，常量存储区 栈存放局部变量，函数参数等，由编译器自动分配和释放。栈由计算机底层提供专门的指令支持，分配内存效率高 堆由new分配的内存块，需要程序员自己使用delete释放。如果程序员没有释放，那么在程序结束后操作系统可能会回收。 静态区存放全局变量和静态变量 常量区存放常量">
 <meta name="keywords" content="C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++内存分区">
 <meta property="og:url" content="http://yoursite.com/2019/09/27/C-内存分区/index.html">
 <meta property="og:site_name" content="guolx&#39;s notes">
+<meta property="og:description" content="C++中内存分成4个区：栈，堆，静态存储区，常量存储区 栈存放局部变量，函数参数等，由编译器自动分配和释放。栈由计算机底层提供专门的指令支持，分配内存效率高 堆由new分配的内存块，需要程序员自己使用delete释放。如果程序员没有释放，那么在程序结束后操作系统可能会回收。 静态区存放全局变量和静态变量 常量区存放常量">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-27T03:05:48.341Z">
+<meta property="og:updated_time" content="2019-10-07T03:32:36.517Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++内存分区">
+<meta name="twitter:description" content="C++中内存分成4个区：栈，堆，静态存储区，常量存储区 栈存放局部变量，函数参数等，由编译器自动分配和释放。栈由计算机底层提供专门的指令支持，分配内存效率高 堆由new分配的内存块，需要程序员自己使用delete释放。如果程序员没有释放，那么在程序结束后操作系统可能会回收。 静态区存放全局变量和静态变量 常量区存放常量">
 
 
 
@@ -359,7 +362,12 @@
       
 
       
-        
+        <p>C++中内存分成4个区：栈，堆，静态存储区，常量存储区</p>
+<h1 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h1><p>存放局部变量，函数参数等，由编译器自动分配和释放。<br>栈由计算机底层提供专门的指令支持，分配内存效率高</p>
+<h1 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h1><p>由new分配的内存块，需要程序员自己使用delete释放。如果程序员没有释放，那么在程序结束后操作系统可能会回收。</p>
+<h1 id="静态区"><a href="#静态区" class="headerlink" title="静态区"></a>静态区</h1><p>存放全局变量和静态变量</p>
+<h1 id="常量区"><a href="#常量区" class="headerlink" title="常量区"></a>常量区</h1><p>存放常量</p>
+
       
     </div>
     
@@ -389,8 +397,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/27/C-中的三种参数传递方式/" rel="next" title="C++中的三种参数传递方式">
-                <i class="fa fa-chevron-left"></i> C++中的三种参数传递方式
+              <a href="/2019/09/27/C-中的函数/" rel="next" title="C++中的函数">
+                <i class="fa fa-chevron-left"></i> C++中的函数
               </a>
             
           </div>
@@ -463,8 +471,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -481,7 +498,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -503,7 +520,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -527,6 +544,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#栈"><span class="nav-number">1.</span> <span class="nav-text">栈</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#堆"><span class="nav-number">2.</span> <span class="nav-text">堆</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#静态区"><span class="nav-number">3.</span> <span class="nav-text">静态区</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常量区"><span class="nav-number">4.</span> <span class="nav-text">常量区</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -540,7 +573,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

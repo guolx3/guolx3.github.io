@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="123456789inline int sum(int a, int b)&amp;#123;    return a + b;&amp;#125;int main()&amp;#123;    int a, b;    cin &amp;gt;&amp;gt; a &amp;gt;&amp;gt; b;    cout &amp;lt;&amp;lt; sum(a, b) &amp;lt;&amp;lt; endl;&amp;#125;  在函数体前加上inline关键字可以将函数设置为内">
+<meta name="description" content="在函数体前加上inline关键字可以将函数设置为内联函数。在编译时，编译器会将调用内联函数的地方替换成内联函数体。内联函数的作用是用空间换时间，牺牲一定的内存来节省函数调用的开销。 123456789inline int sum(int a, int b)&amp;#123;    return a + b;&amp;#125;int main()&amp;#123;    int a, b;    cin &amp;gt;&amp;g">
 <meta name="keywords" content="C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++的内联函数">
 <meta property="og:url" content="http://yoursite.com/2019/09/22/C-内联函数/index.html">
 <meta property="og:site_name" content="guolx&#39;s notes">
-<meta property="og:description" content="123456789inline int sum(int a, int b)&amp;#123;    return a + b;&amp;#125;int main()&amp;#123;    int a, b;    cin &amp;gt;&amp;gt; a &amp;gt;&amp;gt; b;    cout &amp;lt;&amp;lt; sum(a, b) &amp;lt;&amp;lt; endl;&amp;#125;  在函数体前加上inline关键字可以将函数设置为内">
+<meta property="og:description" content="在函数体前加上inline关键字可以将函数设置为内联函数。在编译时，编译器会将调用内联函数的地方替换成内联函数体。内联函数的作用是用空间换时间，牺牲一定的内存来节省函数调用的开销。 123456789inline int sum(int a, int b)&amp;#123;    return a + b;&amp;#125;int main()&amp;#123;    int a, b;    cin &amp;gt;&amp;g">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-22T12:06:27.754Z">
+<meta property="og:updated_time" content="2019-10-06T08:21:06.783Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++的内联函数">
-<meta name="twitter:description" content="123456789inline int sum(int a, int b)&amp;#123;    return a + b;&amp;#125;int main()&amp;#123;    int a, b;    cin &amp;gt;&amp;gt; a &amp;gt;&amp;gt; b;    cout &amp;lt;&amp;lt; sum(a, b) &amp;lt;&amp;lt; endl;&amp;#125;  在函数体前加上inline关键字可以将函数设置为内">
+<meta name="twitter:description" content="在函数体前加上inline关键字可以将函数设置为内联函数。在编译时，编译器会将调用内联函数的地方替换成内联函数体。内联函数的作用是用空间换时间，牺牲一定的内存来节省函数调用的开销。 123456789inline int sum(int a, int b)&amp;#123;    return a + b;&amp;#125;int main()&amp;#123;    int a, b;    cin &amp;gt;&amp;g">
 
 
 
@@ -362,15 +362,16 @@
       
 
       
-        <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a, b;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; sum(a, b) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>在函数体前加上<code>inline</code>关键字可以将函数设置为内联函数。<br>在编译时，编译器会将调用内联函数的地方替换成内联函数体。<br>内联函数的作用是用空间换时间，牺牲一定的内存来节省函数调用的开销。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a, b;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; sum(a, b) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>在函数体前加上<code>inline</code>关键字可以将函数设置为内联函数。<br>在编译时，编译器会将调用内联函数的地方替换成内联函数体。<br>内联函数的作用是用空间换时间，牺牲一定的内存来节省函数调用的开销。</p>
 <h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ol>
 <li>内联函数中<strong>不能使用循环和switch</strong></li>
 <li>内联函数<strong>不能递归调用</strong>自己</li>
 <li>内联函数<strong>不能调用其他函数</strong></li>
 <li><strong>代码行数较少且调用频繁的</strong>函数推荐使用内联函数</li>
 <li><code>inline</code>关键字只是对编译器的一种建议，被<code>inline</code>修饰的函数不一定被内联。如果函数体过大，编译器会放弃内联而把代码当成普通函数</li>
+<li>定义在类内部的成员函数时自动inline的</li>
 </ol>
 <h2 id="与宏定义的区别"><a href="#与宏定义的区别" class="headerlink" title="与宏定义的区别"></a>与宏定义的区别</h2><ul>
 <li>宏在编译之前完成文本替换，内联函数在编译时被处理</li>
@@ -508,7 +509,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -530,7 +531,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -583,7 +584,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
